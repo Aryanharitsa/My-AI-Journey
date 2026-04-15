@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (too large for git)
+*.parquet
+*.h5
+*.pkl
+data/raw/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model weights (never commit)
+*.bin
+*.safetensors
+*.gguf
+hf_cache/
+
+# Secrets
+.kgenv
+kaggle.json
+*.key
+*.pem
+
+# Large logs
+*.log

@@ -4,7 +4,7 @@ Active research projects exploring how neural network architectures shape comput
 
 ## Projects
 
-### [Project Ramanujan](./project-ramanujan/)
+### [Project Ramanujan](./PROJECT_RAMANUJAN_AIMO_3/)
 Solo submission to AIMO Prize 3 (Kaggle). Score: 36/50 in 3 weeks. GPT-OSS-120B + vLLM + Harmony inference stack with N=8 majority voting and TIR reasoning.
 
 ### [Mesa-Optimization Probe](./mesa-probe/)
