@@ -1,0 +1,12 @@
+torch>=2.0
+transformers>=4.35
+sentence-transformers>=2.2
+faiss-cpu
+beir
+numpy
+pandas
+matplotlib
+seaborn
+tqdm
+wandb
+jupyter

@@ -1,0 +1,10 @@
+torch>=2.0
+transformers>=4.35
+transformer-lens>=1.0
+einops
+numpy
+matplotlib
+seaborn
+tqdm
+wandb
+jupyter
