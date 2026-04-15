@@ -1,0 +1,13 @@
+torch>=2.0
+transformers>=4.35
+vllm>=0.19.0
+openai>=1.0
+openai-harmony
+numpy
+pandas
+matplotlib
+tqdm
+jupyter
+jupyter_client
+requests
+tiktoken
