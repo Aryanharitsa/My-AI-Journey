@@ -1,0 +1,31 @@
+# Vitruvius-specific
+data/
+models/
+runs/
+wandb/
+experiments/*.json
+experiments/*.csv
+!experiments/.gitkeep
+figures/*.png
+figures/*.pdf
+!figures/.gitkeep
+references/*.pdf
+!references/.gitkeep
+.env
+*.pt
+*.safetensors
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
