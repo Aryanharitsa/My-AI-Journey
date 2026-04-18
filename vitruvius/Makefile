@@ -2,6 +2,12 @@
 #   source .venv/bin/activate
 # Or create it first:
 #   make venv
+#
+# Note: ~/.cache is root-owned on this machine, so uv is pointed at ~/.uv-cache
+# via UV_CACHE_DIR. Override by exporting your own UV_CACHE_DIR before running.
+
+UV_CACHE_DIR ?= $(HOME)/.uv-cache
+export UV_CACHE_DIR
 
 .PHONY: venv install dev smoke test lint format clean download-beir
 
