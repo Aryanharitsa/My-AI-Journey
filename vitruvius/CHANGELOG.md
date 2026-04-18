@@ -33,3 +33,17 @@ Local-only, CPU-runnable scaffold. No real benchmarking yet.
   Phases 2+ subcommands print a "not yet implemented" notice and exit non-zero.
 - Added tests: `test_smoke.py`, `test_metrics.py`, `test_encoder_interface.py`.
 - Added `scripts/download_beir.py` and `scripts/setup_pod.sh` (Phase 2 preview).
+- Applied the macOS libomp workaround: `KMP_DUPLICATE_LIB_OK=TRUE` set on
+  package import + `faiss.omp_set_num_threads(1)` on Darwin. Without this the
+  combination of `faiss-cpu` and `torch` segfaults on `IndexFlatIP.search`.
+  No-op on Linux, so the same code runs unchanged on the pod.
+
+### Tooling decisions captured here
+
+- Python 3.11 venv created via `uv venv --python 3.11 .venv` to avoid the
+  Python 3.14 wheel-availability gap for ML packages.
+- Makefile uses `uv pip install` (10–100× faster cold install than `pip`).
+- `UV_CACHE_DIR=$HOME/.uv-cache` exported by the Makefile because `~/.cache`
+  is root-owned on the operator's machine. Override by exporting your own.
+- `requirements.txt` left in place from the Renaissance scaffold for now;
+  authoritative dependency list is `pyproject.toml`. Will remove in 0.2.0.
