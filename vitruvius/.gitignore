@@ -1,8 +1,8 @@
-# Vitruvius-specific
-data/
-models/
-runs/
-wandb/
+# Vitruvius-specific (run outputs at repo root, not the source package)
+/data/
+/models/
+/runs/
+/wandb/
 experiments/*.json
 experiments/*.csv
 !experiments/.gitkeep
