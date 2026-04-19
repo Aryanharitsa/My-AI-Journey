@@ -11,6 +11,8 @@ _PHASE = "Phase 5 — see roadmap (M55, 1D-CNN trained from scratch on MS MARCO 
 class ConvEncoder(Encoder):
     """Stub. Real implementation lands in Phase 5."""
 
+    similarity = "cosine"
+
     def __init__(self, device: str | None = None):
         self._name = "conv-stub"
         self._embedding_dim = 0

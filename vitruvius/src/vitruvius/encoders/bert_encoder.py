@@ -19,6 +19,8 @@ class BERTEncoder(Encoder):
     embeddings here to keep the FAISS IndexFlatIP search consistent across encoders
     (cosine on unit vectors). Per session-02 handoff rule 4."""
 
+    similarity = "cosine"
+
     def __init__(self, device: str | None = None, model_id: str = MODEL_ID):
         from sentence_transformers import SentenceTransformer
 

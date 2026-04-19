@@ -22,6 +22,7 @@ def test_stub_encoders_satisfy_interface(cls):
     assert isinstance(enc, Encoder)
     assert isinstance(enc.name, str) and enc.name
     assert enc.embedding_dim == 0  # stubs declare 0 to discourage use
+    assert enc.similarity in {"cosine", "dot"}
     with pytest.raises(NotImplementedError):
         enc.encode_queries(["q"])
     with pytest.raises(NotImplementedError):
