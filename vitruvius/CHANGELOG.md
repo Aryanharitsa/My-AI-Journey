@@ -78,6 +78,23 @@ Document encoding throughput at batch 32 (docs/sec):
   (A100-SXM4-80GB, torch 2.4.1+cu124). Production latency is hardware-
   sensitive; these are not absolute benchmarks.
 
+### Phase 4 deferral (session-02 stretch goal, kill-switch §4.7)
+
+Attempted integration of a pre-trained Mamba Retriever bi-encoder. The only
+HF checkpoint matching the paper (`MambaRetriever/SPScanner-130m`, from
+Zhang et al. 2024) is a **cross-encoder scanner** — it scores
+`(query, passages...)` pairs in one pass rather than producing per-item
+embeddings. Dropping it into Vitruvius's FAISS `IndexFlatIP` bi-encoder
+harness is a Phase-5-sized architectural change, not a drop-in. Kill-switch
+§4.7 trigger #4 (checkpoint not usable as planned) fired; Phase 4 was
+closed at the 30% milestone and its 10 percentage points deferred into
+Phase 5. Full discovery + toolchain probe + install-attempt log in
+[`notes/mamba_install_attempt_01.md`](notes/mamba_install_attempt_01.md).
+
+No degradation of Phases 1-3.5. All session-02 harness work (similarity
+attribute, bench-sweep, profile subcommand, per-cell JSONs, SUMMARY.md
+generators) remains the foundation Session 03 builds on.
+
 ## [0.3.0] — 2026-04-19 — Phase 3: 20% milestone
 
 Three-encoder × three-dataset BEIR accuracy sweep on the A100 pod.

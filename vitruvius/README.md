@@ -35,7 +35,7 @@ non-transformer architectures actually sit?
 | 10%       | P2    | Reproduce a published BEIR number (MiniLM-L6-v2 nDCG@10 ~ 0.30 on NFCorpus). | done |
 | 20%       | P3    | Benchmark 3 encoders x 3 BEIR subsets. Accuracy table. | done |
 | 30%       | P3.5  | Latency profiler turned on. Batch sizes 1/8/32 timed for transformer encoders. | done |
-| 40%       | P4    | Mamba Retriever integrated. First 4-point Pareto plot. | - |
+| 40%       | P4    | Mamba Retriever integrated. First 4-point Pareto plot. | deferred → absorbed into 55% |
 | 55%       | P5    | LSTM + 1D-CNN encoders trained from scratch on MS MARCO subset. Full 6-encoder Pareto. | - |
 | 70%       | P6    | Per-query failure analysis with taxonomy. | - |
 | 80%       | P7    | Attention head pruning for retrieval specifically (not LM). | - |
