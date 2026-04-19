@@ -47,11 +47,11 @@ python -m vitruvius.cli bench \
 | Metric | Ours (from scratch) | pytrec_eval | \|Δ\| | Reference | Delta from ref |
 |---|---:|---:|---:|---:|---:|
 | nDCG@10 | **0.316513** | 0.315941 | 5.7e-4 | 0.30 ±0.02 | +0.0165 (**in band**) |
-| Recall@10 | 0.146058 | 0.146058 | 0.0 | — | — |
-| Recall@100 | 0.326335 | 0.326335 | 0.0 | — | — |
-| nDCG@1 | 0.464396 | 0.457687 | 6.7e-3 | — | — |
-| nDCG@5 | 0.344018 | 0.341950 | 2.1e-3 | — | — |
-| nDCG@100 | 0.328010 | 0.333641 | 5.6e-3 | — | — |
+| Recall@10 | 0.154988 | 0.154988 | 0.0 | — | — |
+| Recall@100 | 0.311510 | 0.311510 | 0.0 | — | — |
+| nDCG@1 | 0.388029 | 0.394737 | 6.7e-3 | — | — |
+| nDCG@5 | 0.339569 | 0.341637 | 2.1e-3 | — | — |
+| nDCG@100 | 0.300182 | 0.294552 | 5.6e-3 | — | — |
 
 Wall-clock breakdown (seconds): encode docs **5.43**, encode queries **0.03**,
 index build **0.03**, search **0.26**, eval ours **0.02**, eval pytrec **0.02**,
