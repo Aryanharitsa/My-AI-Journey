@@ -1,0 +1,853 @@
+=== phase3 backfill (session-03 $5.7) @ 2026-04-19T09:42:57Z ===
+[09:42:59] INFO     device.selected name=cuda reason=explicit                   
+           INFO     sweep.encoder_load encoder=minilm-l6-v2 device=cuda         
+[09:43:02] INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.load name=minilm-l6-v2                              
+                    model_id=sentence-transformers/all-MiniLM-L6-v2 device=cuda 
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/modules.json "HTTP/1.1 307 Temporary         
+                    Redirect"                                                   
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+           WARNING  Warning: You are sending unauthenticated requests to the HF 
+                    Hub. Please set a HF_TOKEN to enable higher rate limits and 
+                    faster downloads.                                           
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/modules.json "HTTP/1.1 200 OK"                      
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/config_sentence_transformers.json "HTTP/1.1  
+                    307 Temporary Redirect"                                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK" 
+           INFO     Loading SentenceTransformer model from                      
+                    sentence-transformers/all-MiniLM-L6-v2.                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/config_sentence_transformers.json "HTTP/1.1  
+                    307 Temporary Redirect"                                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK" 
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"  
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/README.md "HTTP/1.1 200 OK"                         
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/modules.json "HTTP/1.1 307 Temporary         
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/modules.json "HTTP/1.1 200 OK"                      
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/sentence_bert_config.json "HTTP/1.1 307      
+                    Temporary Redirect"                                         
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"         
+[09:43:03] INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found" 
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/config.json "HTTP/1.1 200 OK"                       
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8649.26it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/processor_config.json "HTTP/1.1 404 Not      
+                    Found"                                                      
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not   
+                    Found"                                                      
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 
+                    Not Found"                                                  
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not   
+                    Found"                                                      
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/tokenizer_config.json "HTTP/1.1 200 OK"             
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/config.json "HTTP/1.1 200 OK"                       
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/config.json "HTTP/1.1 200 OK"                       
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/tokenizer_config.json "HTTP/1.1 200 OK"             
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/sentence-transformers/all-
+                    MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=f
+                    alse&expand=false "HTTP/1.1 404 Not Found"                  
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/sentence-transformers/all-
+                    MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1
+                    200 OK"                                                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/all-MiniLM-L6-v
+                    2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f
+                    16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/sentence-transformers/all-
+                    MiniLM-L6-v2 "HTTP/1.1 200 OK"                              
+           INFO     sweep.cell 1/9 encoder=minilm-l6-v2 dataset=nfcorpus        
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=minilm-l6-v2 dataset=nfcorpus split=test
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 112463.51it/s]
+           INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+           INFO     bench.data n_corpus=3633 n_queries_eval=323                 
+                    avg_rel_per_q=38.19 max_grade=2                             
+[09:43:09] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=384 
+           INFO     Loading faiss with AVX2 support.                            
+           INFO     Successfully loaded faiss with AVX2 support.                
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     bench.done encoder=minilm-l6-v2 dataset=nfcorpus            
+                    nDCG@10_ours=0.3165 nDCG@10_pytrec=0.3159 delta=5.72e-04    
+                    in_band=True total_s=5.9                                    
+                    artifact=experiments/phase3/minilm-l6-v2__nfcorpus.json     
+           INFO     sweep.cell 2/9 encoder=minilm-l6-v2 dataset=scifact         
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=minilm-l6-v2 dataset=scifact split=test 
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 160148.79it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+           INFO     bench.data n_corpus=5183 n_queries_eval=300                 
+                    avg_rel_per_q=1.13 max_grade=1                              
+[09:43:17] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=384 
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     bench.done encoder=minilm-l6-v2 dataset=scifact             
+                    nDCG@10_ours=0.6451 nDCG@10_pytrec=0.6451 delta=0.00e+00    
+                    in_band=True total_s=7.5                                    
+                    artifact=experiments/phase3/minilm-l6-v2__scifact.json      
+           INFO     sweep.cell 3/9 encoder=minilm-l6-v2 dataset=fiqa            
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=minilm-l6-v2 dataset=fiqa split=test    
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 38%|███▊      | 21763/57638 [00:00<00:00, 210421.99it/s] 76%|███████▌  | 43854/57638 [00:00<00:00, 216497.63it/s]100%|██████████| 57638/57638 [00:00<00:00, 217287.93it/s]
+           INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+           INFO     bench.data n_corpus=57638 n_queries_eval=648                
+                    avg_rel_per_q=2.63 max_grade=1                              
+[09:44:07] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=384 
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:44:12] INFO     bench.done encoder=minilm-l6-v2 dataset=fiqa                
+                    nDCG@10_ours=0.3687 nDCG@10_pytrec=0.3687 delta=0.00e+00    
+                    in_band=True total_s=55.4                                   
+                    artifact=experiments/phase3/minilm-l6-v2__fiqa.json         
+           INFO     sweep.encoder_load encoder=bert-base device=cuda            
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.load name=bert-base                                 
+                    model_id=sentence-transformers/msmarco-bert-base-dot-v5     
+                    device=cuda                                                 
+[09:44:13] INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/modules.json "HTTP/1.1 307 Temporary 
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/modules.json "HTTP/1.1 200 OK"              
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/config_sentence_transformers.json    
+                    "HTTP/1.1 307 Temporary Redirect"                           
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/config_sentence_transformers.json "HTTP/1.1 
+                    200 OK"                                                     
+           INFO     Loading SentenceTransformer model from                      
+                    sentence-transformers/msmarco-bert-base-dot-v5.             
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/config_sentence_transformers.json    
+                    "HTTP/1.1 307 Temporary Redirect"                           
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/config_sentence_transformers.json "HTTP/1.1 
+                    200 OK"                                                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/README.md "HTTP/1.1 307 Temporary    
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/README.md "HTTP/1.1 200 OK"                 
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/modules.json "HTTP/1.1 307 Temporary 
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/modules.json "HTTP/1.1 200 OK"              
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/sentence_bert_config.json "HTTP/1.1  
+                    307 Temporary Redirect"                                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/sentence_bert_config.json "HTTP/1.1 200 OK" 
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/adapter_config.json "HTTP/1.1 404 Not
+                    Found"                                                      
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/config.json "HTTP/1.1 307 Temporary  
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/config.json "HTTP/1.1 200 OK"               
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8131.51it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/msmarco-bert-base-dot-v5
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/processor_config.json "HTTP/1.1 404  
+                    Not Found"                                                  
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/preprocessor_config.json "HTTP/1.1   
+                    404 Not Found"                                              
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/video_preprocessor_config.json       
+                    "HTTP/1.1 404 Not Found"                                    
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/preprocessor_config.json "HTTP/1.1   
+                    404 Not Found"                                              
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/tokenizer_config.json "HTTP/1.1 307  
+                    Temporary Redirect"                                         
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/tokenizer_config.json "HTTP/1.1 200 OK"     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/config.json "HTTP/1.1 307 Temporary  
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/config.json "HTTP/1.1 200 OK"               
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/config.json "HTTP/1.1 307 Temporary  
+                    Redirect"                                                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/config.json "HTTP/1.1 200 OK"               
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/tokenizer_config.json "HTTP/1.1 307  
+                    Temporary Redirect"                                         
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/tokenizer_config.json "HTTP/1.1 200 OK"     
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/sentence-transformers/msma
+                    rco-bert-base-dot-v5/tree/main/additional_chat_templates?rec
+                    ursive=false&expand=false "HTTP/1.1 404 Not Found"          
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/sentence-transformers/msma
+                    rco-bert-base-dot-v5/tree/main?recursive=true&expand=false  
+                    "HTTP/1.1 200 OK"                                           
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/sentence-transformers/msmarco-bert-ba
+                    se-dot-v5/resolve/main/1_Pooling/config.json "HTTP/1.1 307  
+                    Temporary Redirect"                                         
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/sentence-tra
+                    nsformers/msmarco-bert-base-dot-v5/dbf04e3911e5b11c887fe563d
+                    3f2479f81c4415f/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"   
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/sentence-transformers/msma
+                    rco-bert-base-dot-v5 "HTTP/1.1 200 OK"                      
+           INFO     sweep.cell 4/9 encoder=bert-base dataset=nfcorpus           
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=bert-base dataset=nfcorpus split=test   
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 150063.58it/s]
+           INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+           INFO     bench.data n_corpus=3633 n_queries_eval=323                 
+                    avg_rel_per_q=38.19 max_grade=2                             
+[09:44:34] INFO     bench.encoded doc_norm_max=14.7051 q_norm_max=13.8052       
+                    dim=768                                                     
+           INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     bench.done encoder=bert-base dataset=nfcorpus               
+                    nDCG@10_ours=0.3169 nDCG@10_pytrec=0.3151 delta=1.81e-03    
+                    in_band=True total_s=21.2                                   
+                    artifact=experiments/phase3/bert-base__nfcorpus.json        
+           INFO     sweep.cell 5/9 encoder=bert-base dataset=scifact            
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=bert-base dataset=scifact split=test    
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 162543.67it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+           INFO     bench.data n_corpus=5183 n_queries_eval=300                 
+                    avg_rel_per_q=1.13 max_grade=1                              
+[09:45:02] INFO     bench.encoded doc_norm_max=14.7590 q_norm_max=14.3068       
+                    dim=768                                                     
+           INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[09:45:03] INFO     bench.done encoder=bert-base dataset=scifact                
+                    nDCG@10_ours=0.6082 nDCG@10_pytrec=0.6082 delta=0.00e+00    
+                    in_band=False total_s=28.4                                  
+                    artifact=experiments/phase3/bert-base__scifact.json         
+           WARNING  sweep.out_of_band encoder=bert-base dataset=scifact         
+                    measured=0.6082 ref=0.68 delta=-0.0718 tol=0.03             
+           INFO     sweep.cell 6/9 encoder=bert-base dataset=fiqa               
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=bert-base dataset=fiqa split=test       
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 39%|███▉      | 22348/57638 [00:00<00:00, 223448.78it/s] 78%|███████▊  | 44734/57638 [00:00<00:00, 223684.20it/s]100%|██████████| 57638/57638 [00:00<00:00, 222583.92it/s]
+           INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+           INFO     bench.data n_corpus=57638 n_queries_eval=648                
+                    avg_rel_per_q=2.63 max_grade=1                              
+[09:48:15] INFO     bench.encoded doc_norm_max=14.7874 q_norm_max=13.8577       
+                    dim=768                                                     
+           INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[09:48:20] INFO     bench.done encoder=bert-base dataset=fiqa                   
+                    nDCG@10_ours=0.3229 nDCG@10_pytrec=0.3229 delta=0.00e+00    
+                    in_band=True total_s=197.4                                  
+                    artifact=experiments/phase3/bert-base__fiqa.json            
+           INFO     sweep.encoder_load encoder=gte-small device=cuda            
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.load name=gte-small model_id=thenlper/gte-small     
+                    device=cuda                                                 
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/modul
+                    es.json "HTTP/1.1 307 Temporary Redirect"                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/modules.json
+                     "HTTP/1.1 200 OK"                                          
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/confi
+                    g_sentence_transformers.json "HTTP/1.1 404 Not Found"       
+           INFO     Loading SentenceTransformer model from thenlper/gte-small.  
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/confi
+                    g_sentence_transformers.json "HTTP/1.1 404 Not Found"       
+[09:48:21] INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/READM
+                    E.md "HTTP/1.1 307 Temporary Redirect"                      
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/README.md   
+                    "HTTP/1.1 200 OK"                                           
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/modul
+                    es.json "HTTP/1.1 307 Temporary Redirect"                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/modules.json
+                     "HTTP/1.1 200 OK"                                          
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/sente
+                    nce_bert_config.json "HTTP/1.1 307 Temporary Redirect"      
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/sentence_ber
+                    t_config.json "HTTP/1.1 200 OK"                             
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/adapt
+                    er_config.json "HTTP/1.1 404 Not Found"                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/confi
+                    g.json "HTTP/1.1 307 Temporary Redirect"                    
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/config.json 
+                    "HTTP/1.1 200 OK"                                           
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8246.55it/s]
+[1mBertModel LOAD REPORT[0m from: thenlper/gte-small
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/proce
+                    ssor_config.json "HTTP/1.1 404 Not Found"                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/prepr
+                    ocessor_config.json "HTTP/1.1 404 Not Found"                
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/video
+                    _preprocessor_config.json "HTTP/1.1 404 Not Found"          
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/prepr
+                    ocessor_config.json "HTTP/1.1 404 Not Found"                
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/token
+                    izer_config.json "HTTP/1.1 307 Temporary Redirect"          
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/tokenizer_co
+                    nfig.json "HTTP/1.1 200 OK"                                 
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/confi
+                    g.json "HTTP/1.1 307 Temporary Redirect"                    
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/config.json 
+                    "HTTP/1.1 200 OK"                                           
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/confi
+                    g.json "HTTP/1.1 307 Temporary Redirect"                    
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/config.json 
+                    "HTTP/1.1 200 OK"                                           
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/token
+                    izer_config.json "HTTP/1.1 307 Temporary Redirect"          
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/tokenizer_co
+                    nfig.json "HTTP/1.1 200 OK"                                 
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/thenlper/gte-small/tree/ma
+                    in/additional_chat_templates?recursive=false&expand=false   
+                    "HTTP/1.1 404 Not Found"                                    
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/thenlper/gte-small/tree/ma
+                    in?recursive=true&expand=false "HTTP/1.1 200 OK"            
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/thenlper/gte-small/resolve/main/1_Poo
+                    ling/config.json "HTTP/1.1 307 Temporary Redirect"          
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/api/resolve-cache/models/thenlper/gte
+                    -small/17e1f347d17fe144873b1201da91788898c639cd/1_Pooling%2F
+                    config.json "HTTP/1.1 200 OK"                               
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/thenlper/gte-small        
+                    "HTTP/1.1 200 OK"                                           
+           INFO     sweep.cell 7/9 encoder=gte-small dataset=nfcorpus           
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=gte-small dataset=nfcorpus split=test   
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 148642.20it/s]
+           INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+           INFO     bench.data n_corpus=3633 n_queries_eval=323                 
+                    avg_rel_per_q=38.19 max_grade=2                             
+[09:48:27] INFO     bench.encoded doc_norm_max=1.0005 q_norm_max=1.0005 dim=384 
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     bench.done encoder=gte-small dataset=nfcorpus               
+                    nDCG@10_ours=0.3492 nDCG@10_pytrec=0.3480 delta=1.17e-03    
+                    in_band=True total_s=5.9                                    
+                    artifact=experiments/phase3/gte-small__nfcorpus.json        
+           INFO     sweep.cell 8/9 encoder=gte-small dataset=scifact            
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=gte-small dataset=scifact split=test    
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 156434.51it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+           INFO     bench.data n_corpus=5183 n_queries_eval=300                 
+                    avg_rel_per_q=1.13 max_grade=1                              
+[09:48:34] INFO     bench.encoded doc_norm_max=1.0005 q_norm_max=1.0005 dim=384 
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:48:35] INFO     bench.done encoder=gte-small dataset=scifact                
+                    nDCG@10_ours=0.7269 nDCG@10_pytrec=0.7269 delta=0.00e+00    
+                    in_band=True total_s=7.6                                    
+                    artifact=experiments/phase3/gte-small__scifact.json         
+           INFO     sweep.cell 9/9 encoder=gte-small dataset=fiqa               
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=gte-small dataset=fiqa split=test       
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 37%|███▋      | 21092/57638 [00:00<00:00, 210895.56it/s] 75%|███████▍  | 43076/57638 [00:00<00:00, 216141.10it/s]100%|██████████| 57638/57638 [00:00<00:00, 216747.52it/s]
+           INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+           INFO     bench.data n_corpus=57638 n_queries_eval=648                
+                    avg_rel_per_q=2.63 max_grade=1                              
+[09:49:22] INFO     bench.encoded doc_norm_max=1.0005 q_norm_max=1.0005 dim=384 
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:49:27] INFO     bench.done encoder=gte-small dataset=fiqa                   
+                    nDCG@10_ours=0.3937 nDCG@10_pytrec=0.3937 delta=0.00e+00    
+                    in_band=True total_s=52.1                                   
+                    artifact=experiments/phase3/gte-small__fiqa.json            
+           INFO     sweep.summary_written path=experiments/phase3/SUMMARY.md    
+{
+  "cells_run": 9,
+  "cells_total": 9,
+  "out_of_band": [
+    [
+      "bert-base",
+      "scifact"
+    ]
+  ],
+  "failures": [],
+  "summary_md": "experiments/phase3/SUMMARY.md"
+}
+=== end @ 2026-04-19T09:49:28Z ===
