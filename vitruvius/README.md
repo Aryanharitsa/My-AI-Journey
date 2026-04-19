@@ -35,8 +35,8 @@ non-transformer architectures actually sit?
 | 10%       | P2    | Reproduce a published BEIR number (MiniLM-L6-v2 nDCG@10 ~ 0.30 on NFCorpus). | done |
 | 20%       | P3    | Benchmark 3 encoders x 3 BEIR subsets. Accuracy table. | done |
 | 30%       | P3.5  | Latency profiler turned on. Batch sizes 1/8/32 timed for transformer encoders. | done |
-| 40%       | P4    | Mamba Retriever integrated. First 4-point Pareto plot. | deferred → absorbed into 55% |
-| 55%       | P5    | LSTM + 1D-CNN encoders trained from scratch on MS MARCO subset. Full 6-encoder Pareto. | - |
+| 40%       | P4    | Mamba Retriever integrated. First 4-point Pareto plot. | absorbed into 55% (see 0.5.0) |
+| 55%       | P5    | LSTM + 1D-CNN + Mamba-from-scratch on MS MARCO subset. Full 6-encoder Pareto. | done |
 | 70%       | P6    | Per-query failure analysis with taxonomy. | - |
 | 80%       | P7    | Attention head pruning for retrieval specifically (not LM). | - |
 | 90%       | P8    | Token-position shuffle. Position sensitivity per architecture. | - |
@@ -119,6 +119,34 @@ comparison against linear-time SSM/recurrent/conv encoders. Document
 throughput and full percentiles in
 [`experiments/phase3_5/SUMMARY.md`](experiments/phase3_5/SUMMARY.md).
 
+
+### Phase 5 — From-scratch encoder training (A100, 2026-04-19)
+
+Three non-transformer bi-encoders trained from random init on 500K MS MARCO
+triplets with identical InfoNCE + AdamW + AMP hyperparameters. Evaluated
+through the same bench + latency harness as the pre-trained transformers.
+
+nDCG@10 (average across nfcorpus/scifact/fiqa):
+
+| Encoder | Avg nDCG@10 | Query latency @ bs=1 (ms) | Param count |
+|---|---:|---:|---:|
+| `lstm-retriever`     | 0.2131 | ~1.3 | 6.41M |
+| `conv-retriever`     | 0.1249 | ~0.9 | 4.92M |
+| `mamba-retriever-fs` | 0.2233 | ~11.9 | 23.74M |
+
+Transformer reference (Phase 3 / 3.5):
+
+| Encoder | Avg nDCG@10 | Query latency @ bs=1 (ms) | Param count |
+|---|---:|---:|---:|
+| `minilm-l6-v2` | 0.4434 | ~4.3 | 22M |
+| `bert-base`    | 0.4160 | ~7.2 | 110M |
+| `gte-small`    | 0.4899 | ~7.6 | 33M |
+
+Pareto-optimal subset: **`conv-retriever`, `lstm-retriever`,
+`minilm-l6-v2`, `gte-small`**. See
+[`figures/pareto_v2.png`](figures/pareto_v2.png) + caption and
+[`experiments/phase5/SUMMARY.md`](experiments/phase5/SUMMARY.md).
+
 ## Layout
 
 ```
@@ -133,15 +161,21 @@ vitruvius/
 |   |-- evaluation/            # nDCG/Recall/MRR (from scratch), FAISS wrapper, latency profiler
 |   |-- analysis/              # error analysis / pruning / position probes (Phases 6-8)
 |   `-- utils/                 # logging, seed, device picker
-|-- scripts/                   # download_beir.py, setup_pod.sh
+|-- scripts/                   # download_beir.py, download_msmarco.py, setup_pod.sh,
+|                              # generate_pareto_v2.py, phase5_summary_gen.py
 |-- tests/                     # smoke, metrics, encoder interface
 |-- experiments/
 |   |-- phase2/                # 10% milestone: MiniLM × NFCorpus reproduction
 |   |-- phase3/                # 20% milestone: 3×3 encoder × BEIR accuracy sweep
 |   |-- phase3_5/              # 30% milestone: latency profile
-|   `-- session_02/            # session-level report + pod_commits bundle
-|-- notes/                     # mamba_install_attempt_01.md (Phase 4 deferral context)
-|-- figures/                   # plots (per-file .png/.pdf gitignored; directory tracked)
+|   |-- phase5/                # 55% milestone: from-scratch LSTM/CNN/Mamba training
+|   |                          # + bench + latency (absorbs deferred Phase 4)
+|   |-- session_02/            # session-level report + pod_commits bundle
+|   `-- session_03/            # session-level report + pod_commits bundle + full log
+|-- notes/                     # mamba_install_attempt_01.md (Phase 4 deferral context),
+|                              # mamba_install_attempt_02.md (Phase 5 mamba-ssm install)
+|-- figures/                   # pareto_v2.{png,pdf,_caption.md} (6-point Pareto);
+|                              # per-file .png/.pdf otherwise gitignored
 `-- notebooks/                 # walkthroughs (initial scaffold)
 ```
 

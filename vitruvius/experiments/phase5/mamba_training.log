@@ -1,0 +1,356 @@
+=== Mamba training attempt 2 (num_workers=0) === 2026-04-19T12:52:22Z
+[12:52:26] INFO     device.selected name=cpu reason=explicit                    
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/bert-base-uncased/resolve/main/config
+                    .json "HTTP/1.1 200 OK"                                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/bert-base-uncased/resolve/main/tokeni
+                    zer_config.json "HTTP/1.1 200 OK"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/bert-base-uncased/tree/mai
+                    n/additional_chat_templates?recursive=false&expand=false    
+                    "HTTP/1.1 307 Temporary Redirect"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/google-bert/bert-base-unca
+                    sed/tree/main/additional_chat_templates?recursive=false&expa
+                    nd=false "HTTP/1.1 404 Not Found"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/bert-base-uncased/tree/mai
+                    n?recursive=true&expand=false "HTTP/1.1 307 Temporary       
+                    Redirect"                                                   
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/google-bert/bert-base-unca
+                    sed/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK" 
+           INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cpu                                                  
+           INFO     seed.set value=1729                                         
+           INFO     train.start cfg=mamba-retriever-fs device=cuda              
+[12:52:29] INFO     train.schedule params=23.74M steps=19452 warmup=1945        
+                    batch=64 epochs=3                                           
+/workspace/my-ai-journey/vitruvius/src/vitruvius/training/trainer.py:168: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=(cfg.amp and device.type == "cuda"))
+/workspace/my-ai-journey/vitruvius/src/vitruvius/training/trainer.py:193: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast_ctx():
+/workspace/my-ai-journey/vitruvius/src/vitruvius/training/trainer.py:193: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast_ctx():
+/workspace/my-ai-journey/vitruvius/src/vitruvius/training/trainer.py:193: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast_ctx():
+[12:53:01] INFO     train.step step=100/19452 epoch=0 loss=3.5696 lr=5.14e-06   
+[12:53:15] INFO     train.step step=200/19452 epoch=0 loss=3.3429 lr=1.03e-05   
+[12:53:29] INFO     train.step step=300/19452 epoch=0 loss=3.2016 lr=1.54e-05   
+[12:53:43] INFO     train.step step=400/19452 epoch=0 loss=2.5780 lr=2.06e-05   
+[12:53:58] INFO     train.step step=500/19452 epoch=0 loss=2.4799 lr=2.57e-05   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/training/trainer.py:123: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast_ctx():
+[12:54:01] INFO     train.val step=500 val_loss=2.5168                          
+           INFO     train.checkpoint.best step=500 val_loss=2.5168              
+[12:54:15] INFO     train.step step=600/19452 epoch=0 loss=2.1275 lr=3.08e-05   
+[12:54:29] INFO     train.step step=700/19452 epoch=0 loss=2.1814 lr=3.60e-05   
+[12:54:44] INFO     train.step step=800/19452 epoch=0 loss=2.0657 lr=4.11e-05   
+[12:54:58] INFO     train.step step=900/19452 epoch=0 loss=1.5848 lr=4.63e-05   
+[12:55:13] INFO     train.step step=1000/19452 epoch=0 loss=2.1714 lr=5.14e-05  
+[12:55:16] INFO     train.val step=1000 val_loss=1.7129                         
+           INFO     train.checkpoint.best step=1000 val_loss=1.7129             
+[12:55:31] INFO     train.step step=1100/19452 epoch=0 loss=1.6086 lr=5.66e-05  
+[12:55:45] INFO     train.step step=1200/19452 epoch=0 loss=1.2797 lr=6.17e-05  
+[12:56:00] INFO     train.step step=1300/19452 epoch=0 loss=1.2913 lr=6.68e-05  
+[12:56:14] INFO     train.step step=1400/19452 epoch=0 loss=1.3738 lr=7.20e-05  
+[12:56:28] INFO     train.step step=1500/19452 epoch=0 loss=0.7685 lr=7.71e-05  
+[12:56:31] INFO     train.val step=1500 val_loss=1.1688                         
+[12:56:32] INFO     train.checkpoint.best step=1500 val_loss=1.1688             
+[12:56:46] INFO     train.step step=1600/19452 epoch=0 loss=1.0289 lr=8.23e-05  
+[12:57:00] INFO     train.step step=1700/19452 epoch=0 loss=1.1470 lr=8.74e-05  
+[12:57:14] INFO     train.step step=1800/19452 epoch=0 loss=0.8691 lr=9.25e-05  
+[12:57:28] INFO     train.step step=1900/19452 epoch=0 loss=0.9015 lr=9.77e-05  
+[12:57:42] INFO     train.step step=2000/19452 epoch=0 loss=0.8383 lr=1.00e-04  
+[12:57:45] INFO     train.val step=2000 val_loss=0.8870                         
+[12:57:46] INFO     train.checkpoint.best step=2000 val_loss=0.8870             
+[12:58:00] INFO     train.step step=2100/19452 epoch=0 loss=0.6886 lr=1.00e-04  
+[12:58:14] INFO     train.step step=2200/19452 epoch=0 loss=0.6894 lr=9.99e-05  
+[12:58:28] INFO     train.step step=2300/19452 epoch=0 loss=0.7327 lr=9.99e-05  
+[12:58:42] INFO     train.step step=2400/19452 epoch=0 loss=0.8336 lr=9.98e-05  
+[12:58:57] INFO     train.step step=2500/19452 epoch=0 loss=0.6380 lr=9.98e-05  
+[12:59:00] INFO     train.val step=2500 val_loss=0.7177                         
+           INFO     train.checkpoint.best step=2500 val_loss=0.7177             
+[12:59:14] INFO     train.step step=2600/19452 epoch=0 loss=0.6414 lr=9.97e-05  
+[12:59:29] INFO     train.step step=2700/19452 epoch=0 loss=0.8633 lr=9.95e-05  
+[12:59:43] INFO     train.step step=2800/19452 epoch=0 loss=0.6141 lr=9.94e-05  
+[12:59:57] INFO     train.step step=2900/19452 epoch=0 loss=0.5053 lr=9.93e-05  
+[13:00:11] INFO     train.step step=3000/19452 epoch=0 loss=0.5703 lr=9.91e-05  
+[13:00:14] INFO     train.val step=3000 val_loss=0.6374                         
+           INFO     train.checkpoint.best step=3000 val_loss=0.6374             
+[13:00:28] INFO     train.step step=3100/19452 epoch=0 loss=0.5651 lr=9.89e-05  
+[13:00:43] INFO     train.step step=3200/19452 epoch=0 loss=0.7950 lr=9.87e-05  
+[13:00:57] INFO     train.step step=3300/19452 epoch=0 loss=0.4650 lr=9.85e-05  
+[13:01:12] INFO     train.step step=3400/19452 epoch=0 loss=0.9122 lr=9.83e-05  
+[13:01:27] INFO     train.step step=3500/19452 epoch=0 loss=0.5646 lr=9.81e-05  
+[13:01:30] INFO     train.val step=3500 val_loss=0.5579                         
+           INFO     train.checkpoint.best step=3500 val_loss=0.5579             
+[13:01:45] INFO     train.step step=3600/19452 epoch=0 loss=0.3272 lr=9.78e-05  
+[13:02:00] INFO     train.step step=3700/19452 epoch=0 loss=0.7577 lr=9.75e-05  
+[13:02:15] INFO     train.step step=3800/19452 epoch=0 loss=0.4342 lr=9.73e-05  
+[13:02:30] INFO     train.step step=3900/19452 epoch=0 loss=0.5424 lr=9.70e-05  
+[13:02:44] INFO     train.step step=4000/19452 epoch=0 loss=0.5531 lr=9.66e-05  
+[13:02:47] INFO     train.val step=4000 val_loss=0.5044                         
+[13:02:48] INFO     train.checkpoint.best step=4000 val_loss=0.5044             
+[13:03:02] INFO     train.step step=4100/19452 epoch=0 loss=0.3692 lr=9.63e-05  
+[13:03:16] INFO     train.step step=4200/19452 epoch=0 loss=0.5075 lr=9.60e-05  
+[13:03:30] INFO     train.step step=4300/19452 epoch=0 loss=0.4100 lr=9.56e-05  
+[13:03:45] INFO     train.step step=4400/19452 epoch=0 loss=0.6252 lr=9.52e-05  
+[13:03:59] INFO     train.step step=4500/19452 epoch=0 loss=0.3712 lr=9.48e-05  
+[13:04:02] INFO     train.val step=4500 val_loss=0.4919                         
+[13:04:03] INFO     train.checkpoint.best step=4500 val_loss=0.4919             
+[13:04:17] INFO     train.step step=4600/19452 epoch=0 loss=0.5666 lr=9.44e-05  
+[13:04:32] INFO     train.step step=4700/19452 epoch=0 loss=0.4356 lr=9.40e-05  
+[13:04:46] INFO     train.step step=4800/19452 epoch=0 loss=0.3195 lr=9.36e-05  
+[13:05:00] INFO     train.step step=4900/19452 epoch=0 loss=0.3073 lr=9.31e-05  
+[13:05:14] INFO     train.step step=5000/19452 epoch=0 loss=0.5796 lr=9.27e-05  
+[13:05:18] INFO     train.val step=5000 val_loss=0.4326                         
+           INFO     train.checkpoint.best step=5000 val_loss=0.4326             
+[13:05:32] INFO     train.step step=5100/19452 epoch=0 loss=0.2775 lr=9.22e-05  
+[13:05:46] INFO     train.step step=5200/19452 epoch=0 loss=0.4142 lr=9.17e-05  
+[13:06:01] INFO     train.step step=5300/19452 epoch=0 loss=0.2404 lr=9.12e-05  
+[13:06:15] INFO     train.step step=5400/19452 epoch=0 loss=0.4284 lr=9.07e-05  
+[13:06:30] INFO     train.step step=5500/19452 epoch=0 loss=0.4895 lr=9.02e-05  
+[13:06:33] INFO     train.val step=5500 val_loss=0.4056                         
+[13:06:34] INFO     train.checkpoint.best step=5500 val_loss=0.4056             
+[13:06:49] INFO     train.step step=5600/19452 epoch=0 loss=0.4876 lr=8.96e-05  
+[13:07:04] INFO     train.step step=5700/19452 epoch=0 loss=0.3454 lr=8.91e-05  
+[13:07:18] INFO     train.step step=5800/19452 epoch=0 loss=0.4296 lr=8.85e-05  
+[13:07:33] INFO     train.step step=5900/19452 epoch=0 loss=0.4565 lr=8.79e-05  
+[13:07:48] INFO     train.step step=6000/19452 epoch=0 loss=0.2534 lr=8.73e-05  
+[13:07:51] INFO     train.val step=6000 val_loss=0.3691                         
+[13:07:52] INFO     train.checkpoint.best step=6000 val_loss=0.3691             
+[13:08:07] INFO     train.step step=6100/19452 epoch=0 loss=0.6410 lr=8.67e-05  
+[13:08:22] INFO     train.step step=6200/19452 epoch=0 loss=0.4246 lr=8.61e-05  
+[13:08:37] INFO     train.step step=6300/19452 epoch=0 loss=0.4740 lr=8.55e-05  
+[13:08:52] INFO     train.step step=6400/19452 epoch=0 loss=0.4467 lr=8.49e-05  
+[13:09:07] INFO     train.step step=6500/19452 epoch=1 loss=0.1794 lr=8.42e-05  
+[13:09:10] INFO     train.val step=6500 val_loss=0.3548                         
+           INFO     train.checkpoint.best step=6500 val_loss=0.3548             
+[13:09:25] INFO     train.step step=6600/19452 epoch=1 loss=0.3177 lr=8.35e-05  
+[13:09:40] INFO     train.step step=6700/19452 epoch=1 loss=0.3453 lr=8.29e-05  
+[13:09:55] INFO     train.step step=6800/19452 epoch=1 loss=0.2221 lr=8.22e-05  
+[13:10:10] INFO     train.step step=6900/19452 epoch=1 loss=0.2848 lr=8.15e-05  
+[13:10:26] INFO     train.step step=7000/19452 epoch=1 loss=0.2929 lr=8.08e-05  
+[13:10:30] INFO     train.val step=7000 val_loss=0.3352                         
+           INFO     train.checkpoint.best step=7000 val_loss=0.3352             
+[13:10:46] INFO     train.step step=7100/19452 epoch=1 loss=0.1979 lr=8.01e-05  
+[13:11:01] INFO     train.step step=7200/19452 epoch=1 loss=0.1987 lr=7.94e-05  
+[13:11:17] INFO     train.step step=7300/19452 epoch=1 loss=0.1273 lr=7.86e-05  
+[13:11:32] INFO     train.step step=7400/19452 epoch=1 loss=0.1803 lr=7.79e-05  
+[13:11:47] INFO     train.step step=7500/19452 epoch=1 loss=0.1335 lr=7.71e-05  
+[13:11:51] INFO     train.val step=7500 val_loss=0.3171                         
+           INFO     train.checkpoint.best step=7500 val_loss=0.3171             
+[13:12:06] INFO     train.step step=7600/19452 epoch=1 loss=0.2488 lr=7.64e-05  
+[13:12:21] INFO     train.step step=7700/19452 epoch=1 loss=0.1597 lr=7.56e-05  
+[13:12:35] INFO     train.step step=7800/19452 epoch=1 loss=0.0903 lr=7.48e-05  
+[13:12:50] INFO     train.step step=7900/19452 epoch=1 loss=0.2667 lr=7.41e-05  
+[13:13:05] INFO     train.step step=8000/19452 epoch=1 loss=0.0915 lr=7.33e-05  
+[13:13:09] INFO     train.val step=8000 val_loss=0.3062                         
+           INFO     train.checkpoint.best step=8000 val_loss=0.3062             
+[13:13:24] INFO     train.step step=8100/19452 epoch=1 loss=0.1657 lr=7.25e-05  
+[13:13:39] INFO     train.step step=8200/19452 epoch=1 loss=0.1688 lr=7.17e-05  
+[13:13:54] INFO     train.step step=8300/19452 epoch=1 loss=0.2638 lr=7.09e-05  
+[13:14:08] INFO     train.step step=8400/19452 epoch=1 loss=0.1601 lr=7.00e-05  
+[13:14:22] INFO     train.step step=8500/19452 epoch=1 loss=0.1162 lr=6.92e-05  
+[13:14:25] INFO     train.val step=8500 val_loss=0.2865                         
+[13:14:26] INFO     train.checkpoint.best step=8500 val_loss=0.2865             
+[13:14:40] INFO     train.step step=8600/19452 epoch=1 loss=0.1713 lr=6.84e-05  
+[13:14:54] INFO     train.step step=8700/19452 epoch=1 loss=0.1335 lr=6.75e-05  
+[13:15:08] INFO     train.step step=8800/19452 epoch=1 loss=0.1962 lr=6.67e-05  
+[13:15:23] INFO     train.step step=8900/19452 epoch=1 loss=0.0978 lr=6.59e-05  
+[13:15:38] INFO     train.step step=9000/19452 epoch=1 loss=0.2417 lr=6.50e-05  
+[13:15:41] INFO     train.val step=9000 val_loss=0.2753                         
+[13:15:42] INFO     train.checkpoint.best step=9000 val_loss=0.2753             
+[13:15:56] INFO     train.step step=9100/19452 epoch=1 loss=0.1110 lr=6.41e-05  
+[13:16:11] INFO     train.step step=9200/19452 epoch=1 loss=0.1899 lr=6.33e-05  
+[13:16:26] INFO     train.step step=9300/19452 epoch=1 loss=0.1170 lr=6.24e-05  
+[13:16:41] INFO     train.step step=9400/19452 epoch=1 loss=0.2506 lr=6.15e-05  
+[13:16:55] INFO     train.step step=9500/19452 epoch=1 loss=0.2256 lr=6.07e-05  
+[13:16:58] INFO     train.val step=9500 val_loss=0.2639                         
+           INFO     train.checkpoint.best step=9500 val_loss=0.2639             
+[13:17:14] INFO     train.step step=9600/19452 epoch=1 loss=0.1560 lr=5.98e-05  
+[13:17:29] INFO     train.step step=9700/19452 epoch=1 loss=0.2269 lr=5.89e-05  
+[13:17:44] INFO     train.step step=9800/19452 epoch=1 loss=0.0796 lr=5.80e-05  
+[13:17:58] INFO     train.step step=9900/19452 epoch=1 loss=0.1787 lr=5.71e-05  
+[13:18:13] INFO     train.step step=10000/19452 epoch=1 loss=0.2023 lr=5.63e-05 
+[13:18:16] INFO     train.val step=10000 val_loss=0.2535                        
+           INFO     train.checkpoint.best step=10000 val_loss=0.2535            
+[13:18:31] INFO     train.step step=10100/19452 epoch=1 loss=0.2366 lr=5.54e-05 
+[13:18:45] INFO     train.step step=10200/19452 epoch=1 loss=0.0966 lr=5.45e-05 
+[13:19:00] INFO     train.step step=10300/19452 epoch=1 loss=0.1948 lr=5.36e-05 
+[13:19:15] INFO     train.step step=10400/19452 epoch=1 loss=0.2742 lr=5.27e-05 
+[13:19:29] INFO     train.step step=10500/19452 epoch=1 loss=0.1339 lr=5.18e-05 
+[13:19:32] INFO     train.val step=10500 val_loss=0.2417                        
+[13:19:33] INFO     train.checkpoint.best step=10500 val_loss=0.2417            
+[13:19:48] INFO     train.step step=10600/19452 epoch=1 loss=0.2335 lr=5.09e-05 
+[13:20:03] INFO     train.step step=10700/19452 epoch=1 loss=0.1696 lr=5.00e-05 
+[13:20:18] INFO     train.step step=10800/19452 epoch=1 loss=0.1187 lr=4.91e-05 
+[13:20:32] INFO     train.step step=10900/19452 epoch=1 loss=0.1026 lr=4.82e-05 
+[13:20:46] INFO     train.step step=11000/19452 epoch=1 loss=0.0916 lr=4.73e-05 
+[13:20:50] INFO     train.val step=11000 val_loss=0.2262                        
+           INFO     train.checkpoint.best step=11000 val_loss=0.2262            
+[13:21:05] INFO     train.step step=11100/19452 epoch=1 loss=0.1279 lr=4.64e-05 
+[13:21:20] INFO     train.step step=11200/19452 epoch=1 loss=0.0955 lr=4.55e-05 
+[13:21:34] INFO     train.step step=11300/19452 epoch=1 loss=0.1077 lr=4.46e-05 
+[13:21:48] INFO     train.step step=11400/19452 epoch=1 loss=0.0976 lr=4.37e-05 
+[13:22:03] INFO     train.step step=11500/19452 epoch=1 loss=0.1127 lr=4.28e-05 
+[13:22:06] INFO     train.val step=11500 val_loss=0.2201                        
+[13:22:07] INFO     train.checkpoint.best step=11500 val_loss=0.2201            
+[13:22:22] INFO     train.step step=11600/19452 epoch=1 loss=0.1563 lr=4.19e-05 
+[13:22:37] INFO     train.step step=11700/19452 epoch=1 loss=0.1158 lr=4.11e-05 
+[13:22:52] INFO     train.step step=11800/19452 epoch=1 loss=0.1826 lr=4.02e-05 
+[13:23:07] INFO     train.step step=11900/19452 epoch=1 loss=0.1555 lr=3.93e-05 
+[13:23:23] INFO     train.step step=12000/19452 epoch=1 loss=0.1422 lr=3.84e-05 
+[13:23:26] INFO     train.val step=12000 val_loss=0.2193                        
+           INFO     train.checkpoint.best step=12000 val_loss=0.2193            
+[13:23:41] INFO     train.step step=12100/19452 epoch=1 loss=0.1979 lr=3.76e-05 
+[13:23:55] INFO     train.step step=12200/19452 epoch=1 loss=0.1478 lr=3.67e-05 
+[13:24:09] INFO     train.step step=12300/19452 epoch=1 loss=0.1298 lr=3.58e-05 
+[13:24:24] INFO     train.step step=12400/19452 epoch=1 loss=0.0797 lr=3.50e-05 
+[13:24:38] INFO     train.step step=12500/19452 epoch=1 loss=0.1306 lr=3.41e-05 
+[13:24:41] INFO     train.val step=12500 val_loss=0.2135                        
+[13:24:42] INFO     train.checkpoint.best step=12500 val_loss=0.2135            
+[13:24:56] INFO     train.step step=12600/19452 epoch=1 loss=0.1139 lr=3.33e-05 
+[13:25:10] INFO     train.step step=12700/19452 epoch=1 loss=0.0886 lr=3.24e-05 
+[13:25:24] INFO     train.step step=12800/19452 epoch=1 loss=0.1273 lr=3.16e-05 
+[13:25:39] INFO     train.step step=12900/19452 epoch=1 loss=0.1132 lr=3.08e-05 
+[13:25:53] INFO     train.step step=13000/19452 epoch=2 loss=0.0459 lr=2.99e-05 
+[13:25:56] INFO     train.val step=13000 val_loss=0.2050                        
+           INFO     train.checkpoint.best step=13000 val_loss=0.2050            
+[13:26:11] INFO     train.step step=13100/19452 epoch=2 loss=0.0521 lr=2.91e-05 
+[13:26:25] INFO     train.step step=13200/19452 epoch=2 loss=0.0305 lr=2.83e-05 
+[13:26:39] INFO     train.step step=13300/19452 epoch=2 loss=0.0496 lr=2.75e-05 
+[13:26:54] INFO     train.step step=13400/19452 epoch=2 loss=0.0376 lr=2.67e-05 
+[13:27:08] INFO     train.step step=13500/19452 epoch=2 loss=0.0325 lr=2.59e-05 
+[13:27:11] INFO     train.val step=13500 val_loss=0.1986                        
+           INFO     train.checkpoint.best step=13500 val_loss=0.1986            
+[13:27:26] INFO     train.step step=13600/19452 epoch=2 loss=0.0407 lr=2.51e-05 
+[13:27:40] INFO     train.step step=13700/19452 epoch=2 loss=0.0262 lr=2.44e-05 
+[13:27:54] INFO     train.step step=13800/19452 epoch=2 loss=0.0334 lr=2.36e-05 
+[13:28:08] INFO     train.step step=13900/19452 epoch=2 loss=0.0500 lr=2.28e-05 
+[13:28:23] INFO     train.step step=14000/19452 epoch=2 loss=0.0205 lr=2.21e-05 
+[13:28:26] INFO     train.val step=14000 val_loss=0.1975                        
+           INFO     train.checkpoint.best step=14000 val_loss=0.1975            
+[13:28:40] INFO     train.step step=14100/19452 epoch=2 loss=0.0386 lr=2.13e-05 
+[13:28:55] INFO     train.step step=14200/19452 epoch=2 loss=0.0287 lr=2.06e-05 
+[13:29:09] INFO     train.step step=14300/19452 epoch=2 loss=0.0335 lr=1.99e-05 
+[13:29:23] INFO     train.step step=14400/19452 epoch=2 loss=0.0326 lr=1.92e-05 
+[13:29:37] INFO     train.step step=14500/19452 epoch=2 loss=0.0673 lr=1.85e-05 
+[13:29:41] INFO     train.val step=14500 val_loss=0.1940                        
+           INFO     train.checkpoint.best step=14500 val_loss=0.1940            
+[13:29:55] INFO     train.step step=14600/19452 epoch=2 loss=0.0313 lr=1.78e-05 
+[13:30:09] INFO     train.step step=14700/19452 epoch=2 loss=0.0239 lr=1.71e-05 
+[13:30:23] INFO     train.step step=14800/19452 epoch=2 loss=0.0303 lr=1.64e-05 
+[13:30:38] INFO     train.step step=14900/19452 epoch=2 loss=0.0290 lr=1.58e-05 
+[13:30:52] INFO     train.step step=15000/19452 epoch=2 loss=0.0363 lr=1.51e-05 
+[13:30:55] INFO     train.val step=15000 val_loss=0.1900                        
+           INFO     train.checkpoint.best step=15000 val_loss=0.1900            
+[13:31:10] INFO     train.step step=15100/19452 epoch=2 loss=0.0259 lr=1.45e-05 
+[13:31:24] INFO     train.step step=15200/19452 epoch=2 loss=0.0286 lr=1.39e-05 
+[13:31:38] INFO     train.step step=15300/19452 epoch=2 loss=0.0226 lr=1.32e-05 
+[13:31:52] INFO     train.step step=15400/19452 epoch=2 loss=0.0305 lr=1.26e-05 
+[13:32:07] INFO     train.step step=15500/19452 epoch=2 loss=0.0298 lr=1.21e-05 
+[13:32:10] INFO     train.val step=15500 val_loss=0.1888                        
+           INFO     train.checkpoint.best step=15500 val_loss=0.1888            
+[13:32:25] INFO     train.step step=15600/19452 epoch=2 loss=0.0249 lr=1.15e-05 
+[13:32:39] INFO     train.step step=15700/19452 epoch=2 loss=0.0373 lr=1.09e-05 
+[13:32:53] INFO     train.step step=15800/19452 epoch=2 loss=0.0277 lr=1.04e-05 
+[13:33:07] INFO     train.step step=15900/19452 epoch=2 loss=0.0218 lr=9.82e-06 
+[13:33:22] INFO     train.step step=16000/19452 epoch=2 loss=0.0163 lr=9.29e-06 
+[13:33:25] INFO     train.val step=16000 val_loss=0.1859                        
+           INFO     train.checkpoint.best step=16000 val_loss=0.1859            
+[13:33:40] INFO     train.step step=16100/19452 epoch=2 loss=0.0308 lr=8.78e-06 
+[13:33:54] INFO     train.step step=16200/19452 epoch=2 loss=0.0207 lr=8.27e-06 
+[13:34:08] INFO     train.step step=16300/19452 epoch=2 loss=0.0230 lr=7.79e-06 
+[13:34:23] INFO     train.step step=16400/19452 epoch=2 loss=0.0325 lr=7.31e-06 
+[13:34:37] INFO     train.step step=16500/19452 epoch=2 loss=0.0230 lr=6.85e-06 
+[13:34:40] INFO     train.val step=16500 val_loss=0.1834                        
+[13:34:41] INFO     train.checkpoint.best step=16500 val_loss=0.1834            
+[13:34:55] INFO     train.step step=16600/19452 epoch=2 loss=0.0488 lr=6.41e-06 
+[13:35:09] INFO     train.step step=16700/19452 epoch=2 loss=0.0322 lr=5.97e-06 
+[13:35:24] INFO     train.step step=16800/19452 epoch=2 loss=0.0265 lr=5.56e-06 
+[13:35:38] INFO     train.step step=16900/19452 epoch=2 loss=0.0383 lr=5.15e-06 
+[13:35:52] INFO     train.step step=17000/19452 epoch=2 loss=0.0220 lr=4.76e-06 
+[13:35:55] INFO     train.val step=17000 val_loss=0.1823                        
+[13:35:56] INFO     train.checkpoint.best step=17000 val_loss=0.1823            
+[13:36:10] INFO     train.step step=17100/19452 epoch=2 loss=0.0408 lr=4.39e-06 
+[13:36:24] INFO     train.step step=17200/19452 epoch=2 loss=0.0364 lr=4.03e-06 
+[13:36:38] INFO     train.step step=17300/19452 epoch=2 loss=0.0235 lr=3.68e-06 
+[13:36:53] INFO     train.step step=17400/19452 epoch=2 loss=0.0187 lr=3.35e-06 
+[13:37:07] INFO     train.step step=17500/19452 epoch=2 loss=0.0355 lr=3.04e-06 
+[13:37:10] INFO     train.val step=17500 val_loss=0.1816                        
+[13:37:11] INFO     train.checkpoint.best step=17500 val_loss=0.1816            
+[13:37:25] INFO     train.step step=17600/19452 epoch=2 loss=0.0215 lr=2.74e-06 
+[13:37:39] INFO     train.step step=17700/19452 epoch=2 loss=0.0480 lr=2.45e-06 
+[13:37:53] INFO     train.step step=17800/19452 epoch=2 loss=0.0204 lr=2.18e-06 
+[13:38:08] INFO     train.step step=17900/19452 epoch=2 loss=0.0315 lr=1.93e-06 
+[13:38:22] INFO     train.step step=18000/19452 epoch=2 loss=0.0401 lr=1.69e-06 
+[13:38:25] INFO     train.val step=18000 val_loss=0.1811                        
+           INFO     train.checkpoint.best step=18000 val_loss=0.1811            
+[13:38:40] INFO     train.step step=18100/19452 epoch=2 loss=0.0274 lr=1.46e-06 
+[13:38:54] INFO     train.step step=18200/19452 epoch=2 loss=0.0252 lr=1.26e-06 
+[13:39:09] INFO     train.step step=18300/19452 epoch=2 loss=0.0194 lr=1.06e-06 
+[13:39:23] INFO     train.step step=18400/19452 epoch=2 loss=0.0627 lr=8.88e-07 
+[13:39:37] INFO     train.step step=18500/19452 epoch=2 loss=0.0236 lr=7.28e-07 
+[13:39:40] INFO     train.val step=18500 val_loss=0.1809                        
+[13:39:41] INFO     train.checkpoint.best step=18500 val_loss=0.1809            
+[13:39:55] INFO     train.step step=18600/19452 epoch=2 loss=0.0296 lr=5.83e-07 
+[13:40:09] INFO     train.step step=18700/19452 epoch=2 loss=0.0527 lr=4.55e-07 
+[13:40:23] INFO     train.step step=18800/19452 epoch=2 loss=0.0367 lr=3.42e-07 
+[13:40:38] INFO     train.step step=18900/19452 epoch=2 loss=0.0339 lr=2.45e-07 
+[13:40:52] INFO     train.step step=19000/19452 epoch=2 loss=0.0322 lr=1.64e-07 
+[13:40:55] INFO     train.val step=19000 val_loss=0.1807                        
+[13:40:56] INFO     train.checkpoint.best step=19000 val_loss=0.1807            
+[13:41:10] INFO     train.step step=19100/19452 epoch=2 loss=0.0479 lr=9.97e-08 
+[13:41:24] INFO     train.step step=19200/19452 epoch=2 loss=0.0248 lr=5.11e-08 
+[13:41:38] INFO     train.step step=19300/19452 epoch=2 loss=0.0383 lr=1.86e-08 
+[13:41:53] INFO     train.step step=19400/19452 epoch=2 loss=0.0432 lr=2.18e-09 
+[13:42:04] INFO     Loading faiss with AVX2 support.                            
+           INFO     Successfully loaded faiss with AVX2 support.                
+{
+  "amp_enabled": true,
+  "best_val_loss": 0.1807248468697071,
+  "config": {
+    "amp": true,
+    "batch_size": 64,
+    "encoder": "mamba-retriever-fs",
+    "epochs": 3,
+    "log_every": 100,
+    "lr": 0.0001,
+    "max_seq_len": 128,
+    "num_workers": 0,
+    "output_dir": "models/",
+    "seed": 1729,
+    "temperature": 0.05,
+    "train_path": "data/msmarco/train_500k.jsonl",
+    "val_every": 500,
+    "val_path": "data/msmarco/val_5k.jsonl",
+    "warmup_frac": 0.1,
+    "weight_decay": 0.01
+  },
+  "device": "cuda",
+  "encoder": "mamba-retriever-fs",
+  "final_train_loss": 0.04321567714214325,
+  "final_val_loss": 0.18069207921624184,
+  "git_commit": "57d79dfd1ef9524767ee76f4c283336e89ef609e",
+  "hardware": {
+    "cuda_device": "NVIDIA A100-SXM4-80GB",
+    "faiss": "1.13.2",
+    "hostname": "6e7d83976091",
+    "platform": "Linux-6.17.0-14-generic-x86_64-with-glibc2.35",
+    "python": "3.11.10",
+    "torch": "2.4.1+cu124"
+  },
+  "param_count": 23742256,
+  "peak_gpu_memory_mb": 2239,
+  "run_timestamp_utc": "2026-04-19T13:42:04.212612+00:00",
+  "steps_completed": 19452,
+  "total_steps_planned": 19452,
+  "wall_seconds": 2974.15
+}
+           INFO     train.done encoder=mamba-retriever-fs steps=19452           
+                    best_val=0.1807248468697071 wall_s=2974.2                   
+                    artifact=experiments/phase5/mamba-retriever-fs__training.jso
+                    n                                                           

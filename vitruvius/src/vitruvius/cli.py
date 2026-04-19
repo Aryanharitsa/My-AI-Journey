@@ -39,6 +39,10 @@ REFERENCES_PHASE3: dict[tuple[str, str], float] = {
 }
 TOLERANCE_PHASE3 = 0.03
 
+# Encoders trained from scratch in this project; these accept a
+# checkpoint_path kwarg that the pre-trained wrappers do not.
+FROM_SCRATCH_ENCODERS = frozenset({"lstm-retriever", "conv-retriever", "mamba-retriever-fs"})
+
 
 def _build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
@@ -63,6 +67,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p_bench.add_argument("--limit", type=int, default=None)
     p_bench.add_argument("--output", type=str, default=None)
     p_bench.add_argument("--device", default="auto")
+    p_bench.add_argument(
+        "--checkpoint-root", default=None,
+        help="when set, from-scratch encoders load <root>/<encoder>/best.pt",
+    )
 
     p_sweep = sub.add_parser(
         "bench-sweep",
@@ -81,6 +89,38 @@ def _build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="abort the sweep on the first out-of-band cell (default: continue and flag)",
     )
+    p_sweep.add_argument(
+        "--checkpoint-root", default=None,
+        help="when set, from-scratch encoders load <root>/<encoder>/best.pt",
+    )
+
+    p_train = sub.add_parser(
+        "train",
+        help="train a from-scratch encoder (Phase 5)",
+    )
+    p_train.add_argument("--encoder", required=True,
+                         choices=["lstm-retriever", "conv-retriever", "mamba-retriever-fs"])
+    p_train.add_argument("--train-path", required=True)
+    p_train.add_argument("--val-path", required=True)
+    p_train.add_argument("--output-dir", required=True,
+                         help="checkpoint directory; .pt files land at <output-dir>/<encoder>/{best,final}.pt")
+    p_train.add_argument("--artifact-dir", required=True,
+                         help="where to write the training JSON and loss curve CSV")
+    p_train.add_argument("--epochs", type=int, default=3)
+    p_train.add_argument("--batch-size", type=int, default=64)
+    p_train.add_argument("--max-seq-len", type=int, default=128)
+    p_train.add_argument("--lr", type=float, default=1e-4)
+    p_train.add_argument("--weight-decay", type=float, default=0.01)
+    p_train.add_argument("--temperature", type=float, default=0.05)
+    p_train.add_argument("--no-amp", action="store_true",
+                         help="disable mixed precision (Mamba may need this)")
+    p_train.add_argument("--val-every", type=int, default=500)
+    p_train.add_argument("--seed", type=int, default=1729)
+    p_train.add_argument("--log-every", type=int, default=50)
+    p_train.add_argument(
+        "--num-workers", type=int, default=2,
+        help="dataloader workers; use 0 for Mamba (Triton+fork segfault on this pod)",
+    )
 
     p_prof = sub.add_parser(
         "profile",
@@ -96,6 +136,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p_prof.add_argument("--device", default="auto")
     p_prof.add_argument("--output-dir", required=True)
     p_prof.add_argument("--seed", type=int, default=1729)
+    p_prof.add_argument(
+        "--checkpoint-root", default=None,
+        help="when set, from-scratch encoders load <root>/<encoder>/best.pt",
+    )
 
     p_shuf = sub.add_parser("shuffle", help="position-sensitivity probe")
     p_shuf.add_argument("--encoder", required=True)
@@ -229,6 +273,18 @@ def _git_head() -> str:
         return "unknown"
 
 
+
+def _encoder_kwargs(encoder_name: str, checkpoint_root: str | None) -> dict:
+    """Return per-encoder extra kwargs. Only from-scratch encoders get
+    checkpoint_path; pre-trained transformer wrappers don't accept it."""
+    import os as _os
+    if checkpoint_root and encoder_name in FROM_SCRATCH_ENCODERS:
+        ckpt = _os.path.join(checkpoint_root, encoder_name, "best.pt")
+        if _os.path.exists(ckpt):
+            return {"checkpoint_path": ckpt}
+    return {}
+
+
 def _run_bench_core(
     *,
     encoder,
@@ -334,6 +390,27 @@ def _run_bench_core(
         if k in metrics_pytrec
     }
 
+    # Per-query results (session-03 §5.7) — Phase 6 failure analysis reads these.
+    # Aggregate metrics are identical; this just preserves the (qid -> ranking) fan-out.
+    from vitruvius.evaluation.retrieval_metrics import ndcg_at_k as _ndcg_at_k
+    from vitruvius.evaluation.retrieval_metrics import recall_at_k as _recall_at_k
+    per_q_ndcg10 = _ndcg_at_k(qrels_subset, run, 10)
+    per_q_recall10 = _recall_at_k(qrels_subset, run, 10)
+    per_query_results: dict[str, dict] = {}
+    for _qid in qids:
+        _ranked = [d for d, _ in run[_qid]]
+        _rel_map = qrels_subset.get(_qid, {})
+        _top10 = _ranked[:10]
+        _hit_10 = any(_d in _rel_map and _rel_map[_d] >= 1 for _d in _top10)
+        per_query_results[_qid] = {
+            "query_text": queries_subset[_qid],
+            "ranked_doc_ids": _ranked,
+            "relevance_judgments": {d: int(r) for d, r in _rel_map.items()},
+            "nDCG@10": round(per_q_ndcg10.get(_qid, 0.0), 6),
+            "Recall@10": round(per_q_recall10.get(_qid, 0.0), 6),
+            "hit@10": bool(_hit_10),
+        }
+
     observed = metrics_ours["nDCG@10"]
     if reference is not None:
         reference_block = {
@@ -400,6 +477,7 @@ def _run_bench_core(
             ),
         },
         "target_band": reference_block,
+        "per_query_results": per_query_results,
         "result": {
             "primary_metric": "nDCG@10 (ours_from_scratch)",
             "value": round(observed, 6),
@@ -432,7 +510,7 @@ def _cmd_bench(args: argparse.Namespace) -> int:
     from vitruvius.utils.device import pick_device
 
     device_str = str(pick_device(None if args.device == "auto" else args.device))
-    enc = get_encoder(args.encoder, device=device_str)
+    enc = get_encoder(args.encoder, device=device_str, **_encoder_kwargs(args.encoder, getattr(args, "checkpoint_root", None)))
 
     reference = REFERENCES_PHASE3.get((args.encoder, args.dataset))
     tolerance = TOLERANCE_PHASE3 if reference is not None else 0.0
@@ -479,11 +557,14 @@ def _write_sweep_summary(summary_path: str, sweep_results: list[dict], encoders:
                 cells.append("—")
                 continue
             val = r["result"]["value"]
+            ref = r["result"]["reference"]
             delta = r["result"]["delta_from_reference"]
             in_band = r["result"]["in_band"]
-            ref = r["result"]["reference"]
-            flag = "✅" if in_band else "❌"
-            cells.append(f"{val:.4f} (Δ{delta:+.4f} vs {ref:.2f}) {flag}")
+            if ref is None:
+                cells.append(f"{val:.4f} (no ref)")
+            else:
+                flag = "✅" if in_band else "❌"
+                cells.append(f"{val:.4f} (Δ{delta:+.4f} vs {ref:.2f}) {flag}")
         lines.append("| " + " | ".join(cells) + " |")
 
     lines += ["", "## Per-cell breakdown", ""]
@@ -496,14 +577,20 @@ def _write_sweep_summary(summary_path: str, sweep_results: list[dict], encoders:
             val = r["result"]["value"]
             ref = r["result"]["reference"]
             delta = r["result"]["delta_from_reference"]
-            band = "in-band" if r["result"]["in_band"] else "**OUT OF BAND**"
             py = r["metrics"]["pytrec_eval"]["nDCG@10"]
             dly = r["metrics"]["delta_abs"]["nDCG@10"]
-            lines.append(
-                f"- `{enc}` × `{ds}`: measured {val:.4f}, ref {ref:.2f}, "
-                f"delta {delta:+.4f}, {band}. "
-                f"pytrec_eval nDCG@10={py:.4f} (|Δ|={dly:.2e})."
-            )
+            if ref is None:
+                lines.append(
+                    f"- `{enc}` × `{ds}`: measured {val:.4f} (no leaderboard reference). "
+                    f"pytrec_eval nDCG@10={py:.4f} (|Δ|={dly:.2e})."
+                )
+            else:
+                band = "in-band" if r["result"]["in_band"] else "**OUT OF BAND**"
+                lines.append(
+                    f"- `{enc}` × `{ds}`: measured {val:.4f}, ref {ref:.2f}, "
+                    f"delta {delta:+.4f}, {band}. "
+                    f"pytrec_eval nDCG@10={py:.4f} (|Δ|={dly:.2e})."
+                )
 
     lines += ["", "## Cross-check status (from-scratch vs pytrec_eval)", ""]
     lines.append("| Cell | max|Δ| across nDCG@{1,5,10,100} | Recall@k bit-exact? |")
@@ -560,7 +647,8 @@ def _cmd_bench_sweep(args: argparse.Namespace) -> int:
 
     for encoder_name in args.encoders:
         _log.info("sweep.encoder_load encoder=%s device=%s", encoder_name, device_str)
-        enc = get_encoder(encoder_name, device=device_str)
+        enc = get_encoder(encoder_name, device=device_str,
+                          **_encoder_kwargs(encoder_name, getattr(args, "checkpoint_root", None)))
         for dataset in args.datasets:
             cell_idx += 1
             _log.info("sweep.cell %d/%d encoder=%s dataset=%s",
@@ -726,6 +814,66 @@ def _write_profile_summary(
         f.write("\n".join(lines) + "\n")
 
 
+def _cmd_train(args: argparse.Namespace) -> int:
+    """Train a from-scratch encoder on MS MARCO 500K triplets (Phase 5)."""
+    import csv
+    import os
+    from datetime import datetime, timezone
+
+    from vitruvius.encoders import get_encoder
+    from vitruvius.training.trainer import TrainConfig
+    from vitruvius.training.trainer import train as run_training
+
+    cfg = TrainConfig(
+        encoder=args.encoder,
+        train_path=args.train_path,
+        val_path=args.val_path,
+        output_dir=args.output_dir,
+        epochs=args.epochs,
+        batch_size=args.batch_size,
+        max_seq_len=args.max_seq_len,
+        lr=args.lr,
+        weight_decay=args.weight_decay,
+        warmup_frac=0.10,
+        temperature=args.temperature,
+        amp=(not args.no_amp),
+        val_every=args.val_every,
+        seed=args.seed,
+        log_every=args.log_every,
+        num_workers=args.num_workers,
+    )
+    # Get encoder wrapper (cpu is fine — the trainer moves body to cuda)
+    enc = get_encoder(args.encoder, device="cpu")
+    body = enc.body
+    tokenizer = enc.tokenizer
+
+    summary, curve = run_training(cfg, body, tokenizer)
+    summary["run_timestamp_utc"] = datetime.now(timezone.utc).isoformat()
+    summary["git_commit"] = _git_head()
+    summary["hardware"] = _hardware_snapshot()
+
+    os.makedirs(args.output_dir, exist_ok=True)
+    os.makedirs(args.artifact_dir, exist_ok=True)
+    artifact_path = os.path.join(args.artifact_dir, f"{args.encoder}__training.json")
+    with open(artifact_path, "w") as f:
+        json.dump(summary, f, indent=2, sort_keys=True)
+    curve_path = os.path.join(args.artifact_dir, f"{args.encoder}__training_curve.csv")
+    with open(curve_path, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["step", "train_loss", "val_loss"])
+        w.writeheader()
+        for row in curve:
+            w.writerow(row)
+
+    print(json.dumps(summary, indent=2, sort_keys=True))
+    _log.info(
+        "train.done encoder=%s steps=%d best_val=%s wall_s=%.1f artifact=%s",
+        args.encoder, summary["steps_completed"],
+        summary["best_val_loss"], summary["wall_seconds"],
+        artifact_path,
+    )
+    return 0
+
+
 def _cmd_profile(args: argparse.Namespace) -> int:
     """Latency profile across encoders x datasets x batch sizes.
 
@@ -832,7 +980,8 @@ def _cmd_profile(args: argparse.Namespace) -> int:
 
     for enc_name in args.encoders:
         _log.info("profile.encoder_load encoder=%s device=%s", enc_name, device_str)
-        enc = get_encoder(enc_name, device=device_str)
+        enc = get_encoder(enc_name, device=device_str,
+                          **_encoder_kwargs(enc_name, getattr(args, "checkpoint_root", None)))
         for ds in args.datasets:
             _log.info("profile.cell encoder=%s dataset=%s", enc_name, ds)
             q_samples = sample_q_by_ds[ds]
@@ -931,6 +1080,7 @@ _DISPATCH = {
     "smoke": _cmd_smoke,
     "bench": _cmd_bench,
     "bench-sweep": _cmd_bench_sweep,
+    "train": _cmd_train,
     "profile": _cmd_profile,
     "shuffle": _cmd_shuffle,
     "prune": _cmd_prune,

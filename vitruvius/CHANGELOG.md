@@ -3,6 +3,145 @@
 All notable changes to Project Vitruvius are documented here. Versioning follows
 the milestone tiers in the project roadmap (0.1.0 = Phase 1, 0.2.0 = Phase 2, …).
 
+## [0.5.0] — 2026-04-19 — Phase 5: 55% milestone (absorbs deferred Phase 4)
+
+Three non-transformer bi-encoders (BiLSTM, 1D-CNN, Mamba2) trained from
+random init on 500K MS MARCO triplets with identical hyperparameters. All
+three plugged into the existing bench-sweep + latency profiler. First
+6-point latency-accuracy Pareto plot landed.
+
+**Why this absorbs Phase 4.** Session 02 attempted Phase 4 (pre-trained
+Mamba bi-encoder) and invoked §4.7 kill-switch when the only HF checkpoint
+(MambaRetriever/SPScanner-130m) turned out to be a cross-encoder scanner,
+not a bi-encoder. The amended session-03 handoff rolled Mamba into Phase 5
+as a from-scratch bi-encoder trained on the same 500K MS MARCO triplets as
+LSTM/CNN — genuinely apples-to-apples. No separate Phase 4.
+
+### Added
+
+- `vitruvius train --encoder ... --train-path ... --val-path ... --output-dir models/ --artifact-dir experiments/phase5/`
+  CLI command. AdamW lr=1e-4 wd=0.01, linear-warmup + cosine decay,
+  InfoNCE τ=0.05 with in-batch negatives, AMP fp16, `--num-workers`
+  knob (default 2; 0 for Mamba — see below).
+- Three new encoder wrappers replacing Phase 1 stubs:
+  - `lstm-retriever` — 2-layer BiLSTM, hidden 256 (bidir → 512 concat),
+    masked mean-pool, Linear(512→256). **6.41M params. similarity="cosine".**
+  - `conv-retriever` — 3 stacked Conv1d (k=3/5/7), max+mean pool,
+    Linear(512→256). **4.92M params. similarity="cosine".**
+  - `mamba-retriever-fs` — 12-layer Mamba2, d_model=384, d_state=128,
+    masked mean-pool, Linear(384→256). **23.74M params. similarity="cosine".**
+    Raises NotImplementedError at construction if `mamba-ssm` /
+    `causal-conv1d` aren't importable.
+- Registry rename: `lstm`→`lstm-retriever`, `conv`→`conv-retriever`,
+  `mamba`→`mamba-retriever-fs`. The `-fs` suffix distinguishes the
+  from-scratch Mamba bi-encoder from any future pre-trained Mamba
+  retrieval checkpoint.
+- `vitruvius.training.contrastive.InfoNCELoss` (τ=0.05) and
+  `vitruvius.training.trainer.train` (checkpoint best-val to
+  `models/<encoder>/best.pt`, final to `final.pt`, training JSON +
+  per-500-step loss curve CSV to artifact-dir).
+- `scripts/download_msmarco.py` — downloads `sentence-transformers/msmarco`
+  (triplets + queries + corpus), joins IDs to text, subsamples 500K+5K
+  seeded JSONL into `data/msmarco/`.
+- `scripts/generate_pareto_v2.py` — reads Phase 3 + 3.5 + 5 JSONs and
+  emits `figures/pareto_v2.{png,pdf}` + `pareto_v2_caption.md`.
+- `scripts/phase5_summary_gen.py` — emits `experiments/phase5/SUMMARY.md`
+  from training + bench + profile JSONs.
+- `--checkpoint-root` flag on `bench`, `bench-sweep`, and `profile`.
+  From-scratch encoders load `<root>/<encoder>/best.pt` before encoding;
+  pre-trained transformer wrappers ignore it.
+- `notes/mamba_install_attempt_02.md` — install runbook (nvcc PATH
+  gotcha, ~33-min source build, fork+Triton segfault fix).
+- Training data pipeline: `TripletDataset` tolerates malformed JSON lines
+  (web-scraped control chars in MS MARCO positives/negatives).
+
+### Measured — training (3 epochs, batch 64, 19,452 steps each)
+
+| Encoder | Params | Best val loss | Wall-clock | Peak GPU (MB) |
+|---|---:|---:|---:|---:|
+| `lstm-retriever`    |  6.41M | **0.4719** | 10m 16s   | 561 |
+| `conv-retriever`    |  4.92M | **0.7962** | 16m 25s   | 189 |
+| `mamba-retriever-fs`| 23.74M | **0.1807** | 49m 34s†  | 2239 |
+
+† Mamba trained with `num_workers=0` (only difference from LSTM/CNN's
+`num_workers=2`) to avoid a DataLoader worker segfault rooted in
+Triton+fork state inheritance.
+
+### Measured — nDCG@10 on BEIR test subsets
+
+| Encoder | `nfcorpus` | `scifact` | `fiqa` |
+|---|---:|---:|---:|
+| `lstm-retriever`    | 0.1901 | 0.3606 | 0.0886 |
+| `conv-retriever`    | 0.1400 | 0.1978 | **0.0370** |
+| `mamba-retriever-fs`| **0.2083** | **0.3752** | 0.0863 |
+
+(Reference: `minilm-l6-v2` 0.3165/0.6451/0.3687, `bert-base` 0.3169/0.6082†/0.3229, `gte-small` 0.3492/0.7269/0.3937 from Phase 3.)
+
+Mamba wins among the three from-scratch encoders on NFCorpus and SciFact.
+CNN × FiQA = 0.037 is flagged below the §5.8 red-flag threshold of 0.05 —
+a measured finding, not a training bug: max receptive field of 7 tokens
+(stacked kernels 3/5/7) cannot span FiQA's longer financial documents.
+The training-loss signal already previewed this (CNN final val 0.80 vs
+LSTM 0.47 vs Mamba 0.18). pytrec_eval agrees bit-exact; not an evaluator
+issue. Kept in the table as-is; see `experiments/phase5/SUMMARY.md`.
+
+### Measured — query encoding latency (median ms at batch 1, avg across 3 datasets)
+
+| Encoder | median ms @ bs=1 |
+|---|---:|
+| `conv-retriever`    |  ~0.87 |
+| `lstm-retriever`    |  ~1.32 |
+| `minilm-l6-v2`      |  ~4.27 |
+| `bert-base`         |  ~7.25 |
+| `gte-small`         |  ~7.62 |
+| `mamba-retriever-fs`| ~11.88 |
+
+Mamba is the slowest at batch 1 on max_seq_len=128. The paper's
+linear-time inference advantage only shows up at long sequences; here the
+per-layer kernel launch overhead and 12-layer depth dominate and Mamba
+trails the transformers. Full breakdown including batch 32 and throughput
+in `experiments/phase5/SUMMARY.md`.
+
+### Pareto v2 — latency-accuracy frontier
+
+X-axis: query encoding latency @ batch 1 (median ms, log scale, averaged
+across the 3 BEIR subsets). Y-axis: nDCG@10 (avg across the 3 subsets).
+Six points from four architecture families: transformer (MiniLM, BERT,
+GTE), recurrent (LSTM), convolutional (CNN), SSM (Mamba).
+
+**Pareto-optimal subset: `minilm-l6-v2`, `gte-small`, `lstm-retriever`,
+`conv-retriever`.** Mamba is dominated — slower AND lower accuracy than
+`minilm-l6-v2` and `gte-small` on this training budget and sequence
+length. `bert-base` is also dominated. Full caption and discussion of
+what the plot does and does NOT show (not parameter-matched, not equal
+FLOPs, in-domain evaluation only, max_seq=128) in
+`figures/pareto_v2_caption.md`.
+
+### Validated
+
+- Per-query results schema (§5.7) added to `_run_bench_core` as the first
+  commit of this session (`ffa7813`); Phase 3 JSONs backfilled with
+  per-query data, aggregate metrics bit-exact identical (zero drift).
+- All 12 existing tests pass (stub tests for LSTM/CNN/Mamba removed since
+  they are now real). Lint clean throughout.
+- pytrec_eval cross-check: nDCG@10 |Δ| < 2e-3 on all 18 bench cells
+  (9 transformer from Phase 3 + 9 from-scratch from Phase 5).
+
+### Not done in this session
+
+- No hyperparameter sweeps. One training pass per encoder.
+- No hard-negative mining (beyond the explicit negatives shipping in
+  MS MARCO triplets).
+- No Phase 6 (per-query failure analysis) — runs locally on operator's
+  Mac after this session merges; all bench JSONs contain the per-query
+  block it needs.
+- `MambaRetriever/SPScanner-130m` (cross-encoder) integration — out of
+  scope for Session 03; open for a dedicated future session.
+
+### Bumped version
+
+`0.3.5` → `0.5.0` (skipping 0.4.0 because Phase 4 was absorbed; see notes).
+
 ## [0.3.5] — 2026-04-19 — Phase 3.5: 30% milestone
 
 Latency profile across the three transformer encoders on three BEIR subsets

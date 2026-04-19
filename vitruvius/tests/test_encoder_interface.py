@@ -4,16 +4,13 @@ from __future__ import annotations
 import pytest
 
 from vitruvius.encoders import Encoder, list_encoders
-from vitruvius.encoders.conv_encoder import ConvEncoder
-from vitruvius.encoders.lstm_encoder import LSTMEncoder
-from vitruvius.encoders.mamba_encoder import MambaEncoder
 
-STUBS = [MambaEncoder, LSTMEncoder, ConvEncoder]
+STUBS: list = []  # all encoders are now real; see test_encoder_real_smoke for their checks
 
 
 def test_registry_lists_all_known_encoders():
     names = set(list_encoders())
-    assert {"minilm-l6-v2", "bert-base", "gte-small", "mamba", "lstm", "conv"} <= names
+    assert {"minilm-l6-v2", "bert-base", "gte-small", "mamba-retriever-fs", "lstm-retriever", "conv-retriever"} <= names
 
 
 @pytest.mark.parametrize("cls", STUBS)

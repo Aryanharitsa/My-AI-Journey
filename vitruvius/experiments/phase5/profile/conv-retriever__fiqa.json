@@ -1,0 +1,60 @@
+{
+  "config": {
+    "batch_sizes": [
+      1,
+      8,
+      32
+    ],
+    "dataset": "fiqa",
+    "device": "cuda",
+    "encoder": "conv-retriever",
+    "n_measure": 100,
+    "n_warmup": 10,
+    "sample_size": 200,
+    "seed": 1729,
+    "similarity": "cosine",
+    "split": "test",
+    "throughput_batch_size": 32
+  },
+  "doc_throughput": {
+    "batch_size": 32,
+    "docs_per_second": 2035.54,
+    "n_docs": 200,
+    "total_seconds": 0.0983
+  },
+  "git_commit": "57d79dfd1ef9524767ee76f4c283336e89ef609e",
+  "hardware": {
+    "cuda_device": "NVIDIA A100-SXM4-80GB",
+    "faiss": "1.13.2",
+    "hostname": "6e7d83976091",
+    "platform": "Linux-6.17.0-14-generic-x86_64-with-glibc2.35",
+    "python": "3.11.10",
+    "torch": "2.4.1+cu124"
+  },
+  "query_latency_ms": {
+    "1": {
+      "median": 0.8780640065670013,
+      "p50": 0.8779839873313904,
+      "p90": 0.896992027759552,
+      "p99": 1.0724799633026123
+    },
+    "32": {
+      "median": 3.002400040626526,
+      "p50": 3.001919984817505,
+      "p90": 3.0347518920898438,
+      "p99": 3.1701760292053223
+    },
+    "8": {
+      "median": 1.275551974773407,
+      "p50": 1.2755199670791626,
+      "p90": 1.3063039779663086,
+      "p99": 1.4548159837722778
+    }
+  },
+  "run_timestamp_utc": "2026-04-19T13:58:37.215356+00:00",
+  "runtime_seconds": {
+    "doc_throughput_measurement": 0.0983,
+    "query_latency_measurement": 0.5955
+  },
+  "vitruvius_version": "0.3.5"
+}
