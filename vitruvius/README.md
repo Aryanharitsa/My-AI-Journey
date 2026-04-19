@@ -114,18 +114,19 @@ Query encoding latency (median ms) on 200-query samples from each dataset,
 | `gte-small`    | **7.60–7.65** |  9.77 | 11.68 | 11.07 |
 
 `bert-base × scifact` at batch 32 (24.7 ms) is the visible O(n²) attention
-cost on longer scientific documents — a data point for the Phase 4 Pareto
-comparison. Document throughput and full percentiles in
+cost on longer scientific documents — a data point for the Phase 5 Pareto
+comparison against linear-time SSM/recurrent/conv encoders. Document
+throughput and full percentiles in
 [`experiments/phase3_5/SUMMARY.md`](experiments/phase3_5/SUMMARY.md).
 
 ## Layout
 
 ```
 vitruvius/
-|-- pyproject.toml             # installable package
+|-- pyproject.toml             # installable package (authoritative deps)
 |-- Makefile                   # venv, dev, smoke, test, lint, format, ...
 |-- src/vitruvius/
-|   |-- cli.py                 # python -m vitruvius.cli {smoke,bench,profile,shuffle,prune}
+|   |-- cli.py                 # python -m vitruvius.cli {smoke,bench,bench-sweep,profile,shuffle,prune}
 |   |-- config.py              # pydantic experiment configs
 |   |-- data/                  # synthetic + BEIR loader
 |   |-- encoders/              # base + registry + MiniLM/BERT/GTE + Mamba/LSTM/CNN stubs
@@ -134,9 +135,14 @@ vitruvius/
 |   `-- utils/                 # logging, seed, device picker
 |-- scripts/                   # download_beir.py, setup_pod.sh
 |-- tests/                     # smoke, metrics, encoder interface
-|-- experiments/               # run outputs (gitignored)
-|-- figures/                   # plots (gitignored)
-`-- notebooks/                 # walkthroughs
+|-- experiments/
+|   |-- phase2/                # 10% milestone: MiniLM × NFCorpus reproduction
+|   |-- phase3/                # 20% milestone: 3×3 encoder × BEIR accuracy sweep
+|   |-- phase3_5/              # 30% milestone: latency profile
+|   `-- session_02/            # session-level report + pod_commits bundle
+|-- notes/                     # mamba_install_attempt_01.md (Phase 4 deferral context)
+|-- figures/                   # plots (per-file .png/.pdf gitignored; directory tracked)
+`-- notebooks/                 # walkthroughs (initial scaffold)
 ```
 
 ## Platform notes
