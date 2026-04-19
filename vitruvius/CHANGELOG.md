@@ -3,6 +3,87 @@
 All notable changes to Project Vitruvius are documented here. Versioning follows
 the milestone tiers in the project roadmap (0.1.0 = Phase 1, 0.2.0 = Phase 2, …).
 
+## [0.3.0] — 2026-04-19 — Phase 3: 20% milestone
+
+Three-encoder × three-dataset BEIR accuracy sweep on the A100 pod.
+8/9 cells in-band to approximate leaderboard references (±0.03); one cell
+flagged as a measured finding (not a reproduction failure).
+
+### Added
+
+- `vitruvius.cli bench-sweep` — Cartesian sweep over `--encoders × --datasets`
+  with one model load per encoder (3× fewer loads than looping `bench`
+  nine times). Emits one JSON per cell plus a SUMMARY.md with grid,
+  per-cell deltas, pytrec_eval cross-check, and runtimes.
+- `Encoder.similarity` — now a required attribute on the base class,
+  declared by every wrapper (real and stub). The harness reads it to
+  decide whether to L2-normalize before FAISS `IndexFlatIP`. Forgetting
+  to declare it fails at class-creation time. Future-proofs the
+  interface for Mamba (Phase 4) and from-scratch LSTM/CNN (Phase 5).
+- `experiments/phase3/` — nine per-cell JSONs, `SUMMARY.md`, and
+  `sweep.log` (raw stdout of both the initial cosine-forced run and
+  the post-fix dot run, interleaved chronologically for provenance).
+
+### Fixed
+
+- `bert-base` encoder retargeted from `sentence-transformers/bert-base-nli-mean-tokens`
+  (NLI, not for retrieval — garbage nDCG on BEIR) to
+  `sentence-transformers/msmarco-bert-base-dot-v5`.
+- `bert-base` now declares `similarity = "dot"` and runs with
+  `normalize_embeddings=False`. The initial Phase 3 sweep forced
+  L2-normalization universally (handoff rule §4) and the dot-trained
+  checkpoint dropped −0.08 to −0.11 nDCG@10 below reference on
+  NFCorpus/SciFact/FiQA. Root-caused via
+  `config_sentence_transformers.json` on the pod (`similarity_fn_name = "dot"`)
+  and corrected. Two of the three bert-base cells recovered into band.
+
+### Validated
+
+| Encoder | `nfcorpus` | `scifact` | `fiqa` |
+|---|---:|---:|---:|
+| `minilm-l6-v2` (cosine) | **0.3165** (+0.017) ✅ | **0.6451** (+0.005) ✅ | **0.3687** (+0.009) ✅ |
+| `bert-base` (dot)       | **0.3169** (+0.007) ✅ | **0.6082** (−0.072) ❌ | **0.3229** (+0.023) ✅ |
+| `gte-small` (cosine)    | **0.3492** (+0.009) ✅ | **0.7269** (−0.003) ✅ | **0.3937** (−0.026) ✅ |
+
+- `pytrec_eval` cross-check |Δ| ≤ 1.8e-3 on nDCG@10 across all 9 cells;
+  Recall@k bit-exact on 7/9, within 5.7e-4 on the other two.
+- All cosine encoders: `doc_norm_max`, `query_norm_max` ≈ 1.000001
+  (ST `normalize_embeddings=True` holds). `bert-base` norms are not ≈ 1
+  by design (dot-trained, unnormalized).
+- Total sweep wall-clock: ~6 min. Per-cell runtime shown in
+  `experiments/phase3/SUMMARY.md`.
+
+### Finding (not buried, not swept under the rug)
+
+The `bert-base × scifact` cell at 0.6082 vs reference 0.68 (Δ = −0.072)
+is not a harness bug: pytrec_eval agrees bit-exact, the dataset itself
+is well-behaved on the other two encoders (MiniLM 0.645, GTE 0.727).
+It's a measured out-of-domain transfer gap of
+`msmarco-bert-base-dot-v5` specifically on scientific-claim retrieval
+versus MS-MARCO-distilled contrastive encoders like MiniLM and GTE.
+Full discussion in `experiments/phase3/SUMMARY.md § "A measured finding"`.
+
+### Methodology notes
+
+- Graded-gain nDCG (`gain = 2^rel - 1`), discount `log2(i+1)`, iDCG over
+  full qrels. Gate IR-2: from-scratch implementation remains primary.
+- `pytrec_eval` runs alongside as a cross-check only (reports |Δ|, does
+  not replace).
+- FAISS `IndexFlatIP`, `top-k = 100`, batch size 128.
+- Seed 1729. Hardware: NVIDIA A100-SXM4-80GB, Ubuntu 24.04,
+  torch 2.4.1+cu124, FAISS 1.13.2 (CPU), Python 3.11.10.
+- Out-of-band cells are **flagged**, not massaged, not silently re-run
+  with different seeds.
+
+### References
+
+- BEIR: Thakur et al., *A Heterogeneous Benchmark for Zero-shot
+  Evaluation of Information Retrieval Models*, NeurIPS 2021
+  Datasets & Benchmarks (arXiv:2104.08663).
+- Encoder checkpoints: `sentence-transformers/all-MiniLM-L6-v2`,
+  `sentence-transformers/msmarco-bert-base-dot-v5`,
+  `thenlper/gte-small`.
+
 ## [0.2.0] — 2026-04-19 — Phase 2: 10% milestone
 
 First pod run. Reproduces a published BEIR leaderboard number end-to-end

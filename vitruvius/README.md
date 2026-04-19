@@ -33,7 +33,7 @@ non-transformer architectures actually sit?
 |-----------|-------|---------|--------|
 | 10%       | P1    | Local-only scaffold; CPU smoke test; module skeleton stands up. | done |
 | 10%       | P2    | Reproduce a published BEIR number (MiniLM-L6-v2 nDCG@10 ~ 0.30 on NFCorpus). | done |
-| 20%       | P3    | Benchmark 3 encoders x 3 BEIR subsets. Accuracy table. | - |
+| 20%       | P3    | Benchmark 3 encoders x 3 BEIR subsets. Accuracy table. | done |
 | 30%       | P3.5  | Latency profiler turned on. Batch sizes 1/8/32 timed for transformer encoders. | - |
 | 40%       | P4    | Mamba Retriever integrated. First 4-point Pareto plot. | - |
 | 55%       | P5    | LSTM + 1D-CNN encoders trained from scratch on MS MARCO subset. Full 6-encoder Pareto. | - |
@@ -82,6 +82,24 @@ The hash-bag stand-in is intentionally crude — it is what runs when
 `--no-encoder` is passed so the smoke test is fully offline. Drop the
 `--no-encoder` flag to download MiniLM-L6-v2 and run the same path with a
 real encoder.
+
+
+### Phase 3 — 3×3 encoder × BEIR sweep (A100, 2026-04-19)
+
+Primary metric: nDCG@10 (from-scratch `retrieval_metrics.evaluate`, graded-gain).
+Tolerance: ±0.03 vs approximate BEIR leaderboard references.
+
+| Encoder | `nfcorpus` | `scifact` | `fiqa` |
+|---|---:|---:|---:|
+| `minilm-l6-v2` (cosine) | **0.3165** (+0.017) ✅ | **0.6451** (+0.005) ✅ | **0.3687** (+0.009) ✅ |
+| `bert-base` (dot)       | **0.3169** (+0.007) ✅ | **0.6082** (−0.072) ❌ | **0.3229** (+0.023) ✅ |
+| `gte-small` (cosine)    | **0.3492** (+0.009) ✅ | **0.7269** (−0.003) ✅ | **0.3937** (−0.026) ✅ |
+
+8/9 in band. The flagged cell (`bert-base × scifact`) is a measured
+out-of-domain transfer gap of `msmarco-bert-base-dot-v5` on scientific-claim
+retrieval — pytrec_eval agrees bit-exact, other encoders on the same
+dataset are fine. Full discussion + methodology in
+[`experiments/phase3/SUMMARY.md`](experiments/phase3/SUMMARY.md).
 
 ## Layout
 

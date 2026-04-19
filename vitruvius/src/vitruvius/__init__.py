@@ -7,4 +7,4 @@ import os as _os
 # differently). Setting via setdefault means an explicit operator override wins.
 _os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
 
-__version__ = "0.1.0"
+__version__ = "0.3.0"
