@@ -34,7 +34,7 @@ non-transformer architectures actually sit?
 | 10%       | P1    | Local-only scaffold; CPU smoke test; module skeleton stands up. | done |
 | 10%       | P2    | Reproduce a published BEIR number (MiniLM-L6-v2 nDCG@10 ~ 0.30 on NFCorpus). | done |
 | 20%       | P3    | Benchmark 3 encoders x 3 BEIR subsets. Accuracy table. | done |
-| 30%       | P3.5  | Latency profiler turned on. Batch sizes 1/8/32 timed for transformer encoders. | - |
+| 30%       | P3.5  | Latency profiler turned on. Batch sizes 1/8/32 timed for transformer encoders. | done |
 | 40%       | P4    | Mamba Retriever integrated. First 4-point Pareto plot. | - |
 | 55%       | P5    | LSTM + 1D-CNN encoders trained from scratch on MS MARCO subset. Full 6-encoder Pareto. | - |
 | 70%       | P6    | Per-query failure analysis with taxonomy. | - |
@@ -100,6 +100,23 @@ out-of-domain transfer gap of `msmarco-bert-base-dot-v5` on scientific-claim
 retrieval — pytrec_eval agrees bit-exact, other encoders on the same
 dataset are fine. Full discussion + methodology in
 [`experiments/phase3/SUMMARY.md`](experiments/phase3/SUMMARY.md).
+
+
+### Phase 3.5 — Latency profile (A100, 2026-04-19)
+
+Query encoding latency (median ms) on 200-query samples from each dataset,
+100 measured passes after 10 warmup, CUDA event timing:
+
+| Encoder | bs=1 | bs=32 (nfcorpus) | bs=32 (scifact) | bs=32 (fiqa) |
+|---|---:|---:|---:|---:|
+| `minilm-l6-v2` | **4.18–4.30** |  6.06 |  8.60 |  7.19 |
+| `bert-base`    | **7.23–7.26** | 11.64 | **24.73** | 17.85 |
+| `gte-small`    | **7.60–7.65** |  9.77 | 11.68 | 11.07 |
+
+`bert-base × scifact` at batch 32 (24.7 ms) is the visible O(n²) attention
+cost on longer scientific documents — a data point for the Phase 4 Pareto
+comparison. Document throughput and full percentiles in
+[`experiments/phase3_5/SUMMARY.md`](experiments/phase3_5/SUMMARY.md).
 
 ## Layout
 

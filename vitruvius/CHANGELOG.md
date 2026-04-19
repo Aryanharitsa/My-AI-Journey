@@ -3,6 +3,81 @@
 All notable changes to Project Vitruvius are documented here. Versioning follows
 the milestone tiers in the project roadmap (0.1.0 = Phase 1, 0.2.0 = Phase 2, …).
 
+## [0.3.5] — 2026-04-19 — Phase 3.5: 30% milestone
+
+Latency profile across the three transformer encoders on three BEIR subsets
+at batch sizes 1, 8, 32 — the other axis of the Pareto frontier the project
+is building toward.
+
+### Added
+
+- `vitruvius.cli profile` — real-BEIR latency profile. For each
+  (encoder, dataset): measures query-encoding latency at each requested
+  batch size (median / p50 / p90 / p99 over 100 measured passes, after
+  10 warmup), and document encoding throughput at batch 32 (docs/second
+  over 200 sampled docs after 3 warmup rounds). Samples are reproducible
+  (seed 1729; separate RNGs for queries vs. documents).
+- `dataset_length_stats.json` — per-dataset token-length distributions
+  (min / median / max / p95) for queries and documents, computed once
+  using `sentence-transformers/all-MiniLM-L6-v2` as the canonical
+  (encoder-agnostic) tokenizer.
+- `experiments/phase3_5/` — nine per-cell JSONs, `SUMMARY.md` (tables +
+  methodology), and `profile.log` (raw stdout).
+
+### Measured
+
+Query encoding latency at batch 1 (median ms, 200-query sample):
+
+| Encoder | `nfcorpus` | `scifact` | `fiqa` |
+|---|---:|---:|---:|
+| `minilm-l6-v2` | 4.18 | 4.30 | 4.30 |
+| `bert-base`    | 7.26 | 7.25 | 7.23 |
+| `gte-small`    | 7.60 | 7.60 | 7.65 |
+
+Query encoding latency at batch 32 (median ms):
+
+| Encoder | `nfcorpus` | `scifact` | `fiqa` |
+|---|---:|---:|---:|
+| `minilm-l6-v2` |  6.06 |  8.60 |  7.19 |
+| `bert-base`    | 11.64 | 24.73 | 17.85 |
+| `gte-small`    |  9.77 | 11.68 | 11.07 |
+
+Document encoding throughput at batch 32 (docs/sec):
+
+| Encoder | `nfcorpus` | `scifact` | `fiqa` |
+|---|---:|---:|---:|
+| `minilm-l6-v2` | 669.2 | 732.8 | 1167.9 |
+| `bert-base`    | 178.4 | 193.4 |  354.3 |
+| `gte-small`    | 670.2 | 723.8 | 1215.4 |
+
+### Observations
+
+- Batch-1 query latency is essentially flat across datasets within each
+  encoder — at batch 1 the cost is dominated by kernel launch and fixed
+  forward-pass overhead; sequence-length variance is noise against that.
+- `bert-base` on `scifact` at batch 32 (24.7 ms) is 3.4× its batch-1
+  time and 2.1× its `nfcorpus` batch-32 time. That's the O(n²)
+  attention cost on longer scientific documents becoming visible, and
+  it's exactly the kind of gap the Phase 4 Mamba comparison will
+  interrogate (linear-time SSM vs quadratic attention).
+- Throughput ranks MiniLM ~ GTE > BERT, consistent with parameter
+  counts (22M / 33M / 110M). FiQA reports higher throughput than
+  NFCorpus or SciFact because FiQA documents skew shorter on average
+  (see `dataset_length_stats.json`).
+
+### Methodology
+
+- CUDA timing via `torch.cuda.Event`; no `time.perf_counter()` fallback
+  on GPU. 10 warmup passes before 100 measured passes, per batch size.
+- Latency profiled on real BEIR queries (not synthetic fixed-length
+  strings) because transformer latency scales non-linearly with
+  sequence length.
+- Throughput = 200 sampled documents / wall_time encoding them all at
+  batch 32. Three warmup rounds before the timed encode.
+- Numbers are within-study comparisons on this specific pod
+  (A100-SXM4-80GB, torch 2.4.1+cu124). Production latency is hardware-
+  sensitive; these are not absolute benchmarks.
+
 ## [0.3.0] — 2026-04-19 — Phase 3: 20% milestone
 
 Three-encoder × three-dataset BEIR accuracy sweep on the A100 pod.
