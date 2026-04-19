@@ -1,11 +1,12 @@
 """Command-line entry for Project Vitruvius.
 
-Subcommands implemented in Phase 1:
-    smoke     — synthetic-data end-to-end CPU sanity run
+Subcommands implemented so far:
+    smoke         — synthetic-data end-to-end CPU sanity run (Phase 1)
+    bench         — BEIR retrieval bench, one (encoder, dataset) (Phase 2)
+    bench-sweep   — Cartesian product of encoders × datasets + SUMMARY.md (Phase 3)
 
 Subcommands stubbed (return non-zero) until later phases:
-    bench     — Phase 2+ (BEIR retrieval)
-    profile   — Phase 3+ (latency profiling)
+    profile   — Phase 3.5 (latency profiler)
     shuffle   — Phase 8  (position sensitivity)
     prune     — Phase 7  (attention head pruning)
 """
@@ -21,6 +22,22 @@ from vitruvius.utils.logging import get_logger
 from vitruvius.utils.seed import set_seed
 
 _log = get_logger(__name__)
+
+
+# Phase 3 reference table (handoff §3.4 — approximate BEIR leaderboard numbers).
+# Each value is the published nDCG@10 for (encoder_registry_name, dataset).
+REFERENCES_PHASE3: dict[tuple[str, str], float] = {
+    ("minilm-l6-v2", "nfcorpus"): 0.30,
+    ("minilm-l6-v2", "scifact"): 0.64,
+    ("minilm-l6-v2", "fiqa"): 0.36,
+    ("bert-base", "nfcorpus"): 0.31,
+    ("bert-base", "scifact"): 0.68,
+    ("bert-base", "fiqa"): 0.30,
+    ("gte-small", "nfcorpus"): 0.34,
+    ("gte-small", "scifact"): 0.73,
+    ("gte-small", "fiqa"): 0.42,
+}
+TOLERANCE_PHASE3 = 0.03
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -47,6 +64,24 @@ def _build_parser() -> argparse.ArgumentParser:
     p_bench.add_argument("--output", type=str, default=None)
     p_bench.add_argument("--device", default="auto")
 
+    p_sweep = sub.add_parser(
+        "bench-sweep",
+        help="run bench across the Cartesian product of encoders × datasets and emit SUMMARY.md",
+    )
+    p_sweep.add_argument("--encoders", nargs="+", required=True)
+    p_sweep.add_argument("--datasets", nargs="+", required=True)
+    p_sweep.add_argument("--split", default="test")
+    p_sweep.add_argument("--batch-size", type=int, default=128)
+    p_sweep.add_argument("--top-k", type=int, default=100)
+    p_sweep.add_argument("--device", default="auto")
+    p_sweep.add_argument("--output-dir", required=True)
+    p_sweep.add_argument("--tolerance", type=float, default=TOLERANCE_PHASE3)
+    p_sweep.add_argument(
+        "--stop-on-out-of-band",
+        action="store_true",
+        help="abort the sweep on the first out-of-band cell (default: continue and flag)",
+    )
+
     p_prof = sub.add_parser("profile", help="latency-only profile of an encoder")
     p_prof.add_argument("--encoder", required=True)
     p_prof.add_argument("--batch-sizes", default="1,8,32")
@@ -63,7 +98,7 @@ def _build_parser() -> argparse.ArgumentParser:
     return p
 
 
-def _hash_embed(texts: list[str], dim: int = 256) -> np.ndarray:  # noqa: F821
+def _hash_embed(texts: list[str], dim: int = 256):
     """Cheap deterministic embedding via word-hash bag-of-features.
 
     Used in the smoke test when no real model is loaded so the synthetic
@@ -150,8 +185,428 @@ def _not_yet(phase: str) -> int:
     return 2
 
 
+def _hardware_snapshot() -> dict:
+    import platform
+    info = {
+        "platform": platform.platform(),
+        "python": platform.python_version(),
+        "hostname": platform.node(),
+        "torch": "unknown",
+        "cuda_device": "unknown",
+        "faiss": "unknown",
+    }
+    try:
+        import torch
+        info["torch"] = torch.__version__
+        info["cuda_device"] = torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu"
+    except Exception:
+        pass
+    try:
+        import faiss
+        info["faiss"] = faiss.__version__
+    except Exception:
+        pass
+    return info
+
+
+def _git_head() -> str:
+    import subprocess
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL, text=True
+        ).strip()
+    except Exception:
+        return "unknown"
+
+
+def _run_bench_core(
+    *,
+    encoder,
+    encoder_name: str,
+    dataset: str,
+    split_name: str,
+    batch_size: int,
+    top_k: int,
+    device_str: str,
+    limit: int | None,
+    output_path: str | None,
+    reference: float | None,
+    tolerance: float,
+    source_tag: str = "BEIR leaderboard (approximate; see handoff §3.4)",
+) -> dict:
+    """Run one (encoder, dataset) bench with a pre-loaded encoder.
+
+    Separated out so bench-sweep can share one model load across datasets.
+    The returned dict is the artifact (also written to output_path if given).
+    """
+    import os
+    import time
+    from datetime import datetime, timezone
+
+    import numpy as np
+
+    from vitruvius.data.beir_loader import load_beir
+    from vitruvius.evaluation.faiss_index import IndexWrapper
+    from vitruvius.evaluation.pytrec_bridge import evaluate_pytrec
+    from vitruvius.evaluation.retrieval_metrics import evaluate
+
+    set_seed(1729)
+    total_t0 = time.perf_counter()
+
+    _log.info("bench.start encoder=%s dataset=%s split=%s device=%s top_k=%d batch_size=%d",
+              encoder_name, dataset, split_name, device_str, top_k, batch_size)
+
+    bsplit = load_beir(dataset, split=split_name)
+    n_corpus = len(bsplit.corpus)
+    n_queries_all = len(bsplit.queries)
+
+    q_ids_with_qrels = [q for q in bsplit.queries if q in bsplit.qrels and bsplit.qrels[q]]
+    if limit:
+        q_ids_with_qrels = q_ids_with_qrels[: limit]
+    queries_subset = {q: bsplit.queries[q] for q in q_ids_with_qrels}
+    qrels_subset = {q: bsplit.qrels[q] for q in q_ids_with_qrels}
+    max_grade = max(
+        (r for per_q in qrels_subset.values() for r in per_q.values()), default=0
+    )
+    avg_rels = (
+        sum(len([r for r in per_q.values() if r >= 1]) for per_q in qrels_subset.values())
+        / max(len(qrels_subset), 1)
+    )
+    _log.info("bench.data n_corpus=%d n_queries_eval=%d avg_rel_per_q=%.2f max_grade=%d",
+              n_corpus, len(queries_subset), avg_rels, max_grade)
+
+    t0 = time.perf_counter()
+    docids = list(bsplit.corpus.keys())
+    doc_texts = [
+        (bsplit.corpus[d].get("title", "") + " " + bsplit.corpus[d].get("text", "")).strip()
+        for d in docids
+    ]
+    doc_emb = encoder.encode_documents(doc_texts, batch_size=batch_size)
+    t_encode_docs = time.perf_counter() - t0
+
+    t0 = time.perf_counter()
+    qids = list(queries_subset.keys())
+    q_texts = [queries_subset[q] for q in qids]
+    q_emb = encoder.encode_queries(q_texts, batch_size=batch_size)
+    t_encode_queries = time.perf_counter() - t0
+
+    doc_norm_max = float(np.max(np.linalg.norm(doc_emb, axis=1))) if len(doc_emb) else 0.0
+    q_norm_max = float(np.max(np.linalg.norm(q_emb, axis=1))) if len(q_emb) else 0.0
+    _log.info("bench.encoded doc_norm_max=%.4f q_norm_max=%.4f dim=%d",
+              doc_norm_max, q_norm_max, encoder.embedding_dim)
+
+    t0 = time.perf_counter()
+    index = IndexWrapper(dim=encoder.embedding_dim)
+    index.add(doc_emb, docids)
+    t_index = time.perf_counter() - t0
+
+    t0 = time.perf_counter()
+    scores, retrieved = index.search(q_emb, top_k=top_k)
+    t_search = time.perf_counter() - t0
+
+    run = {
+        qids[i]: [(retrieved[i][j], float(scores[i][j])) for j in range(len(retrieved[i]))]
+        for i in range(len(qids))
+    }
+
+    ks = (1, 5, 10, 100)
+    t0 = time.perf_counter()
+    metrics_ours = evaluate(qrels_subset, run, ks=ks)
+    t_eval_ours = time.perf_counter() - t0
+
+    t0 = time.perf_counter()
+    metrics_pytrec = evaluate_pytrec(qrels_subset, run, ks=ks)
+    t_eval_pytrec = time.perf_counter() - t0
+
+    delta_abs = {
+        k: abs(metrics_ours[k] - metrics_pytrec[k])
+        for k in metrics_ours
+        if k in metrics_pytrec
+    }
+
+    observed = metrics_ours["nDCG@10"]
+    if reference is not None:
+        reference_block = {
+            "metric": "nDCG@10",
+            "reference": reference,
+            "tolerance": tolerance,
+            "source": source_tag,
+        }
+        in_band = abs(observed - reference) <= tolerance
+        delta_from_ref = observed - reference
+    else:
+        reference_block = None
+        in_band = None
+        delta_from_ref = None
+
+    hw = _hardware_snapshot()
+    total_seconds = time.perf_counter() - total_t0
+
+    artifact = {
+        "vitruvius_version": __version__,
+        "git_commit": _git_head(),
+        "run_timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "config": {
+            "encoder": encoder_name,
+            "dataset": dataset,
+            "split": split_name,
+            "batch_size": batch_size,
+            "top_k": top_k,
+            "limit": limit,
+            "device": device_str,
+            "seed": 1729,
+            "doc_format": "title + ' ' + text (stripped)",
+            "similarity": encoder.similarity,
+            "normalize_embeddings": (encoder.similarity == "cosine"),
+        },
+        "dataset_stats": {
+            "n_corpus": n_corpus,
+            "n_queries_total": n_queries_all,
+            "n_queries_eval": len(queries_subset),
+            "avg_relevant_per_query": round(avg_rels, 4),
+            "max_relevance_grade": max_grade,
+        },
+        "hardware": hw,
+        "runtime_seconds": {
+            "encode_docs": round(t_encode_docs, 4),
+            "encode_queries": round(t_encode_queries, 4),
+            "index_build": round(t_index, 4),
+            "search": round(t_search, 4),
+            "eval_ours": round(t_eval_ours, 4),
+            "eval_pytrec": round(t_eval_pytrec, 4),
+            "total": round(total_seconds, 4),
+        },
+        "embedding_norms": {
+            "doc_norm_max": round(doc_norm_max, 6),
+            "query_norm_max": round(q_norm_max, 6),
+        },
+        "metrics": {
+            "ours_from_scratch": {k: round(v, 6) for k, v in metrics_ours.items()},
+            "pytrec_eval": {k: round(v, 6) for k, v in metrics_pytrec.items()},
+            "delta_abs": {k: round(v, 6) for k, v in delta_abs.items()},
+            "notes": (
+                "ours uses DCG with gain=2^rel-1. pytrec_eval ndcg_cut_k uses the "
+                "same trec_eval form. Small nDCG deltas are tie-breaks, not formula drift."
+            ),
+        },
+        "target_band": reference_block,
+        "result": {
+            "primary_metric": "nDCG@10 (ours_from_scratch)",
+            "value": round(observed, 6),
+            "reference": reference,
+            "tolerance": tolerance if reference is not None else None,
+            "delta_from_reference": round(delta_from_ref, 6) if delta_from_ref is not None else None,
+            "in_band": bool(in_band) if in_band is not None else None,
+        },
+    }
+
+    if output_path:
+        os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+        with open(output_path, "w") as f:
+            json.dump(artifact, f, indent=2, sort_keys=True)
+
+    _log.info(
+        "bench.done encoder=%s dataset=%s nDCG@10_ours=%.4f nDCG@10_pytrec=%.4f delta=%.2e "
+        "in_band=%s total_s=%.1f artifact=%s",
+        encoder_name, dataset,
+        metrics_ours["nDCG@10"], metrics_pytrec["nDCG@10"],
+        delta_abs.get("nDCG@10", float("nan")),
+        in_band, total_seconds, output_path or "<none>",
+    )
+    return artifact
+
+
 def _cmd_bench(args: argparse.Namespace) -> int:
-    return _not_yet("Phase 2 (10% milestone)")
+    """BEIR retrieval benchmark with from-scratch + pytrec_eval cross-check."""
+    from vitruvius.encoders import get_encoder
+    from vitruvius.utils.device import pick_device
+
+    device_str = str(pick_device(None if args.device == "auto" else args.device))
+    enc = get_encoder(args.encoder, device=device_str)
+
+    reference = REFERENCES_PHASE3.get((args.encoder, args.dataset))
+    tolerance = TOLERANCE_PHASE3 if reference is not None else 0.0
+
+    out_path = args.output or f"experiments/{args.dataset}_{args.encoder}_{args.split}.json"
+    artifact = _run_bench_core(
+        encoder=enc,
+        encoder_name=args.encoder,
+        dataset=args.dataset,
+        split_name=args.split,
+        batch_size=args.batch_size,
+        top_k=args.top_k,
+        device_str=device_str,
+        limit=args.limit,
+        output_path=out_path,
+        reference=reference,
+        tolerance=tolerance,
+    )
+    print(json.dumps(artifact, indent=2, sort_keys=True))
+    return 0
+
+
+def _write_sweep_summary(summary_path: str, sweep_results: list[dict], encoders: list[str], datasets: list[str]) -> None:
+    """Emit a 3×3 grid SUMMARY.md with deltas and in-band flags."""
+    import os
+    lookup = {(r["config"]["encoder"], r["config"]["dataset"]): r for r in sweep_results}
+
+    lines = ["# Phase 3 — 3×3 encoder × BEIR sweep", "",
+             "Primary metric: nDCG@10 (from-scratch `retrieval_metrics.evaluate`).",
+             "References from handoff §3.4 (approximate BEIR leaderboard).",
+             f"Tolerance: ±{TOLERANCE_PHASE3:.2f} per cell.",
+             "", "## Measured nDCG@10 (delta vs reference in parentheses)", ""]
+
+    header = "| Encoder \\ Dataset | " + " | ".join(datasets) + " |"
+    sep = "|" + "|".join(["---"] * (1 + len(datasets))) + "|"
+    lines.append(header)
+    lines.append(sep)
+
+    for enc in encoders:
+        cells = [f"`{enc}`"]
+        for ds in datasets:
+            r = lookup.get((enc, ds))
+            if r is None:
+                cells.append("—")
+                continue
+            val = r["result"]["value"]
+            delta = r["result"]["delta_from_reference"]
+            in_band = r["result"]["in_band"]
+            ref = r["result"]["reference"]
+            flag = "✅" if in_band else "❌"
+            cells.append(f"{val:.4f} (Δ{delta:+.4f} vs {ref:.2f}) {flag}")
+        lines.append("| " + " | ".join(cells) + " |")
+
+    lines += ["", "## Per-cell breakdown", ""]
+    for enc in encoders:
+        for ds in datasets:
+            r = lookup.get((enc, ds))
+            if r is None:
+                lines.append(f"- `{enc}` × `{ds}`: NO RESULT (skipped or failed)")
+                continue
+            val = r["result"]["value"]
+            ref = r["result"]["reference"]
+            delta = r["result"]["delta_from_reference"]
+            band = "in-band" if r["result"]["in_band"] else "**OUT OF BAND**"
+            py = r["metrics"]["pytrec_eval"]["nDCG@10"]
+            dly = r["metrics"]["delta_abs"]["nDCG@10"]
+            lines.append(
+                f"- `{enc}` × `{ds}`: measured {val:.4f}, ref {ref:.2f}, "
+                f"delta {delta:+.4f}, {band}. "
+                f"pytrec_eval nDCG@10={py:.4f} (|Δ|={dly:.2e})."
+            )
+
+    lines += ["", "## Cross-check status (from-scratch vs pytrec_eval)", ""]
+    lines.append("| Cell | max|Δ| across nDCG@{1,5,10,100} | Recall@k bit-exact? |")
+    lines.append("|---|---:|:---:|")
+    for enc in encoders:
+        for ds in datasets:
+            r = lookup.get((enc, ds))
+            if r is None:
+                continue
+            deltas = r["metrics"]["delta_abs"]
+            ndcg_deltas = [v for k, v in deltas.items() if k.startswith("nDCG@")]
+            recall_deltas = [v for k, v in deltas.items() if k.startswith("Recall@")]
+            max_ndcg = max(ndcg_deltas) if ndcg_deltas else 0
+            recall_ok = "✅" if all(v == 0 for v in recall_deltas) else "❌"
+            lines.append(f"| `{enc}` × `{ds}` | {max_ndcg:.2e} | {recall_ok} |")
+
+    lines += ["", "## Runtime (seconds, total per cell)", ""]
+    lines.append("| Encoder \\ Dataset | " + " | ".join(datasets) + " |")
+    lines.append(sep)
+    for enc in encoders:
+        cells = [f"`{enc}`"]
+        for ds in datasets:
+            r = lookup.get((enc, ds))
+            cells.append(f"{r['runtime_seconds']['total']:.2f}" if r else "—")
+        lines.append("| " + " | ".join(cells) + " |")
+
+    os.makedirs(os.path.dirname(summary_path) or ".", exist_ok=True)
+    with open(summary_path, "w") as f:
+        f.write("\n".join(lines) + "\n")
+
+
+def _cmd_bench_sweep(args: argparse.Namespace) -> int:
+    """Cartesian sweep: encoders × datasets. One model load per encoder.
+
+    Writes one JSON per cell + a SUMMARY.md with a 3×3 grid and deltas.
+    Out-of-band cells are flagged but do not abort the sweep by default
+    (override with --stop-on-out-of-band). Truthful logging; no silent
+    re-runs with different seeds.
+    """
+    import os
+
+    from vitruvius.encoders import get_encoder
+    from vitruvius.utils.device import pick_device
+
+    device_str = str(pick_device(None if args.device == "auto" else args.device))
+    os.makedirs(args.output_dir, exist_ok=True)
+
+    results: list[dict] = []
+    out_of_band: list[tuple[str, str]] = []
+    failures: list[tuple[str, str, str]] = []
+
+    total_cells = len(args.encoders) * len(args.datasets)
+    cell_idx = 0
+
+    for encoder_name in args.encoders:
+        _log.info("sweep.encoder_load encoder=%s device=%s", encoder_name, device_str)
+        enc = get_encoder(encoder_name, device=device_str)
+        for dataset in args.datasets:
+            cell_idx += 1
+            _log.info("sweep.cell %d/%d encoder=%s dataset=%s",
+                      cell_idx, total_cells, encoder_name, dataset)
+            reference = REFERENCES_PHASE3.get((encoder_name, dataset))
+            out_path = os.path.join(args.output_dir, f"{encoder_name}__{dataset}.json")
+            try:
+                artifact = _run_bench_core(
+                    encoder=enc,
+                    encoder_name=encoder_name,
+                    dataset=dataset,
+                    split_name=args.split,
+                    batch_size=args.batch_size,
+                    top_k=args.top_k,
+                    device_str=device_str,
+                    limit=None,
+                    output_path=out_path,
+                    reference=reference,
+                    tolerance=args.tolerance,
+                )
+            except Exception as e:
+                _log.error("sweep.cell_failed encoder=%s dataset=%s err=%r",
+                           encoder_name, dataset, e)
+                failures.append((encoder_name, dataset, repr(e)))
+                continue
+            results.append(artifact)
+            if artifact["result"].get("in_band") is False:
+                out_of_band.append((encoder_name, dataset))
+                _log.warning(
+                    "sweep.out_of_band encoder=%s dataset=%s measured=%.4f ref=%.2f delta=%+.4f tol=%.2f",
+                    encoder_name, dataset,
+                    artifact["result"]["value"],
+                    artifact["result"]["reference"],
+                    artifact["result"]["delta_from_reference"],
+                    args.tolerance,
+                )
+                if args.stop_on_out_of_band:
+                    _log.error("sweep.abort reason=out-of-band (--stop-on-out-of-band)")
+                    break
+        else:
+            continue
+        break
+
+    summary_path = os.path.join(args.output_dir, "SUMMARY.md")
+    _write_sweep_summary(summary_path, results, args.encoders, args.datasets)
+    _log.info("sweep.summary_written path=%s", summary_path)
+
+    print(json.dumps({
+        "cells_run": len(results),
+        "cells_total": total_cells,
+        "out_of_band": out_of_band,
+        "failures": failures,
+        "summary_md": summary_path,
+    }, indent=2))
+
+    return 0 if (not out_of_band and not failures) else 1
 
 
 def _cmd_profile(args: argparse.Namespace) -> int:
@@ -169,6 +624,7 @@ def _cmd_prune(args: argparse.Namespace) -> int:
 _DISPATCH = {
     "smoke": _cmd_smoke,
     "bench": _cmd_bench,
+    "bench-sweep": _cmd_bench_sweep,
     "profile": _cmd_profile,
     "shuffle": _cmd_shuffle,
     "prune": _cmd_prune,
