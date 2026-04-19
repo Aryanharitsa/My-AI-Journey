@@ -15,11 +15,11 @@ EMBEDDING_DIM = 768
 class BERTEncoder(Encoder):
     """MS MARCO fine-tuned BERT-base (dot product). Real impl, not loaded eagerly in tests.
 
-    Note: the HF model card describes a dot-product training objective. We L2-normalize
-    embeddings here to keep the FAISS IndexFlatIP search consistent across encoders
-    (cosine on unit vectors). Per session-02 handoff rule 4."""
+    similarity = "dot" — the checkpoint was trained with dot product on raw
+    (unnormalized) embeddings. Forcing L2-norm here reproduces -0.08 to -0.11 nDCG@10
+    below reference across NFCorpus/SciFact/FiQA; see experiments/phase3/SUMMARY.md."""
 
-    similarity = "cosine"
+    similarity = "dot"
 
     def __init__(self, device: str | None = None, model_id: str = MODEL_ID):
         from sentence_transformers import SentenceTransformer
@@ -36,7 +36,7 @@ class BERTEncoder(Encoder):
             texts,
             batch_size=batch_size,
             convert_to_numpy=True,
-            normalize_embeddings=True,
+            normalize_embeddings=False,  # dot-trained; see Encoder.similarity
             show_progress_bar=False,
         )
         return emb.astype(np.float32, copy=False)
