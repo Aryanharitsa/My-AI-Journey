@@ -51,7 +51,7 @@ def _make_conv(**kw) -> Encoder:
 
 
 _register("minilm-l6-v2", _make_minilm)
-_register("bert-base-nli", _make_bert)
+_register("bert-base", _make_bert)
 _register("gte-small", _make_gte)
 _register("mamba", _make_mamba)
 _register("lstm", _make_lstm)

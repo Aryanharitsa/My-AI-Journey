@@ -15,6 +15,8 @@ EMBEDDING_DIM = 384
 class GTEEncoder(Encoder):
     """Wrapper for thenlper/gte-small. Real impl, not loaded eagerly in tests."""
 
+    similarity = "cosine"
+
     def __init__(self, device: str | None = None, model_id: str = MODEL_ID):
         from sentence_transformers import SentenceTransformer
 

@@ -1,0 +1,98 @@
+{
+  "config": {
+    "batch_size": 128,
+    "dataset": "scifact",
+    "device": "cuda",
+    "doc_format": "title + ' ' + text (stripped)",
+    "encoder": "gte-small",
+    "limit": null,
+    "normalize_embeddings": true,
+    "seed": 1729,
+    "similarity": "cosine",
+    "split": "test",
+    "top_k": 100
+  },
+  "dataset_stats": {
+    "avg_relevant_per_query": 1.13,
+    "max_relevance_grade": 1,
+    "n_corpus": 5183,
+    "n_queries_eval": 300,
+    "n_queries_total": 300
+  },
+  "embedding_norms": {
+    "doc_norm_max": 1.000495,
+    "query_norm_max": 1.000467
+  },
+  "git_commit": "ab0bd9856bf3c657fa23d53402157df7e6d22c65",
+  "hardware": {
+    "cuda_device": "NVIDIA A100-SXM4-80GB",
+    "faiss": "1.13.2",
+    "hostname": "6e7d83976091",
+    "platform": "Linux-6.17.0-14-generic-x86_64-with-glibc2.35",
+    "python": "3.11.10",
+    "torch": "2.4.1+cu124"
+  },
+  "metrics": {
+    "delta_abs": {
+      "Recall@1": 0.0,
+      "Recall@10": 0.0,
+      "Recall@100": 0.0,
+      "Recall@5": 0.0,
+      "nDCG@1": 0.0,
+      "nDCG@10": 0.0,
+      "nDCG@100": 0.0,
+      "nDCG@5": 0.0
+    },
+    "notes": "ours uses DCG with gain=2^rel-1. pytrec_eval ndcg_cut_k uses the same trec_eval form. Small nDCG deltas are tie-breaks, not formula drift.",
+    "ours_from_scratch": {
+      "MRR@1": 0.616667,
+      "MRR@10": 0.693563,
+      "MRR@100": 0.697111,
+      "MRR@5": 0.685278,
+      "Recall@1": 0.588167,
+      "Recall@10": 0.847889,
+      "Recall@100": 0.95,
+      "Recall@5": 0.789611,
+      "nDCG@1": 0.616667,
+      "nDCG@10": 0.72693,
+      "nDCG@100": 0.7492,
+      "nDCG@5": 0.706609
+    },
+    "pytrec_eval": {
+      "MRR@full": 0.697111,
+      "Recall@1": 0.588167,
+      "Recall@10": 0.847889,
+      "Recall@100": 0.95,
+      "Recall@5": 0.789611,
+      "nDCG@1": 0.616667,
+      "nDCG@10": 0.72693,
+      "nDCG@100": 0.7492,
+      "nDCG@5": 0.706609
+    }
+  },
+  "result": {
+    "delta_from_reference": -0.00307,
+    "in_band": true,
+    "primary_metric": "nDCG@10 (ours_from_scratch)",
+    "reference": 0.73,
+    "tolerance": 0.03,
+    "value": 0.72693
+  },
+  "run_timestamp_utc": "2026-04-19T08:42:47.323012+00:00",
+  "runtime_seconds": {
+    "encode_docs": 7.4341,
+    "encode_queries": 0.0574,
+    "eval_ours": 0.0094,
+    "eval_pytrec": 0.0135,
+    "index_build": 0.0368,
+    "search": 0.5148,
+    "total": 8.1387
+  },
+  "target_band": {
+    "metric": "nDCG@10",
+    "reference": 0.73,
+    "source": "BEIR leaderboard (approximate; see handoff \u00a73.4)",
+    "tolerance": 0.03
+  },
+  "vitruvius_version": "0.2.0"
+}

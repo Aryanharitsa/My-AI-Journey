@@ -11,6 +11,8 @@ _PHASE = "Phase 4 — see roadmap (M40, Mamba Retriever integration)"
 class MambaEncoder(Encoder):
     """Stub. Real implementation lands in Phase 4."""
 
+    similarity = "cosine"
+
     def __init__(self, device: str | None = None):
         self._name = "mamba-stub"
         self._embedding_dim = 0

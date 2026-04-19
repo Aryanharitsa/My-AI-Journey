@@ -18,6 +18,8 @@ class MiniLMEncoder(Encoder):
     Used as the Phase 1 reference encoder and as the Phase 2 BEIR sanity model.
     """
 
+    similarity = "cosine"
+
     def __init__(self, device: str | None = None, model_id: str = MODEL_ID):
         from sentence_transformers import SentenceTransformer
 
