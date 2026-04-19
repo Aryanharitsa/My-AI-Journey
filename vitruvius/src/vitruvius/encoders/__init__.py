@@ -53,9 +53,9 @@ def _make_conv(**kw) -> Encoder:
 _register("minilm-l6-v2", _make_minilm)
 _register("bert-base", _make_bert)
 _register("gte-small", _make_gte)
-_register("mamba", _make_mamba)
-_register("lstm", _make_lstm)
-_register("conv", _make_conv)
+_register("mamba-retriever-fs", _make_mamba)
+_register("lstm-retriever", _make_lstm)
+_register("conv-retriever", _make_conv)
 
 
 def list_encoders() -> list[str]:

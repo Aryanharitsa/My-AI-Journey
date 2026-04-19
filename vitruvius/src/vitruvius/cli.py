@@ -82,6 +82,30 @@ def _build_parser() -> argparse.ArgumentParser:
         help="abort the sweep on the first out-of-band cell (default: continue and flag)",
     )
 
+    p_train = sub.add_parser(
+        "train",
+        help="train a from-scratch encoder (Phase 5)",
+    )
+    p_train.add_argument("--encoder", required=True,
+                         choices=["lstm-retriever", "conv-retriever", "mamba-retriever-fs"])
+    p_train.add_argument("--train-path", required=True)
+    p_train.add_argument("--val-path", required=True)
+    p_train.add_argument("--output-dir", required=True,
+                         help="checkpoint directory; .pt files land at <output-dir>/<encoder>/{best,final}.pt")
+    p_train.add_argument("--artifact-dir", required=True,
+                         help="where to write the training JSON and loss curve CSV")
+    p_train.add_argument("--epochs", type=int, default=3)
+    p_train.add_argument("--batch-size", type=int, default=64)
+    p_train.add_argument("--max-seq-len", type=int, default=128)
+    p_train.add_argument("--lr", type=float, default=1e-4)
+    p_train.add_argument("--weight-decay", type=float, default=0.01)
+    p_train.add_argument("--temperature", type=float, default=0.05)
+    p_train.add_argument("--no-amp", action="store_true",
+                         help="disable mixed precision (Mamba may need this)")
+    p_train.add_argument("--val-every", type=int, default=500)
+    p_train.add_argument("--seed", type=int, default=1729)
+    p_train.add_argument("--log-every", type=int, default=50)
+
     p_prof = sub.add_parser(
         "profile",
         help="latency profile across encoders x datasets x batch sizes with real BEIR inputs",
@@ -748,6 +772,65 @@ def _write_profile_summary(
         f.write("\n".join(lines) + "\n")
 
 
+def _cmd_train(args: argparse.Namespace) -> int:
+    """Train a from-scratch encoder on MS MARCO 500K triplets (Phase 5)."""
+    import csv
+    import os
+    from datetime import datetime, timezone
+
+    from vitruvius.encoders import get_encoder
+    from vitruvius.training.trainer import TrainConfig
+    from vitruvius.training.trainer import train as run_training
+
+    cfg = TrainConfig(
+        encoder=args.encoder,
+        train_path=args.train_path,
+        val_path=args.val_path,
+        output_dir=args.output_dir,
+        epochs=args.epochs,
+        batch_size=args.batch_size,
+        max_seq_len=args.max_seq_len,
+        lr=args.lr,
+        weight_decay=args.weight_decay,
+        warmup_frac=0.10,
+        temperature=args.temperature,
+        amp=(not args.no_amp),
+        val_every=args.val_every,
+        seed=args.seed,
+        log_every=args.log_every,
+    )
+    # Get encoder wrapper (cpu is fine — the trainer moves body to cuda)
+    enc = get_encoder(args.encoder, device="cpu")
+    body = enc.body
+    tokenizer = enc.tokenizer
+
+    summary, curve = run_training(cfg, body, tokenizer)
+    summary["run_timestamp_utc"] = datetime.now(timezone.utc).isoformat()
+    summary["git_commit"] = _git_head()
+    summary["hardware"] = _hardware_snapshot()
+
+    os.makedirs(args.output_dir, exist_ok=True)
+    os.makedirs(args.artifact_dir, exist_ok=True)
+    artifact_path = os.path.join(args.artifact_dir, f"{args.encoder}__training.json")
+    with open(artifact_path, "w") as f:
+        json.dump(summary, f, indent=2, sort_keys=True)
+    curve_path = os.path.join(args.artifact_dir, f"{args.encoder}__training_curve.csv")
+    with open(curve_path, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["step", "train_loss", "val_loss"])
+        w.writeheader()
+        for row in curve:
+            w.writerow(row)
+
+    print(json.dumps(summary, indent=2, sort_keys=True))
+    _log.info(
+        "train.done encoder=%s steps=%d best_val=%s wall_s=%.1f artifact=%s",
+        args.encoder, summary["steps_completed"],
+        summary["best_val_loss"], summary["wall_seconds"],
+        artifact_path,
+    )
+    return 0
+
+
 def _cmd_profile(args: argparse.Namespace) -> int:
     """Latency profile across encoders x datasets x batch sizes.
 
@@ -953,6 +1036,7 @@ _DISPATCH = {
     "smoke": _cmd_smoke,
     "bench": _cmd_bench,
     "bench-sweep": _cmd_bench_sweep,
+    "train": _cmd_train,
     "profile": _cmd_profile,
     "shuffle": _cmd_shuffle,
     "prune": _cmd_prune,
