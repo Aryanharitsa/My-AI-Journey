@@ -8,17 +8,21 @@ from vitruvius.utils.logging import get_logger
 
 _log = get_logger(__name__)
 
-MODEL_ID = "sentence-transformers/bert-base-nli-mean-tokens"
+MODEL_ID = "sentence-transformers/msmarco-bert-base-dot-v5"
 EMBEDDING_DIM = 768
 
 
 class BERTEncoder(Encoder):
-    """sentence-transformers BERT-base wrapper. Real impl, not loaded eagerly in tests."""
+    """MS MARCO fine-tuned BERT-base (dot product). Real impl, not loaded eagerly in tests.
+
+    Note: the HF model card describes a dot-product training objective. We L2-normalize
+    embeddings here to keep the FAISS IndexFlatIP search consistent across encoders
+    (cosine on unit vectors). Per session-02 handoff rule 4."""
 
     def __init__(self, device: str | None = None, model_id: str = MODEL_ID):
         from sentence_transformers import SentenceTransformer
 
-        self._name = "bert-base-nli"
+        self._name = "bert-base"
         self._embedding_dim = EMBEDDING_DIM
         self._device = pick_device(device)
         _log.info("encoder.load name=%s model_id=%s device=%s",

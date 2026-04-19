@@ -13,7 +13,7 @@ STUBS = [MambaEncoder, LSTMEncoder, ConvEncoder]
 
 def test_registry_lists_all_known_encoders():
     names = set(list_encoders())
-    assert {"minilm-l6-v2", "bert-base-nli", "gte-small", "mamba", "lstm", "conv"} <= names
+    assert {"minilm-l6-v2", "bert-base", "gte-small", "mamba", "lstm", "conv"} <= names
 
 
 @pytest.mark.parametrize("cls", STUBS)
