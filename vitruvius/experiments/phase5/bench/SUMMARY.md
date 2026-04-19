@@ -1,8 +1,16 @@
-# Phase 3 — 3×3 encoder × BEIR sweep
+# Phase 5 — From-scratch encoder bench sweep (55% milestone)
 
 Primary metric: nDCG@10 (from-scratch `retrieval_metrics.evaluate`).
-References from handoff §3.4 (approximate BEIR leaderboard).
-Tolerance: ±0.03 per cell.
+No leaderboard references: these three encoders (`lstm-retriever`,
+`conv-retriever`, `mamba-retriever-fs`) were trained from scratch on a
+500K MS MARCO triplets subset in Session 03 — there is no published
+BEIR number to compare against. Numbers stand on their own and are
+compared within the Phase 5 cohort and against the Phase 3 transformer
+baselines on the Pareto plot at `figures/pareto_v2.{png,pdf}`.
+
+(Header corrected from the cli.py `bench-sweep` auto-generator's
+hardcoded "Phase 3" title. Numeric content below is unmodified
+Phase 5 data.)
 
 ## Measured nDCG@10 (delta vs reference in parentheses)
 

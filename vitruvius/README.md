@@ -161,15 +161,21 @@ vitruvius/
 |   |-- evaluation/            # nDCG/Recall/MRR (from scratch), FAISS wrapper, latency profiler
 |   |-- analysis/              # error analysis / pruning / position probes (Phases 6-8)
 |   `-- utils/                 # logging, seed, device picker
-|-- scripts/                   # download_beir.py, setup_pod.sh
+|-- scripts/                   # download_beir.py, download_msmarco.py, setup_pod.sh,
+|                              # generate_pareto_v2.py, phase5_summary_gen.py
 |-- tests/                     # smoke, metrics, encoder interface
 |-- experiments/
 |   |-- phase2/                # 10% milestone: MiniLM × NFCorpus reproduction
 |   |-- phase3/                # 20% milestone: 3×3 encoder × BEIR accuracy sweep
 |   |-- phase3_5/              # 30% milestone: latency profile
-|   `-- session_02/            # session-level report + pod_commits bundle
-|-- notes/                     # mamba_install_attempt_01.md (Phase 4 deferral context)
-|-- figures/                   # plots (per-file .png/.pdf gitignored; directory tracked)
+|   |-- phase5/                # 55% milestone: from-scratch LSTM/CNN/Mamba training
+|   |                          # + bench + latency (absorbs deferred Phase 4)
+|   |-- session_02/            # session-level report + pod_commits bundle
+|   `-- session_03/            # session-level report + pod_commits bundle + full log
+|-- notes/                     # mamba_install_attempt_01.md (Phase 4 deferral context),
+|                              # mamba_install_attempt_02.md (Phase 5 mamba-ssm install)
+|-- figures/                   # pareto_v2.{png,pdf,_caption.md} (6-point Pareto);
+|                              # per-file .png/.pdf otherwise gitignored
 `-- notebooks/                 # walkthroughs (initial scaffold)
 ```
 
