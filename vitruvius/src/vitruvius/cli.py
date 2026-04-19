@@ -334,6 +334,27 @@ def _run_bench_core(
         if k in metrics_pytrec
     }
 
+    # Per-query results (session-03 §5.7) — Phase 6 failure analysis reads these.
+    # Aggregate metrics are identical; this just preserves the (qid -> ranking) fan-out.
+    from vitruvius.evaluation.retrieval_metrics import ndcg_at_k as _ndcg_at_k
+    from vitruvius.evaluation.retrieval_metrics import recall_at_k as _recall_at_k
+    per_q_ndcg10 = _ndcg_at_k(qrels_subset, run, 10)
+    per_q_recall10 = _recall_at_k(qrels_subset, run, 10)
+    per_query_results: dict[str, dict] = {}
+    for _qid in qids:
+        _ranked = [d for d, _ in run[_qid]]
+        _rel_map = qrels_subset.get(_qid, {})
+        _top10 = _ranked[:10]
+        _hit_10 = any(_d in _rel_map and _rel_map[_d] >= 1 for _d in _top10)
+        per_query_results[_qid] = {
+            "query_text": queries_subset[_qid],
+            "ranked_doc_ids": _ranked,
+            "relevance_judgments": {d: int(r) for d, r in _rel_map.items()},
+            "nDCG@10": round(per_q_ndcg10.get(_qid, 0.0), 6),
+            "Recall@10": round(per_q_recall10.get(_qid, 0.0), 6),
+            "hit@10": bool(_hit_10),
+        }
+
     observed = metrics_ours["nDCG@10"]
     if reference is not None:
         reference_block = {
@@ -400,6 +421,7 @@ def _run_bench_core(
             ),
         },
         "target_band": reference_block,
+        "per_query_results": per_query_results,
         "result": {
             "primary_metric": "nDCG@10 (ours_from_scratch)",
             "value": round(observed, 6),
