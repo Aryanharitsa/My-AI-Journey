@@ -1,0 +1,40 @@
+{
+  "amp_enabled": true,
+  "best_val_loss": 0.7962454330921173,
+  "config": {
+    "amp": true,
+    "batch_size": 64,
+    "encoder": "conv-retriever",
+    "epochs": 3,
+    "log_every": 100,
+    "lr": 0.0001,
+    "max_seq_len": 128,
+    "output_dir": "models/",
+    "seed": 1729,
+    "temperature": 0.05,
+    "train_path": "data/msmarco/train_500k.jsonl",
+    "val_every": 500,
+    "val_path": "data/msmarco/val_5k.jsonl",
+    "warmup_frac": 0.1,
+    "weight_decay": 0.01
+  },
+  "device": "cuda",
+  "encoder": "conv-retriever",
+  "final_train_loss": 0.9277257323265076,
+  "final_val_loss": 0.7963605827093124,
+  "git_commit": "57d79dfd1ef9524767ee76f4c283336e89ef609e",
+  "hardware": {
+    "cuda_device": "NVIDIA A100-SXM4-80GB",
+    "faiss": "1.13.2",
+    "hostname": "6e7d83976091",
+    "platform": "Linux-6.17.0-14-generic-x86_64-with-glibc2.35",
+    "python": "3.11.10",
+    "torch": "2.4.1+cu124"
+  },
+  "param_count": 4923648,
+  "peak_gpu_memory_mb": 189,
+  "run_timestamp_utc": "2026-04-19T11:32:46.571108+00:00",
+  "steps_completed": 19452,
+  "total_steps_planned": 19452,
+  "wall_seconds": 984.61
+}

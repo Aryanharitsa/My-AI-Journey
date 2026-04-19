@@ -1,0 +1,546 @@
+[13:42:25] INFO     device.selected name=cuda reason=explicit                   
+           INFO     sweep.encoder_load encoder=lstm-retriever device=cuda       
+[13:42:26] INFO     device.selected name=cuda reason=explicit                   
+[13:42:27] INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/bert-base-uncased/resolve/main/config
+                    .json "HTTP/1.1 200 OK"                                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/bert-base-uncased/resolve/main/tokeni
+                    zer_config.json "HTTP/1.1 200 OK"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/bert-base-uncased/tree/mai
+                    n/additional_chat_templates?recursive=false&expand=false    
+                    "HTTP/1.1 307 Temporary Redirect"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/google-bert/bert-base-unca
+                    sed/tree/main/additional_chat_templates?recursive=false&expa
+                    nd=false "HTTP/1.1 404 Not Found"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/bert-base-uncased/tree/mai
+                    n?recursive=true&expand=false "HTTP/1.1 307 Temporary       
+                    Redirect"                                                   
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/google-bert/bert-base-unca
+                    sed/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK" 
+           INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[13:42:28] INFO     sweep.cell 1/9 encoder=lstm-retriever dataset=nfcorpus      
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=lstm-retriever dataset=nfcorpus         
+                    split=test device=cuda top_k=100 batch_size=128             
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 138600.76it/s]
+           INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+           INFO     bench.data n_corpus=3633 n_queries_eval=323                 
+                    avg_rel_per_q=38.19 max_grade=2                             
+[13:42:32] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=256 
+           INFO     Loading faiss with AVX2 support.                            
+           INFO     Successfully loaded faiss with AVX2 support.                
+           INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     bench.done encoder=lstm-retriever dataset=nfcorpus          
+                    nDCG@10_ours=0.1901 nDCG@10_pytrec=0.1897 delta=4.83e-04    
+                    in_band=None total_s=4.1                                    
+                    artifact=experiments/phase5/bench/lstm-retriever__nfcorpus.j
+                    son                                                         
+           INFO     sweep.cell 2/9 encoder=lstm-retriever dataset=scifact       
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=lstm-retriever dataset=scifact          
+                    split=test device=cuda top_k=100 batch_size=128             
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 164476.91it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+           INFO     bench.data n_corpus=5183 n_queries_eval=300                 
+                    avg_rel_per_q=1.13 max_grade=1                              
+[13:42:37] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=256 
+           INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     bench.done encoder=lstm-retriever dataset=scifact           
+                    nDCG@10_ours=0.3606 nDCG@10_pytrec=0.3606 delta=0.00e+00    
+                    in_band=None total_s=5.2                                    
+                    artifact=experiments/phase5/bench/lstm-retriever__scifact.js
+                    on                                                          
+           INFO     sweep.cell 3/9 encoder=lstm-retriever dataset=fiqa          
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=lstm-retriever dataset=fiqa split=test  
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 36%|███▋      | 20930/57638 [00:00<00:00, 209205.93it/s] 75%|███████▌  | 43357/57638 [00:00<00:00, 218050.65it/s]100%|██████████| 57638/57638 [00:00<00:00, 216370.40it/s]
+[13:42:38] INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+           INFO     bench.data n_corpus=57638 n_queries_eval=648                
+                    avg_rel_per_q=2.63 max_grade=1                              
+[13:43:12] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=256 
+           INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[13:43:17] INFO     bench.done encoder=lstm-retriever dataset=fiqa              
+                    nDCG@10_ours=0.0886 nDCG@10_pytrec=0.0886 delta=0.00e+00    
+                    in_band=None total_s=39.2                                   
+                    artifact=experiments/phase5/bench/lstm-retriever__fiqa.json 
+           INFO     sweep.encoder_load encoder=conv-retriever device=cuda       
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/bert-base-uncased/resolve/main/config
+                    .json "HTTP/1.1 200 OK"                                     
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+           WARNING  Warning: You are sending unauthenticated requests to the HF 
+                    Hub. Please set a HF_TOKEN to enable higher rate limits and 
+                    faster downloads.                                           
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/bert-base-uncased/resolve/main/tokeni
+                    zer_config.json "HTTP/1.1 200 OK"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/bert-base-uncased/tree/mai
+                    n/additional_chat_templates?recursive=false&expand=false    
+                    "HTTP/1.1 307 Temporary Redirect"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/google-bert/bert-base-unca
+                    sed/tree/main/additional_chat_templates?recursive=false&expa
+                    nd=false "HTTP/1.1 404 Not Found"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/bert-base-uncased/tree/mai
+                    n?recursive=true&expand=false "HTTP/1.1 307 Temporary       
+                    Redirect"                                                   
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/google-bert/bert-base-unca
+                    sed/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK" 
+           INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+           INFO     sweep.cell 4/9 encoder=conv-retriever dataset=nfcorpus      
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=conv-retriever dataset=nfcorpus         
+                    split=test device=cuda top_k=100 batch_size=128             
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 152389.73it/s]
+[13:43:18] INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+           INFO     bench.data n_corpus=3633 n_queries_eval=323                 
+                    avg_rel_per_q=38.19 max_grade=2                             
+[13:43:21] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=256 
+           INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     bench.done encoder=conv-retriever dataset=nfcorpus          
+                    nDCG@10_ours=0.1400 nDCG@10_pytrec=0.1389 delta=1.09e-03    
+                    in_band=None total_s=3.7                                    
+                    artifact=experiments/phase5/bench/conv-retriever__nfcorpus.j
+                    son                                                         
+           INFO     sweep.cell 5/9 encoder=conv-retriever dataset=scifact       
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=conv-retriever dataset=scifact          
+                    split=test device=cuda top_k=100 batch_size=128             
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 162979.93it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+           INFO     bench.data n_corpus=5183 n_queries_eval=300                 
+                    avg_rel_per_q=1.13 max_grade=1                              
+[13:43:26] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=256 
+           INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     bench.done encoder=conv-retriever dataset=scifact           
+                    nDCG@10_ours=0.1978 nDCG@10_pytrec=0.1978 delta=0.00e+00    
+                    in_band=None total_s=5.0                                    
+                    artifact=experiments/phase5/bench/conv-retriever__scifact.js
+                    on                                                          
+           INFO     sweep.cell 6/9 encoder=conv-retriever dataset=fiqa          
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=conv-retriever dataset=fiqa split=test  
+                    device=cuda top_k=100 batch_size=128                        
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 39%|███▉      | 22722/57638 [00:00<00:00, 227127.62it/s] 79%|███████▉  | 45538/57638 [00:00<00:00, 227721.20it/s]100%|██████████| 57638/57638 [00:00<00:00, 228004.02it/s]
+[13:43:27] INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+           INFO     bench.data n_corpus=57638 n_queries_eval=648                
+                    avg_rel_per_q=2.63 max_grade=1                              
+[13:43:58] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=256 
+           INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[13:44:03] INFO     bench.done encoder=conv-retriever dataset=fiqa              
+                    nDCG@10_ours=0.0370 nDCG@10_pytrec=0.0370 delta=0.00e+00    
+                    in_band=None total_s=36.6                                   
+                    artifact=experiments/phase5/bench/conv-retriever__fiqa.json 
+           INFO     sweep.encoder_load encoder=mamba-retriever-fs device=cuda   
+           INFO     device.selected name=cuda reason=explicit                   
+[13:44:04] INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/bert-base-uncased/resolve/main/config
+                    .json "HTTP/1.1 200 OK"                                     
+           INFO     HTTP Request: HEAD                                          
+                    https://huggingface.co/bert-base-uncased/resolve/main/tokeni
+                    zer_config.json "HTTP/1.1 200 OK"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/bert-base-uncased/tree/mai
+                    n/additional_chat_templates?recursive=false&expand=false    
+                    "HTTP/1.1 307 Temporary Redirect"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/google-bert/bert-base-unca
+                    sed/tree/main/additional_chat_templates?recursive=false&expa
+                    nd=false "HTTP/1.1 404 Not Found"                           
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/bert-base-uncased/tree/mai
+                    n?recursive=true&expand=false "HTTP/1.1 307 Temporary       
+                    Redirect"                                                   
+           INFO     HTTP Request: GET                                           
+                    https://huggingface.co/api/models/google-bert/bert-base-unca
+                    sed/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK" 
+           INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[13:44:06] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+           INFO     sweep.cell 7/9 encoder=mamba-retriever-fs dataset=nfcorpus  
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=mamba-retriever-fs dataset=nfcorpus     
+                    split=test device=cuda top_k=100 batch_size=128             
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 149449.85it/s]
+           INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+           INFO     bench.data n_corpus=3633 n_queries_eval=323                 
+                    avg_rel_per_q=38.19 max_grade=2                             
+[13:45:13] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=256 
+           INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     bench.done encoder=mamba-retriever-fs dataset=nfcorpus      
+                    nDCG@10_ours=0.2083 nDCG@10_pytrec=0.2072 delta=1.04e-03    
+                    in_band=None total_s=67.6                                   
+                    artifact=experiments/phase5/bench/mamba-retriever-fs__nfcorp
+                    us.json                                                     
+           INFO     sweep.cell 8/9 encoder=mamba-retriever-fs dataset=scifact   
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=mamba-retriever-fs dataset=scifact      
+                    split=test device=cuda top_k=100 batch_size=128             
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 159165.03it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+           INFO     bench.data n_corpus=5183 n_queries_eval=300                 
+                    avg_rel_per_q=1.13 max_grade=1                              
+[13:45:21] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=256 
+           INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     bench.done encoder=mamba-retriever-fs dataset=scifact       
+                    nDCG@10_ours=0.3752 nDCG@10_pytrec=0.3752 delta=0.00e+00    
+                    in_band=None total_s=7.7                                    
+                    artifact=experiments/phase5/bench/mamba-retriever-fs__scifac
+                    t.json                                                      
+           INFO     sweep.cell 9/9 encoder=mamba-retriever-fs dataset=fiqa      
+           INFO     seed.set value=1729                                         
+           INFO     bench.start encoder=mamba-retriever-fs dataset=fiqa         
+                    split=test device=cuda top_k=100 batch_size=128             
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 38%|███▊      | 21846/57638 [00:00<00:00, 217924.53it/s] 76%|███████▌  | 43762/57638 [00:00<00:00, 218636.27it/s]100%|██████████| 57638/57638 [00:00<00:00, 216697.00it/s]
+           INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+           INFO     bench.data n_corpus=57638 n_queries_eval=648                
+                    avg_rel_per_q=2.63 max_grade=1                              
+[13:46:14] INFO     bench.encoded doc_norm_max=1.0000 q_norm_max=1.0000 dim=256 
+           INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[13:46:19] INFO     bench.done encoder=mamba-retriever-fs dataset=fiqa          
+                    nDCG@10_ours=0.0863 nDCG@10_pytrec=0.0863 delta=0.00e+00    
+                    in_band=None total_s=58.2                                   
+                    artifact=experiments/phase5/bench/mamba-retriever-fs__fiqa.j
+                    son                                                         
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/my-ai-journey/vitruvius/src/vitruvius/cli.py", line 1088, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/my-ai-journey/vitruvius/src/vitruvius/cli.py", line 1084, in main
+    return _DISPATCH[args.command](args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/my-ai-journey/vitruvius/src/vitruvius/cli.py", line 687, in _cmd_bench_sweep
+    _write_sweep_summary(summary_path, results, args.encoders, args.datasets)
+  File "/workspace/my-ai-journey/vitruvius/src/vitruvius/cli.py", line 564, in _write_sweep_summary
+    cells.append(f"{val:.4f} (Δ{delta:+.4f} vs {ref:.2f}) {flag}")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__
