@@ -32,7 +32,7 @@ non-transformer architectures actually sit?
 | Milestone | Phase | Summary | Status |
 |-----------|-------|---------|--------|
 | 10%       | P1    | Local-only scaffold; CPU smoke test; module skeleton stands up. | done |
-| 10%       | P2    | Reproduce a published BEIR number (MiniLM-L6-v2 nDCG@10 ~ 0.30 on NFCorpus). | pod |
+| 10%       | P2    | Reproduce a published BEIR number (MiniLM-L6-v2 nDCG@10 ~ 0.30 on NFCorpus). | done |
 | 20%       | P3    | Benchmark 3 encoders x 3 BEIR subsets. Accuracy table. | - |
 | 30%       | P3.5  | Latency profiler turned on. Batch sizes 1/8/32 timed for transformer encoders. | - |
 | 40%       | P4    | Mamba Retriever integrated. First 4-point Pareto plot. | - |
