@@ -1,0 +1,63 @@
+{
+  "datasets": {
+    "fiqa": {
+      "corpus_size": 57638,
+      "doc_token_lengths_from_sample": {
+        "count": 1000,
+        "max": 2023,
+        "median": 118,
+        "min": 2,
+        "p95": 479
+      },
+      "doc_token_sample_size": 1000,
+      "n_queries_eval": 648,
+      "query_token_lengths": {
+        "count": 648,
+        "max": 35,
+        "median": 15,
+        "min": 4,
+        "p95": 25
+      }
+    },
+    "nfcorpus": {
+      "corpus_size": 3633,
+      "doc_token_lengths_from_sample": {
+        "count": 1000,
+        "max": 2377,
+        "median": 360,
+        "min": 26,
+        "p95": 567
+      },
+      "doc_token_sample_size": 1000,
+      "n_queries_eval": 323,
+      "query_token_lengths": {
+        "count": 323,
+        "max": 28,
+        "median": 6,
+        "min": 3,
+        "p95": 13
+      }
+    },
+    "scifact": {
+      "corpus_size": 5183,
+      "doc_token_lengths_from_sample": {
+        "count": 1000,
+        "max": 1939,
+        "median": 307,
+        "min": 82,
+        "p95": 576
+      },
+      "doc_token_sample_size": 1000,
+      "n_queries_eval": 300,
+      "query_token_lengths": {
+        "count": 300,
+        "max": 64,
+        "median": 21,
+        "min": 7,
+        "p95": 41
+      }
+    }
+  },
+  "note": "token lengths are untruncated, including [CLS]/[SEP].",
+  "tokenizer": "sentence-transformers/all-MiniLM-L6-v2"
+}

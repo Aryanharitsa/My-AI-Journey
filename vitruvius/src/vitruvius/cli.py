@@ -82,10 +82,20 @@ def _build_parser() -> argparse.ArgumentParser:
         help="abort the sweep on the first out-of-band cell (default: continue and flag)",
     )
 
-    p_prof = sub.add_parser("profile", help="latency-only profile of an encoder")
-    p_prof.add_argument("--encoder", required=True)
-    p_prof.add_argument("--batch-sizes", default="1,8,32")
+    p_prof = sub.add_parser(
+        "profile",
+        help="latency profile across encoders x datasets x batch sizes with real BEIR inputs",
+    )
+    p_prof.add_argument("--encoders", nargs="+", required=True)
+    p_prof.add_argument("--datasets", nargs="+", required=True)
+    p_prof.add_argument("--batch-sizes", nargs="+", type=int, default=[1, 8, 32])
+    p_prof.add_argument("--split", default="test")
+    p_prof.add_argument("--sample-size", type=int, default=200)
+    p_prof.add_argument("--n-warmup", type=int, default=10)
+    p_prof.add_argument("--n-measure", type=int, default=100)
     p_prof.add_argument("--device", default="auto")
+    p_prof.add_argument("--output-dir", required=True)
+    p_prof.add_argument("--seed", type=int, default=1729)
 
     p_shuf = sub.add_parser("shuffle", help="position-sensitivity probe")
     p_shuf.add_argument("--encoder", required=True)
@@ -609,8 +619,304 @@ def _cmd_bench_sweep(args: argparse.Namespace) -> int:
     return 0 if (not out_of_band and not failures) else 1
 
 
+def _write_profile_summary(
+    path: str,
+    rows: list[dict],
+    encoders: list[str],
+    datasets: list[str],
+    batch_sizes: list[int],
+) -> None:
+    import os as _os
+
+    lookup = {(r["encoder"], r["dataset"]): r for r in rows}
+
+    lines = [
+        "# Phase 3.5 — Latency profile (30% milestone)",
+        "",
+        "Query encoding latency is the production-critical number (one batch per"
+        " retrieval request); document encoding throughput is the offline cost.",
+        "",
+        "## Query encoding latency at batch size 1 — median ms",
+        "",
+        "| Encoder \\ Dataset | " + " | ".join(datasets) + " |",
+        "|" + "|".join(["---"] * (1 + len(datasets))) + "|",
+    ]
+    for enc in encoders:
+        cells = [f"`{enc}`"]
+        for ds in datasets:
+            r = lookup.get((enc, ds))
+            cells.append(f"{r['lat_ms'][1]['median']:.3f}" if r else "—")
+        lines.append("| " + " | ".join(cells) + " |")
+
+    lines += [
+        "",
+        "## Query latency at batch 1 — percentiles (ms)",
+        "",
+        "| Cell | median | p50 | p90 | p99 |",
+        "|---|---:|---:|---:|---:|",
+    ]
+    for enc in encoders:
+        for ds in datasets:
+            r = lookup.get((enc, ds))
+            if r is None:
+                continue
+            x = r["lat_ms"][1]
+            lines.append(
+                f"| `{enc}` x `{ds}` | {x['median']:.3f} | {x['p50']:.3f} "
+                f"| {x['p90']:.3f} | {x['p99']:.3f} |"
+            )
+
+    lines += [
+        "",
+        "## All batch sizes — median ms",
+        "",
+        "| Cell | " + " | ".join(f"bs={bs}" for bs in batch_sizes) + " |",
+        "|" + "|".join(["---"] * (1 + len(batch_sizes))) + "|",
+    ]
+    for enc in encoders:
+        for ds in datasets:
+            r = lookup.get((enc, ds))
+            if r is None:
+                continue
+            cells = [f"`{enc}` x `{ds}`"]
+            for bs in batch_sizes:
+                cells.append(f"{r['lat_ms'][bs]['median']:.3f}")
+            lines.append("| " + " | ".join(cells) + " |")
+
+    lines += [
+        "",
+        "## Document encoding throughput at batch 32 — docs / second",
+        "",
+        "| Encoder \\ Dataset | " + " | ".join(datasets) + " |",
+        "|" + "|".join(["---"] * (1 + len(datasets))) + "|",
+    ]
+    for enc in encoders:
+        cells = [f"`{enc}`"]
+        for ds in datasets:
+            r = lookup.get((enc, ds))
+            cells.append(f"{r['throughput']:.1f}" if r else "—")
+        lines.append("| " + " | ".join(cells) + " |")
+
+    lines += [
+        "",
+        "## Methodology",
+        "",
+        "- Latency measured via `torch.cuda.Event` on CUDA (see "
+        "`vitruvius.evaluation.latency_profiler`). 10 warmup + 100 measured"
+        " passes per batch size. Percentiles are over the 100 measured times.",
+        "- Query samples: 200 queries sampled (`random.Random(seed=1729).sample`)"
+        " from each dataset's test split qrels-having set.",
+        "- Document samples: 200 documents sampled (same seed, separate call)"
+        " from each dataset's full corpus.",
+        "- Document encoding throughput: 3 warmup rounds then one wall-clock"
+        " timed encode of all 200 sampled docs at batch size 32."
+        " Reported as `200 / wall_time`.",
+        "- Token length distributions (computed once, encoder-agnostic) are"
+        " in `dataset_length_stats.json`. Canonical tokenizer:"
+        " `sentence-transformers/all-MiniLM-L6-v2`.",
+        "- Seed 1729. Device: `cuda`. Hardware: see per-cell JSONs.",
+        "- These numbers are for this pod run only. Production latency is"
+        " hardware-sensitive; treat these as within-study comparison numbers,"
+        " not absolute benchmarks.",
+        "",
+    ]
+
+    _os.makedirs(_os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w") as f:
+        f.write("\n".join(lines) + "\n")
+
+
 def _cmd_profile(args: argparse.Namespace) -> int:
-    return _not_yet("Phase 3.5 (latency profiler)")
+    """Latency profile across encoders x datasets x batch sizes.
+
+    Token-length distributions affect transformer latency nonlinearly
+    (attention is O(n^2)), so this profiles on real BEIR queries/documents
+    rather than synthetic fixed-length strings (session-02 handoff 3.5.3).
+    """
+    import os
+    import random
+    import statistics
+    import time
+    from datetime import datetime, timezone
+
+    import torch
+
+    from vitruvius.data.beir_loader import load_beir
+    from vitruvius.encoders import get_encoder
+    from vitruvius.evaluation.latency_profiler import profile as run_profile
+    from vitruvius.utils.device import pick_device
+
+    set_seed(args.seed)
+    device_str = str(pick_device(None if args.device == "auto" else args.device))
+    os.makedirs(args.output_dir, exist_ok=True)
+
+    _log.info(
+        "profile.start encoders=%s datasets=%s batch_sizes=%s device=%s sample_size=%d",
+        args.encoders, args.datasets, args.batch_sizes, device_str, args.sample_size,
+    )
+
+    from transformers import AutoTokenizer
+    tok = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+
+    def _percs(xs: list[int]) -> dict:
+        if not xs:
+            return {"min": 0, "median": 0, "max": 0, "p95": 0, "count": 0}
+        xs_sorted = sorted(xs)
+        return {
+            "min": xs_sorted[0],
+            "median": int(statistics.median(xs_sorted)),
+            "max": xs_sorted[-1],
+            "p95": xs_sorted[int(0.95 * (len(xs_sorted) - 1))],
+            "count": len(xs_sorted),
+        }
+
+    length_stats: dict[str, dict] = {}
+    sample_q_by_ds: dict[str, list[str]] = {}
+    sample_d_by_ds: dict[str, list[str]] = {}
+
+    for ds in args.datasets:
+        _log.info("profile.length_stats dataset=%s", ds)
+        split = load_beir(ds, split=args.split)
+        qids_ok = [q for q in split.queries if q in split.qrels and split.qrels[q]]
+        q_texts_all = [split.queries[q] for q in qids_ok]
+        doc_texts_all = [
+            (split.corpus[d].get("title", "") + " " + split.corpus[d].get("text", "")).strip()
+            for d in split.corpus.keys()
+        ]
+
+        q_lens = [len(tok.encode(q, add_special_tokens=True, truncation=False)) for q in q_texts_all]
+        doc_subsample = random.Random(args.seed).sample(
+            doc_texts_all, min(1000, len(doc_texts_all))
+        )
+        d_lens = [
+            len(tok.encode(d, add_special_tokens=True, truncation=False))
+            for d in doc_subsample
+        ]
+
+        length_stats[ds] = {
+            "corpus_size": len(doc_texts_all),
+            "n_queries_eval": len(q_texts_all),
+            "query_token_lengths": _percs(q_lens),
+            "doc_token_lengths_from_sample": _percs(d_lens),
+            "doc_token_sample_size": len(doc_subsample),
+        }
+
+        rng_q = random.Random(args.seed)
+        rng_d = random.Random(args.seed + 1)
+        sample_q_by_ds[ds] = rng_q.sample(
+            q_texts_all, min(args.sample_size, len(q_texts_all))
+        )
+        sample_d_by_ds[ds] = rng_d.sample(
+            doc_texts_all, min(args.sample_size, len(doc_texts_all))
+        )
+
+    length_stats_path = os.path.join(args.output_dir, "dataset_length_stats.json")
+    with open(length_stats_path, "w") as f:
+        json.dump(
+            {
+                "tokenizer": "sentence-transformers/all-MiniLM-L6-v2",
+                "datasets": length_stats,
+                "note": "token lengths are untruncated, including [CLS]/[SEP].",
+            },
+            f, indent=2, sort_keys=True,
+        )
+    _log.info("profile.length_stats_written path=%s", length_stats_path)
+
+    def make_q_fn(enc, samples):
+        def fn(batch_size):
+            enc.encode_queries(samples[:batch_size], batch_size=batch_size)
+        return fn
+
+    summary_rows: list[dict] = []
+    BATCH_THROUGHPUT = 32
+
+    for enc_name in args.encoders:
+        _log.info("profile.encoder_load encoder=%s device=%s", enc_name, device_str)
+        enc = get_encoder(enc_name, device=device_str)
+        for ds in args.datasets:
+            _log.info("profile.cell encoder=%s dataset=%s", enc_name, ds)
+            q_samples = sample_q_by_ds[ds]
+            d_samples = sample_d_by_ds[ds]
+
+            t0 = time.perf_counter()
+            lat = run_profile(
+                make_q_fn(enc, q_samples),
+                n_warmup=args.n_warmup,
+                n_measure=args.n_measure,
+                batch_sizes=tuple(args.batch_sizes),
+                device=device_str,
+            )
+            t_lat = time.perf_counter() - t0
+
+            for _ in range(3):
+                enc.encode_documents(d_samples[:BATCH_THROUGHPUT], batch_size=BATCH_THROUGHPUT)
+            if device_str == "cuda":
+                torch.cuda.synchronize()
+            t0 = time.perf_counter()
+            enc.encode_documents(d_samples, batch_size=BATCH_THROUGHPUT)
+            if device_str == "cuda":
+                torch.cuda.synchronize()
+            t_throughput = time.perf_counter() - t0
+            throughput = len(d_samples) / t_throughput
+
+            artifact = {
+                "vitruvius_version": __version__,
+                "git_commit": _git_head(),
+                "run_timestamp_utc": datetime.now(timezone.utc).isoformat(),
+                "config": {
+                    "encoder": enc_name,
+                    "similarity": enc.similarity,
+                    "dataset": ds,
+                    "split": args.split,
+                    "sample_size": args.sample_size,
+                    "n_warmup": args.n_warmup,
+                    "n_measure": args.n_measure,
+                    "batch_sizes": list(args.batch_sizes),
+                    "device": device_str,
+                    "seed": args.seed,
+                    "throughput_batch_size": BATCH_THROUGHPUT,
+                },
+                "hardware": _hardware_snapshot(),
+                "query_latency_ms": {str(k): v for k, v in lat.items()},
+                "doc_throughput": {
+                    "batch_size": BATCH_THROUGHPUT,
+                    "n_docs": len(d_samples),
+                    "total_seconds": round(t_throughput, 4),
+                    "docs_per_second": round(throughput, 2),
+                },
+                "runtime_seconds": {
+                    "query_latency_measurement": round(t_lat, 4),
+                    "doc_throughput_measurement": round(t_throughput, 4),
+                },
+            }
+            out = os.path.join(args.output_dir, f"{enc_name}__{ds}.json")
+            with open(out, "w") as f:
+                json.dump(artifact, f, indent=2, sort_keys=True)
+
+            lat1 = lat[1]["median"]
+            _log.info(
+                "profile.done encoder=%s dataset=%s lat@1_median_ms=%.3f docs/s=%.1f out=%s",
+                enc_name, ds, lat1, throughput, out,
+            )
+            summary_rows.append(
+                {"encoder": enc_name, "dataset": ds, "lat_ms": lat, "throughput": throughput}
+            )
+
+    summary_path = os.path.join(args.output_dir, "SUMMARY.md")
+    _write_profile_summary(summary_path, summary_rows, args.encoders, args.datasets, list(args.batch_sizes))
+    _log.info("profile.summary_written path=%s", summary_path)
+
+    print(json.dumps(
+        {
+            "cells_run": len(summary_rows),
+            "cells_total": len(args.encoders) * len(args.datasets),
+            "output_dir": args.output_dir,
+            "length_stats": length_stats_path,
+            "summary_md": summary_path,
+        },
+        indent=2,
+    ))
+    return 0
 
 
 def _cmd_shuffle(args: argparse.Namespace) -> int:
