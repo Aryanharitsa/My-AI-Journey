@@ -72,7 +72,7 @@ class ConvRetrieverBody(nn.Module):
         mask = attention_mask.unsqueeze(1).float()
         # For max-pool: fill invalid positions with a very negative value so
         # they never win.
-        x_for_max = x.masked_fill(mask == 0, float("-1e9"))
+        x_for_max = x.masked_fill(mask == 0, torch.finfo(x.dtype).min)
         mx, _ = x_for_max.max(dim=2)  # (B, C)
 
         # For mean-pool: zero-out invalid positions, divide by valid count.

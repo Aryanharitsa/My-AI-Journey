@@ -113,8 +113,8 @@ def main(argv=None) -> int:
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
-    bench_dirs = [args.phase5_dir, args.phase3_bench_dir]
-    latency_dirs = [args.phase5_dir, args.phase3_latency_dir]
+    bench_dirs = [args.phase5_dir / "bench", args.phase5_dir, args.phase3_bench_dir]
+    latency_dirs = [args.phase5_dir / "profile", args.phase5_dir, args.phase3_latency_dir]
 
     points: list[tuple[str, str, str, str, float, float, list[float], list[float]]] = []
     for enc, fam, color, marker in ENCODERS:

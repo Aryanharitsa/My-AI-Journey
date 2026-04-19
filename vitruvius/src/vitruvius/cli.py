@@ -39,6 +39,10 @@ REFERENCES_PHASE3: dict[tuple[str, str], float] = {
 }
 TOLERANCE_PHASE3 = 0.03
 
+# Encoders trained from scratch in this project; these accept a
+# checkpoint_path kwarg that the pre-trained wrappers do not.
+FROM_SCRATCH_ENCODERS = frozenset({"lstm-retriever", "conv-retriever", "mamba-retriever-fs"})
+
 
 def _build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
@@ -63,6 +67,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p_bench.add_argument("--limit", type=int, default=None)
     p_bench.add_argument("--output", type=str, default=None)
     p_bench.add_argument("--device", default="auto")
+    p_bench.add_argument(
+        "--checkpoint-root", default=None,
+        help="when set, from-scratch encoders load <root>/<encoder>/best.pt",
+    )
 
     p_sweep = sub.add_parser(
         "bench-sweep",
@@ -80,6 +88,10 @@ def _build_parser() -> argparse.ArgumentParser:
         "--stop-on-out-of-band",
         action="store_true",
         help="abort the sweep on the first out-of-band cell (default: continue and flag)",
+    )
+    p_sweep.add_argument(
+        "--checkpoint-root", default=None,
+        help="when set, from-scratch encoders load <root>/<encoder>/best.pt",
     )
 
     p_train = sub.add_parser(
@@ -105,6 +117,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p_train.add_argument("--val-every", type=int, default=500)
     p_train.add_argument("--seed", type=int, default=1729)
     p_train.add_argument("--log-every", type=int, default=50)
+    p_train.add_argument(
+        "--num-workers", type=int, default=2,
+        help="dataloader workers; use 0 for Mamba (Triton+fork segfault on this pod)",
+    )
 
     p_prof = sub.add_parser(
         "profile",
@@ -120,6 +136,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p_prof.add_argument("--device", default="auto")
     p_prof.add_argument("--output-dir", required=True)
     p_prof.add_argument("--seed", type=int, default=1729)
+    p_prof.add_argument(
+        "--checkpoint-root", default=None,
+        help="when set, from-scratch encoders load <root>/<encoder>/best.pt",
+    )
 
     p_shuf = sub.add_parser("shuffle", help="position-sensitivity probe")
     p_shuf.add_argument("--encoder", required=True)
@@ -251,6 +271,18 @@ def _git_head() -> str:
         ).strip()
     except Exception:
         return "unknown"
+
+
+
+def _encoder_kwargs(encoder_name: str, checkpoint_root: str | None) -> dict:
+    """Return per-encoder extra kwargs. Only from-scratch encoders get
+    checkpoint_path; pre-trained transformer wrappers don't accept it."""
+    import os as _os
+    if checkpoint_root and encoder_name in FROM_SCRATCH_ENCODERS:
+        ckpt = _os.path.join(checkpoint_root, encoder_name, "best.pt")
+        if _os.path.exists(ckpt):
+            return {"checkpoint_path": ckpt}
+    return {}
 
 
 def _run_bench_core(
@@ -478,7 +510,7 @@ def _cmd_bench(args: argparse.Namespace) -> int:
     from vitruvius.utils.device import pick_device
 
     device_str = str(pick_device(None if args.device == "auto" else args.device))
-    enc = get_encoder(args.encoder, device=device_str)
+    enc = get_encoder(args.encoder, device=device_str, **_encoder_kwargs(args.encoder, getattr(args, "checkpoint_root", None)))
 
     reference = REFERENCES_PHASE3.get((args.encoder, args.dataset))
     tolerance = TOLERANCE_PHASE3 if reference is not None else 0.0
@@ -525,11 +557,14 @@ def _write_sweep_summary(summary_path: str, sweep_results: list[dict], encoders:
                 cells.append("—")
                 continue
             val = r["result"]["value"]
+            ref = r["result"]["reference"]
             delta = r["result"]["delta_from_reference"]
             in_band = r["result"]["in_band"]
-            ref = r["result"]["reference"]
-            flag = "✅" if in_band else "❌"
-            cells.append(f"{val:.4f} (Δ{delta:+.4f} vs {ref:.2f}) {flag}")
+            if ref is None:
+                cells.append(f"{val:.4f} (no ref)")
+            else:
+                flag = "✅" if in_band else "❌"
+                cells.append(f"{val:.4f} (Δ{delta:+.4f} vs {ref:.2f}) {flag}")
         lines.append("| " + " | ".join(cells) + " |")
 
     lines += ["", "## Per-cell breakdown", ""]
@@ -542,14 +577,20 @@ def _write_sweep_summary(summary_path: str, sweep_results: list[dict], encoders:
             val = r["result"]["value"]
             ref = r["result"]["reference"]
             delta = r["result"]["delta_from_reference"]
-            band = "in-band" if r["result"]["in_band"] else "**OUT OF BAND**"
             py = r["metrics"]["pytrec_eval"]["nDCG@10"]
             dly = r["metrics"]["delta_abs"]["nDCG@10"]
-            lines.append(
-                f"- `{enc}` × `{ds}`: measured {val:.4f}, ref {ref:.2f}, "
-                f"delta {delta:+.4f}, {band}. "
-                f"pytrec_eval nDCG@10={py:.4f} (|Δ|={dly:.2e})."
-            )
+            if ref is None:
+                lines.append(
+                    f"- `{enc}` × `{ds}`: measured {val:.4f} (no leaderboard reference). "
+                    f"pytrec_eval nDCG@10={py:.4f} (|Δ|={dly:.2e})."
+                )
+            else:
+                band = "in-band" if r["result"]["in_band"] else "**OUT OF BAND**"
+                lines.append(
+                    f"- `{enc}` × `{ds}`: measured {val:.4f}, ref {ref:.2f}, "
+                    f"delta {delta:+.4f}, {band}. "
+                    f"pytrec_eval nDCG@10={py:.4f} (|Δ|={dly:.2e})."
+                )
 
     lines += ["", "## Cross-check status (from-scratch vs pytrec_eval)", ""]
     lines.append("| Cell | max|Δ| across nDCG@{1,5,10,100} | Recall@k bit-exact? |")
@@ -606,7 +647,8 @@ def _cmd_bench_sweep(args: argparse.Namespace) -> int:
 
     for encoder_name in args.encoders:
         _log.info("sweep.encoder_load encoder=%s device=%s", encoder_name, device_str)
-        enc = get_encoder(encoder_name, device=device_str)
+        enc = get_encoder(encoder_name, device=device_str,
+                          **_encoder_kwargs(encoder_name, getattr(args, "checkpoint_root", None)))
         for dataset in args.datasets:
             cell_idx += 1
             _log.info("sweep.cell %d/%d encoder=%s dataset=%s",
@@ -798,6 +840,7 @@ def _cmd_train(args: argparse.Namespace) -> int:
         val_every=args.val_every,
         seed=args.seed,
         log_every=args.log_every,
+        num_workers=args.num_workers,
     )
     # Get encoder wrapper (cpu is fine — the trainer moves body to cuda)
     enc = get_encoder(args.encoder, device="cpu")
@@ -937,7 +980,8 @@ def _cmd_profile(args: argparse.Namespace) -> int:
 
     for enc_name in args.encoders:
         _log.info("profile.encoder_load encoder=%s device=%s", enc_name, device_str)
-        enc = get_encoder(enc_name, device=device_str)
+        enc = get_encoder(enc_name, device=device_str,
+                          **_encoder_kwargs(enc_name, getattr(args, "checkpoint_root", None)))
         for ds in args.datasets:
             _log.info("profile.cell encoder=%s dataset=%s", enc_name, ds)
             q_samples = sample_q_by_ds[ds]

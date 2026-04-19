@@ -48,17 +48,26 @@ class TrainConfig:
     val_every: int = 500
     seed: int = 1729
     log_every: int = 50
+    num_workers: int = 2
 
 
 class TripletDataset(Dataset):
     def __init__(self, jsonl_path: str) -> None:
         self._rows: list[dict] = []
-        with open(jsonl_path) as f:
+        skipped = 0
+        with open(jsonl_path, encoding="utf-8", errors="replace") as f:
             for line in f:
                 line = line.strip()
                 if not line:
                     continue
-                self._rows.append(json.loads(line))
+                try:
+                    # strict=False tolerates embedded control chars in strings
+                    # (MS MARCO web-scraped text occasionally contains them).
+                    self._rows.append(json.loads(line, strict=False))
+                except json.JSONDecodeError:
+                    skipped += 1
+        if skipped:
+            _log.warning("triplet_dataset.skipped_malformed n=%d path=%s", skipped, jsonl_path)
 
     def __len__(self) -> int:
         return len(self._rows)
@@ -139,11 +148,11 @@ def train(cfg: TrainConfig, body: nn.Module, tokenizer) -> dict:
     val_ds = TripletDataset(cfg.val_path)
     collate = _make_collate(tokenizer, cfg.max_seq_len)
     train_loader = DataLoader(
-        train_ds, batch_size=cfg.batch_size, shuffle=True, num_workers=2,
+        train_ds, batch_size=cfg.batch_size, shuffle=True, num_workers=cfg.num_workers,
         collate_fn=collate, drop_last=True, pin_memory=(device.type == "cuda"),
     )
     val_loader = DataLoader(
-        val_ds, batch_size=cfg.batch_size, shuffle=False, num_workers=2,
+        val_ds, batch_size=cfg.batch_size, shuffle=False, num_workers=cfg.num_workers,
         collate_fn=collate, drop_last=False,
     )
 
