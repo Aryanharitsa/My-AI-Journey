@@ -13,7 +13,7 @@ STUBS = [MambaEncoder, LSTMEncoder, ConvEncoder]
 
 def test_registry_lists_all_known_encoders():
     names = set(list_encoders())
-    assert {"minilm-l6-v2", "bert-base-nli", "gte-small", "mamba", "lstm", "conv"} <= names
+    assert {"minilm-l6-v2", "bert-base", "gte-small", "mamba", "lstm", "conv"} <= names
 
 
 @pytest.mark.parametrize("cls", STUBS)
@@ -22,6 +22,7 @@ def test_stub_encoders_satisfy_interface(cls):
     assert isinstance(enc, Encoder)
     assert isinstance(enc.name, str) and enc.name
     assert enc.embedding_dim == 0  # stubs declare 0 to discourage use
+    assert enc.similarity in {"cosine", "dot"}
     with pytest.raises(NotImplementedError):
         enc.encode_queries(["q"])
     with pytest.raises(NotImplementedError):

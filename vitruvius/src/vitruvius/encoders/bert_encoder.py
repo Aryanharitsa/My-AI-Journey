@@ -8,17 +8,23 @@ from vitruvius.utils.logging import get_logger
 
 _log = get_logger(__name__)
 
-MODEL_ID = "sentence-transformers/bert-base-nli-mean-tokens"
+MODEL_ID = "sentence-transformers/msmarco-bert-base-dot-v5"
 EMBEDDING_DIM = 768
 
 
 class BERTEncoder(Encoder):
-    """sentence-transformers BERT-base wrapper. Real impl, not loaded eagerly in tests."""
+    """MS MARCO fine-tuned BERT-base (dot product). Real impl, not loaded eagerly in tests.
+
+    similarity = "dot" — the checkpoint was trained with dot product on raw
+    (unnormalized) embeddings. Forcing L2-norm here reproduces -0.08 to -0.11 nDCG@10
+    below reference across NFCorpus/SciFact/FiQA; see experiments/phase3/SUMMARY.md."""
+
+    similarity = "dot"
 
     def __init__(self, device: str | None = None, model_id: str = MODEL_ID):
         from sentence_transformers import SentenceTransformer
 
-        self._name = "bert-base-nli"
+        self._name = "bert-base"
         self._embedding_dim = EMBEDDING_DIM
         self._device = pick_device(device)
         _log.info("encoder.load name=%s model_id=%s device=%s",
@@ -30,7 +36,7 @@ class BERTEncoder(Encoder):
             texts,
             batch_size=batch_size,
             convert_to_numpy=True,
-            normalize_embeddings=True,
+            normalize_embeddings=False,  # dot-trained; see Encoder.similarity
             show_progress_bar=False,
         )
         return emb.astype(np.float32, copy=False)
