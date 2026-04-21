@@ -37,7 +37,7 @@ non-transformer architectures actually sit?
 | 30%       | P3.5  | Latency profiler turned on. Batch sizes 1/8/32 timed for transformer encoders. | done |
 | 40%       | P4    | Mamba Retriever integrated. First 4-point Pareto plot. | absorbed into 55% (see 0.5.0) |
 | 55%       | P5    | LSTM + 1D-CNN + Mamba-from-scratch on MS MARCO subset. Full 6-encoder Pareto. | done |
-| 70%       | P6    | Per-query failure analysis with taxonomy. | - |
+| 70%       | P6    | Per-query failure analysis with taxonomy. | done |
 | 80%       | P7    | Attention head pruning for retrieval specifically (not LM). | - |
 | 90%       | P8    | Token-position shuffle. Position sensitivity per architecture. | - |
 | 100%      | P9    | 5 to 7 page opinionated technical note, arXiv-ready. | - |
@@ -162,21 +162,26 @@ vitruvius/
 |   |-- analysis/              # error analysis / pruning / position probes (Phases 6-8)
 |   `-- utils/                 # logging, seed, device picker
 |-- scripts/                   # download_beir.py, download_msmarco.py, setup_pod.sh,
-|                              # generate_pareto_v2.py, phase5_summary_gen.py
+|                              # generate_pareto_v2.py, phase5_summary_gen.py,
+|                              # phase6_{analysis,label_taxonomy,failure_examples,promote_figures}.py
 |-- tests/                     # smoke, metrics, encoder interface
+|-- analysis/                  # failure_taxonomy.md + failure_examples.md (Phase 6)
 |-- experiments/
 |   |-- phase2/                # 10% milestone: MiniLM × NFCorpus reproduction
 |   |-- phase3/                # 20% milestone: 3×3 encoder × BEIR accuracy sweep
 |   |-- phase3_5/              # 30% milestone: latency profile
 |   |-- phase5/                # 55% milestone: from-scratch LSTM/CNN/Mamba training
 |   |                          # + bench + latency (absorbs deferred Phase 4)
+|   |-- phase6/                # 70% milestone: per-query failure analysis artifacts
+|   |                          # (query_frame.parquet, pivots, Spearman, cross-encoder sets)
 |   |-- session_02/            # session-level report + pod_commits bundle
-|   `-- session_03/            # session-level report + pod_commits bundle + full log
+|   |-- session_03/            # session-level report + pod_commits bundle + full log
+|   `-- session_04/            # session-level report + Phase 6 bundle (local)
 |-- notes/                     # mamba_install_attempt_01.md (Phase 4 deferral context),
 |                              # mamba_install_attempt_02.md (Phase 5 mamba-ssm install)
-|-- figures/                   # pareto_v2.{png,pdf,_caption.md} (6-point Pareto);
-|                              # per-file .png/.pdf otherwise gitignored
-`-- notebooks/                 # walkthroughs (initial scaffold)
+|-- figures/                   # pareto_v2, failure_by_architecture, query_length_vs_ndcg
+|                              # (each .png/.pdf/_caption.md, otherwise gitignored)
+`-- notebooks/                 # 02_phase6_failure_analysis.{py,ipynb}
 ```
 
 ## Platform notes

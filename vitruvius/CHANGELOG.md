@@ -3,6 +3,85 @@
 All notable changes to Project Vitruvius are documented here. Versioning follows
 the milestone tiers in the project roadmap (0.1.0 = Phase 1, 0.2.0 = Phase 2, …).
 
+## [0.6.0] — 2026-04-21 — Phase 6: 70% milestone (per-query failure analysis)
+
+First analysis-heavy phase. No new encoders, no new bench runs, no GPU —
+purely downstream of the 18 bench JSONs preserved by Phases 3 and 5. Built
+a long-form 7,626-row query-level DataFrame, computed per-query failure
+grids, Spearman rank agreement across encoders, and cross-encoder
+wins/losses sets. Labeled 470 distinct failing queries with an
+eight-category failure taxonomy and produced the reviewer-facing
+`SUMMARY.md` plus six curated failure examples.
+
+### Added
+
+- `vitruvius/src/vitruvius/analysis/error_analysis.py` — replaces the
+  Phase 1 stub with `load_query_frame`, `decode_parquet_columns`,
+  `discover_cells`, plus the `ENCODER_FAMILY` map and
+  `FAILURE_THRESHOLD` / `SUCCESS_THRESHOLD` constants.
+- `scripts/phase6_analysis.py` — builds `query_frame.parquet`, zero-nDCG
+  rate grid, Spearman matrices, pairwise disagreement counts, query-
+  length bins, cross-encoder sets, and the sampled-qids file used for
+  manual labeling (seed 1729).
+- `scripts/phase6_label_taxonomy.py` — rule-based labeler plus hand-
+  curated `DOMAIN_LEXICON` per dataset. Emits `labeled_queries.csv`,
+  `failure_pivot.csv` / `failure_pivot_matrix.csv`, and
+  `analysis/failure_taxonomy.md`.
+- `scripts/phase6_failure_examples.py` — curates six characteristic
+  failure examples into `analysis/failure_examples.md`.
+- `scripts/phase6_promote_figures.py` — top-line figures
+  `figures/failure_by_architecture.{png,pdf}` (two-panel heatmap) and
+  `figures/query_length_vs_ndcg.{png,pdf}` (per-dataset line plot) with
+  companion `*_caption.md` files.
+- `notebooks/02_phase6_failure_analysis.{py,ipynb}` — reproducible
+  executed notebook, built from the `.py` source via jupytext.
+- `experiments/phase6/SUMMARY.md` and `experiments/phase6/README.md` —
+  reviewer-facing writeup and methodology.
+- `experiments/phase6/{query_frame.parquet, zero_ndcg_rates.{csv,md},
+  failure_rates_0p1.csv, spearman_*.csv, disagreement_*.csv,
+  length_bins.csv, length_quartile_bounds.csv, cross_encoder_sets/*.json,
+  cross_encoder_summary.csv, failure_pivot*.csv, sampled_qids.json,
+  labeled_queries.csv, figures/}` — full analysis artifact set.
+
+### Findings
+
+- **Zero-nDCG@10 rates on BEIR out-of-distribution** span 14%
+  (gte-small × scifact) to 90.4% (conv-retriever × fiqa). Transformer
+  baseline is not zero even on scifact.
+- **Transformer-gap queries** (any pre-trained transformer succeeds, all
+  three from-scratch fail): 38 on nfcorpus, 91 on scifact, 235 on fiqa
+  — 30–36% of the two harder test sets is where pre-training's value
+  concentrates.
+- **Universal-loss queries** (all 6 encoders fail at nDCG@10 < 0.1):
+  85 on nfcorpus, 32 on scifact, 152 on fiqa — bounds what any dense-
+  retrieval architecture change can recover.
+- **Spearman ρ** between CNN and the best transformer on FiQA drops to
+  0.24, confirming that on long natural-language questions the family
+  choice affects *what* gets retrieved, not just *how well*.
+- **Length-vs-nDCG plot** confirms the Session 03 receptive-field
+  hypothesis: `conv-retriever` mean nDCG@10 drops from 0.04 on FiQA Q1
+  to 0.02 on FiQA Q4 (17+ WordPiece tokens); transformers are flat.
+- **Unique wins by architecture**: 127 across transformers, 19 across
+  from-scratch encoders (sum across the 3 datasets at SUCCESS_THRESHOLD
+  > 0.3). The "route hard queries to the big model, easy ones to the
+  small" deployment hypothesis from Session 03 §6.1 is not supported.
+
+### Changed
+
+- `.gitignore` — whitelist the two new Phase 6 figures so they are
+  tracked alongside `pareto_v2.{png,pdf}`.
+
+### Limitations disclosed
+
+- Single-labeler taxonomy; no inter-annotator agreement.
+- Failure threshold `nDCG@10 < 0.1` is a choice (documented in
+  `SUMMARY.md`). The parquet frame allows recomputation at any
+  threshold.
+- No corpus reload → PARAPHRASE / AMBIGUOUS / MULTI-HOP categories
+  are out of scope; 14% of the labeled sample is `UNCATEGORIZED` and
+  plausibly includes those patterns.
+- 3 BEIR subsets only; wider BEIR generalization unverified.
+
 ## [0.5.0] — 2026-04-19 — Phase 5: 55% milestone (absorbs deferred Phase 4)
 
 Three non-transformer bi-encoders (BiLSTM, 1D-CNN, Mamba2) trained from
