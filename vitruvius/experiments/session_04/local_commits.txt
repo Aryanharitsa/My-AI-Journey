@@ -1,0 +1,8 @@
+44da09d chore(vitruvius): session_04 bundle + SESSION_04_REPORT.md
+db67194 chore(vitruvius): CHANGELOG [0.6.0] + README roadmap 70% → done
+80d630f feat(vitruvius/notebooks): 02_phase6_failure_analysis.ipynb (executed)
+c3f71c3 feat(vitruvius/figures): Phase 6 — failure_by_architecture + query_length_vs_ndcg
+949a161 feat(vitruvius/analysis): failure_taxonomy.md + failure_examples.md
+c4e37fe feat(vitruvius/experiments): Phase 6 — query frame + pivots + SUMMARY + README
+c96ed32 feat(vitruvius/scripts): add Phase 6 analysis + labeling + examples + figure drivers
+425d675 feat(vitruvius/analysis): replace Phase 1 error_analysis stub with load_query_frame
