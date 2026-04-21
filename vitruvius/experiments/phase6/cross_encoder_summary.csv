@@ -1,0 +1,4 @@
+,universal_wins,universal_losses,transformer_gap,unique_minilm-l6-v2,unique_bert-base,unique_gte-small,unique_lstm-retriever,unique_conv-retriever,unique_mamba-retriever-fs
+nfcorpus,45,85,38,4,10,12,2,1,6
+scifact,62,32,91,5,3,14,0,0,1
+fiqa,19,152,235,22,21,36,4,1,4

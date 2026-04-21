@@ -1,0 +1,7 @@
+,minilm-l6-v2,bert-base,gte-small,lstm-retriever,conv-retriever,mamba-retriever-fs
+minilm-l6-v2,1.000,0.870,0.907,0.723,0.607,0.731
+bert-base,0.870,1.000,0.883,0.742,0.641,0.770
+gte-small,0.907,0.883,1.000,0.696,0.582,0.723
+lstm-retriever,0.723,0.742,0.696,1.000,0.752,0.858
+conv-retriever,0.607,0.641,0.582,0.752,1.000,0.763
+mamba-retriever-fs,0.731,0.770,0.723,0.858,0.763,1.000

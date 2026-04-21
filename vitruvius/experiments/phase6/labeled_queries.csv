@@ -1,0 +1,1117 @@
+encoder,encoder_family,dataset,query_id,query_text,query_length_tokens,nDCG@10,primary_label,labels
+conv-retriever,convolutional,fiqa,10136,How to minimise the risk of a reduction in purchase power in case of Brexit for money held in a bank account?,26.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,10152,What does a high operating margin but a small but positive ROE imply about a company?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,10447,Is there an advantage to a traditional but non-deductable IRA over a taxable account? [duplicate],23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,10482,Rollover into bond fund to do dollar cost averaging [duplicate],13.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+conv-retriever,convolutional,fiqa,10547,How much do brokerages pay exchanges per trade?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,10639,Short term parking of a large inheritance?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,10674,How to sell a stock in a crashing market?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,10710,Probablity of touching In the money vs expiring in the money for an american option,20.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,1074,How common is “pass-through” health insurance?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,10808,What are a few sites that make it easy to invest in high interest rate mutual funds?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,10827,How much should I be contributing to my 401k given my employer's contribution?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,10845,"Rationale behind using 12, 26 and 9 to calculate MACD",13.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,11088,Am I required to have a lawyer create / oversee creation of my will?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,1159,what is the best way to do a freelancing job over the summer for a student,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,1198,What are the consequences of IRS “reclassification” on both employer and employee?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,1230,How does Walmart account their expired food,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,1310,Is is possible to take a mortgage using Bitcoin as collateral?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,1322,Is this follow-up after a car crash a potential scam?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,1670,Investing in hemp producers in advance of possible legalization in Canada?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,1736,How can people have such high credit card debts?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,18,1 EIN doing business under multiple business names,8.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,1815,Rules for SEP contributions in an LLC?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,1871,Is there any US bank that does not charge for incoming wire transfers?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+conv-retriever,convolutional,fiqa,1915,Should I pay a company who failed to collect VAT from me over 6 months ago?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,2075,Are stories of turning a few thousands into millions by trading stocks real?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2204,What's an economic explanation for why greeting cards are so expensive?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2264,Personal Tax Return software for Linux?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2334,How do you determine “excess cash” for Enterprise Value calculations from a balance sheet?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2400,Will I be paid dividends if I own shares?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,2407,How long to wait after getting a mortgage to increase my credit limit?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,2443,What are some way to transfer money from Hong Kong to India on a monthly basis?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2498,How do I calculate tax liability on the turnover of a small vendor?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2580,Stock market vs. baseball card trading analogy,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,2713,Physical Checks - Mailing,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,fiqa,2856,How can I cash out a check internationally?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2923,Should I give to charity by check or credit card?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,2994,Work on the side for my wife's company,10.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,3085,How long can I convert 401(k) to Roth 401(k)?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,3115,How can I live outside of the rat race of American life with 300k?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,3369,Why should one only contribute up to the employer's match in a 401(k)?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,34,401k Transfer After Business Closure,6.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,3405,Non Resident aliens - Question of standard vs itemized,10.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,3451,Should you keep your stocks if you are too late to sell?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,3490,Tax Witholding for Stock Sale,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,3500,Why invest in becoming a landlord?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,3503,Is there any instance where less leverage will get you a better return on a rental property?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,3512,"As an employee, when is it inappropriate to request to see your young/startup company's financial statements?",22.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,3530,How to exclude stock from mutual fund,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,3566,"Where can I buy stocks if I only want to invest a little bit at a time, and not really be involved in trading?",26.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NEGATION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,3569,Funds in closed bank account have gone to the government,10.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,3615,My previous and current employers both use Fidelity for 401(k). Does it make sense to rollover?,22.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,3735,Shorting Stocks And Margin Account Minimum,7.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,3759,Simplifying money management,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,fiqa,3767,What should I be doing to protect myself from identity theft?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,3875,Does freedom to provide services allow me contracting in Germany without paying taxes there (but in my home EU country)?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NEGATION
+conv-retriever,convolutional,fiqa,4011,How can I deal with a spouse who compulsively spends?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4031,28 years old and just inherited large amount of money and real estate - unsure what to do with it,20.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,4037,How separate individual expenses from family expenses in Gnucash?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4047,Does doing your “research”/“homework” on stocks make any sense?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4102,How can I determine if my rate of return is “good” for the market I am in?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4153,How do I invest in emerging markets,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4205,How and why does the exchange rate of a currency change almost everyday?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,4415,How much is inflation?,5.0,0.0,LEN-SHORT,LEN-SHORT|NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4500,What to ask Warren Buffet at the Berkshire Hathaway shareholder meeting?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4504,what is the best way of investment which gives returns forever?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4571,"HSBC Hong Kong's “Deposit Plus” Product: What is it, and what strategies to employ?",22.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,4678,"Finance, Cash or Lease?",6.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4756,What is the formula for the Tesla Finance calculation?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4767,New car: buy with cash or 0% financing,10.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,4777,How to finance necessary repairs to our home in order to sell it?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4827,Are all financial advisors compensated in the same way?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,4845,What is the difference between fund and portfolio?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,4999,Looking for a good source for Financial Statements,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,5021,"Is there a more flexible stock chart service, e.g. permitting choice of colours when comparing multiple stocks?",22.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,5030,Why pay for end-of-day historical prices?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,5083,Co-signer deceased,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,fiqa,5086,Mortgage loan implications when tearing down existing house and building new one?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,5343,“International credit report” for French nationals?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,5380,"Can somebody explain “leveraged debt investment positions” and “exposures” in this context for me, please?",23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,5402,Is it impossible to get a home loan with a poor credit history after a divorce?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,5422,"What are some good books for learning stocks, bonds, derivatives e.t.c for beginner with a math background?",25.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,5464,Resources on Buying Rental Properties,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,fiqa,5511,Pay off car loan entirely or leave $1 until the end of the loan period?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,5534,How does “taking over payments” work?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,5616,How and where do companies publish financial reports?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,5646,Do I need multiple credit monitoring services?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,5741,Learning investing and the stock market,6.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,5808,How do you calculate return on investment for a share of stock?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,585,Following an investment guru a good idea?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,5853,Paying Off Principal of Home vs. Investing In Mutual Fund,11.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,5862,Can I get a discount on merchandise by paying with cash instead of credit?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,5906,0% APR first 12 months on new credit card. Can I exceed that 30% rule of thumb and not hurt my credit score?,27.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|NEGATION|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,6004,Put-Call parity - what is the difference between the two representations?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,6005,Why might it be advisable to keep student debt vs. paying it off quickly?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,6122,Better to rent condo to daughter or put her on title?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,6199,How can all these countries owe so much money?  Why & where did they borrow it from?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,6221,"To pay off a student loan, should I save up a lump sum payoff payment or pay extra each month?",23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,6252,"Is this mortgage advice good, or is it hooey?",13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,6410,Will an ETF immediately reflect a reconstitution of underlying index,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,6479,Trading on exchanges or via brokerage companies?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,6611,How does Vanguard determine the optimal asset allocation for their Target Retirement Funds?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,6612,"If I have a lot of debt and the housing market is rising, should I rent and slowly pay off my debt or buy and roll the debt into a mortgage?",33.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,6625,What does a high theta mean for an option position?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,6792,Where to find the full book of outstanding bids/asks for a stock?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,7017,Basic Algorithmic Trading Strategy,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,fiqa,7178,Should an ADR that is being delisted be sold off?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,7345,What do these numbers mean? (futures),9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,7431,Pay off mortgage or invest in high value saving account,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+conv-retriever,convolutional,fiqa,7441,"Since many brokers disallow investors from shorting sub-$5 stocks, why don't all companies split their stock until it is sub-$5",33.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|NEGATION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,7448,"If an index goes up because an underlying company issues more shares, what happens to the ETF",19.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,7456,What is market order's relation to bid ask spread?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,7513,Where are Bogleheadian World ETFs or Index funds?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,7533,Investing tax (savings),5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,fiqa,7622,Best way to pay off debt?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,766,Will the ex-homeowner still owe money after a foreclosure?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,7823,Retirement Funds: Betterment vs Vanguard Life strategy vs Target Retirement,12.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,7876,Why do stocks split?,5.0,0.0,LEN-SHORT,LEN-SHORT|NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8002,What is the tax treatment of scrip dividends in the UK?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,8005,Difference between Vanguard sp500 UCITS and Vanguard sp500,11.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,8017,Purchasing ETFs when (pretty much) everything else is maxed out,14.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+conv-retriever,convolutional,fiqa,8034,What is the average cost of a portfolio on a trading site?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,8079,Growth rate plus dividend yieid total?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,8121,Can I calculate stock value with Williams%R if I know the last set?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8275,Buy/Selling prices at the stock exchange represent someone Selling/Buying at that price?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8507,When to sell a stock?,6.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8513,Buy on dip when earnings fail?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+conv-retriever,convolutional,fiqa,852,Dalbar: How can the average investor lose money?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8539,Can the risk of investing in an asset be different for different investors?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,859,"Any reason to keep around my account with my old, 'big' bank?",16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,8635,Is there any flaw in this investment scheme?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8779,How does a defined contribution plan work,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8832,Is it possible to buy commodity ETFs (e.g. silver) through Questrade?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,8834,Pros/Cons of Buying Discounted Company Stock,11.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,89,How can I deposit a check made out to my business into my personal account?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8959,How is the opening-day price of a stock decided?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8974,"As a 22-year-old, how risky should I be with my 401(k) investments?",21.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,90,Filing personal with 1099s versus business s-corp?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,9088,Brokerage account for charity,5.0,0.0,LEN-SHORT,LEN-SHORT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,9164,Bonds vs equities: crash theory,8.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,9245,Stock Options for a company bought out in cash and stock,11.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,9291,Are there any consequences for investing in Vanguard's Admiral Shares funds instead of ETF's in a Roth IRA?,24.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,932,Is freelance income earned by a U.S. citizen while living abroad subject to state income tax?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,9487,Is a public company allowed to issue new shares below market price without consulting shareholders?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+conv-retriever,convolutional,fiqa,957,How can I withdraw money from my LLC?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,9633,Video recommendation for stock market education,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,9668,Do stock option prices predicate the underlying stock's movement?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,9701,How to bet against the London housing market?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,9737,Long(100%)-Short(-100%) investment explanation,14.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,9771,Is there any emprical research done on 'adding to a loser',15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,9925,What does Chapter 11 Bankruptcy mean to an investor holding shares of a Chapter 11 Company?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,1021,Rapid up-regulation and higher basal expression of interferon-induced genes reduce survival of granule cell neurons that are infected by West Nile virus.,30.0,0.0,LEN-LONG,LEN-LONG|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,1024,Recurrent mutations occur frequently within CTCF anchor sites adjacent to oncogenes.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,1049,Ribosomopathies have a low degree of cell and tissue specific pathology.,16.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,1099,Statins decrease blood cholesterol.,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,1100,Statins increase blood cholesterol.,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,1107,Subcutaneous fat depots undergo extensive browning processes after cold exposure.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,1110,Suboptimal nutrition is not predictive of chronic disease,12.0,0.0,NEGATION,NEGATION
+lstm-retriever,recurrent,scifact,1132,TCR/CD3 microdomains are a required to induce the immunologic synapse to activate T cells.,26.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,1187,The YAP1 and TEAD complex tanslocates into the nucleus where it interacts with transcription factors and DNA-binding proteins that modulate target gene transcription.,34.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,1191,The amount of publicly available DNA data doubles every 10 years.,12.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,1194,The arm density of TatAd complexes is due to structural rearrangements within Class1 TatAd complexes such as the 'charge zipper mechanism'.,30.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,1196,The availability of safe places to study is effective at decreasing homelessness.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,1199,The benefits of colchicine were achieved with effective widespread use of secondary prevention strategies such as high-dose statins.,24.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,1202,The center of the granuloma in an immune cell induces a pro-inflammatory immune response.,20.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,1204,The combination of H3K4me3 and H3K79me2 is found in quiescent hair follicle stem cells.,30.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,1207,The composition of myosin-II isoform switches from the polarizable B isoform to the more homogenous A isoform during hematopoietic differentiation.,36.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,1213,The deregulated and prolonged activation of monocytes has deleterious effects in inflammatory diseases.,19.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,1221,The genomic aberrations found in matasteses are very similar to those found in the primary tumor.,22.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,1225,The locus rs647161 is associated with colorectal carcinoma.,17.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,1226,"The loss of the TET protein functions may have dire biological consequences, such as myeloid cancers.",21.0,0.0,LEN-LONG,LEN-LONG|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,1241,The myocardial lineage develops from cardiac progenitors of mesodermal origin.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,127,Arginine 90 in p150n is important for interaction with EB1.,18.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,1272,The single flash-evoked ERG b-wave is generated by activity of ON-bipolar cells.,21.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,1279,The treatment of cancer patients with co-IR blockade precipitates adverse autoimmune events.,21.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,1280,"The ureABIEFGH gene cluster encodes urease maturation proteins : UreD/UreH, UreE, UreF, and UreG.",32.0,0.0,LEN-LONG,LEN-LONG|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,1281,The ureABIEFGH gene cluster is induced by nickel (II) ion.,17.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,scifact,1290,There is an inverse relationship between hip fractures and statin use.,13.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,13,5% of perinatal mortality is due to low birth weight.,14.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,1337,Ubiquitin ligase UBC13 generates a K63-linked polyubiquitin moiety at PCNA K164.,30.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,1339,Ultrasound guidance significantly raises the number of traumatic procedures when attempting needle insertion.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,1362,Venules have a larger lumen diameter than arterioles.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,137,Asymptomatic visual impairment screening in elderly populations does not lead to improved vision.,18.0,0.0,NEGATION,NEGATION
+lstm-retriever,recurrent,scifact,1370,Vitamin D deficiency is unrelated to birth weight.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,1385,cSMAC formation enhances weak ligand signalling.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,198,CCL19 is absent within dLNs.,9.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,237,Cells lacking clpC have a defect in sporulation efficiency in Bacillus subtilis.,20.0,0.0,NEGATION,NEGATION
+lstm-retriever,recurrent,scifact,238,Cells undergoing methionine restriction may activate miRNAs.,12.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,269,Cold exposure reduces BAT recruitment.,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,295,Crosstalk between dendritic cells (DCs) and innate lymphoid cells (ILCs) is important in the regulation of intestinal homeostasis.,34.0,0.0,LEN-LONG,LEN-LONG|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,3,"1,000 genomes project enables mapping of genetic sequence variation consisting of rare variants with larger penetrance effects than common variants.",26.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,303,DMRT1 is a sex-determining gene that is epigenetically regulated by the MHM region.,23.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,312,De novo assembly of sequence data has more specific contigs than unassembled sequence data.,19.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,314,Deamination of cytidine to uridine on the minus strand of viral DNA results in catastrophic G-to-A mutations in the viral genome.,32.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,324,Deleting Raptor reduces G-CSF levels.,12.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,36,A deficiency of vitamin B12 increases blood levels of homocysteine.,15.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,384,Epidemiological disease burden from noncommunicable diseases is more prevalent in low economic settings.,21.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,386,Errors in peripheral IV drug administration are most common during bolus administration and multiple-step medicine preparations.,20.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,439,Fz/PCP-dependent Pk localizes to the anterior membrane of neuroectoderm cells during zebrafish neuralation,27.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,440,Fz/PCP-dependent Pk localizes to the anterior membrane of notochord cells during zebrafish neuralation.,26.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,452,Gene expression does not vary appreciably across genetically identical cells.,14.0,0.0,NEGATION,NEGATION|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,478,Golli-deficient T-cells prefer to differentiate into an anergic phenotype in the adaptive immune response when there are increased levels of Ca2+ in the cytosol.,39.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,48,"A total of 1,000 people in the UK are asymptomatic carriers of vCJD infection.",23.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,5,1/2000 in UK have abnormal PrP positivity.,13.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,501,Headaches are not correlated with cognitive impairment.,9.0,0.0,NEGATION,NEGATION
+lstm-retriever,recurrent,scifact,507,Helminths interfere with immune system control of macrophages activated by IL-4 favor Mycobacterium tuberculosis replication.,26.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,513,High cardiopulmonary fitness causes increased mortality rate.,13.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,517,High levels of copeptin decrease risk of diabetes.,11.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,521,High-sensitivity cardiac troponin T (HSCT-T) dosage may not be diagnostic if the onset of symptoms occurs less than 3 hours before acute myocardial injury (AMI).,41.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|NEGATION
+lstm-retriever,recurrent,scifact,528,Human T-lymphotropic virus type-I-associated myelopathy / tropical spastic paraparesis (HAM/TSP) patients produce Immunoglobulin G (IgG) antibodies which cross-react with an immunodominant epitope in Tax.,62.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,536,Hypocretin neurones induce panicprone state in rats.,16.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,549,IRG1 has antiviral effects against neurotropic viruses.,15.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,551,ITAM phosphorylation prevents the transfer of the T cell receptor (TCR) signal from the echo-domain to the cytoplasmic tail of the T cell receptor (TCR).,42.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,560,Immune responses result in the development of inflammatory Th17 cells and anti-inflammatory iTregs.,19.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,569,"In adult tissue, most T cells are memory T cells.",12.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,577,"In mice, P. chabaudi parasites are able to proliferate faster early in infection when inoculated at lower numbers than when inoculated at high numbers.",35.0,0.0,LEN-LONG,LEN-LONG|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,587,"In transgenic mice harboring green florescent protein under the control of the Sox2 promoter, less than ten percent of the cells with green florescent colocalize with cell proliferation markers.",39.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,619,Increased vessel density along with a reduction in fibrosis decreases the efficacy of chemotherapy treatments.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,623,Individuals with low serum vitamin D concentrations have increased risk of multiple sclerosis.,16.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,628,Infection of human T-cell lymphotropic virus type 1 is most frequent in individuals of African origin.,24.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,636,"Inositol lipid 3-phosphatase PTEN converts Ptdlns(3,4)P 2 into phosphatidylinositol 4-phosphate.",38.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,637,Input from  mental and physical health care professionals is effective at decreasing homelessness.,15.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,649,Integrating classroom-based collaborative learning with Web-based collaborative learning leads to subpar class performance,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,659,Ivermectin is used to treat lymphatic filariasis.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,684,Lack of clpC does not affect sporulation efficiency in Bacillus subtilis cells.,20.0,0.0,NEGATION,NEGATION
+lstm-retriever,recurrent,scifact,702,Localization of PIN1 in the roots of Arabidopsis does not require VPS9a,19.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|NEGATION
+lstm-retriever,recurrent,scifact,715,Low expression of miR7a does represses target genes and exerts a biological function in ovaries.,23.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,716,Low expression of miR7a exerts a biological function in testis.,16.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,718,Low nucleosome occupancy correlates with low methylation levels across species.,20.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,scifact,72,Activator-inhibitor pairs are provided dorsally by Admpchordin.,17.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,721,Lupus-prone mice infected with curliproducing bacteria have higher autoantibody titers compared to controls.,26.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,727,Ly6C hi monocytes have a lower inflammatory capacity compared to their Ly6C lo counterparts.,22.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,768,Mercaptopurine is anabolized into the inactive methylmercaptopurine by thiopurine methyltrasnferase (TPMT).,35.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,783,Mice without IFN-γ or its receptor are resistant to EAM induced with α-MyHC/CFA.,23.0,0.0,LEN-LONG,LEN-LONG|NEGATION
+lstm-retriever,recurrent,scifact,785,Microarray results from culture-amplified mixtures of serotypes correlate poorly with microarray results from uncultured mixtures.,30.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,808,Most termination events in Okazaki fragments are sequence specific.,12.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,820,N-terminal cleavage increases success identifying transcription start sites.,11.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,scifact,821,N-terminal cleavage reduces success identifying transcription start sites.,11.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,scifact,830,NF2 (Merlin) causes phosphorylation and subsequent cytoplasmic sequestration of YAP in Drosophila by activating LATS1/2 kinases.,39.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,831,NF2 (Merlin) prevents phosphorylation and subsequent cytoplasmic sequestration of YAP in Drosophila.,29.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,834,NOX2-independent pathways can generate peroxynitrite by reacting with nitrogen intermediates.,20.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,837,NR5A2 is important in development of endometrial tissues.,15.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,847,New drugs for tuberculosis often do not penetrate the necrotic portion of a tuberculosis lesion in high concentrations.,22.0,0.0,LEN-LONG,LEN-LONG|NEGATION|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,852,Non-invasive ventilation use should be decreased if there is inadequate response to conventional treatment.,17.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,859,Normal expression of RUNX1 has tumor-promoting effects.,12.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,873,Obesity is determined solely by environmental factors.,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,911,PKG-la plays an essential role in expression of pain hypersensitivity in PGK-la knockout mice.,25.0,0.0,LEN-LONG,LEN-LONG
+lstm-retriever,recurrent,scifact,914,PPAR-RXRs can be activated by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,957,Podocytes are motile and migrate in the presence of injury.,13.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,985,Pseudogene PTENP1 regulates the expression of PTEN by functioning as an miRNA decoy.,22.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|DOMAIN-TERM
+lstm-retriever,recurrent,scifact,99,Alizarin forms hydrogen bonds with residues involved in PGAM1 substrate binding.,16.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,fiqa,10039,Do individual investors use Google to obtain stock quotes?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,10601,Bitcoin Cost Basis Purchases,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,10710,Probablity of touching In the money vs expiring in the money for an american option,20.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,10975,How to contribute to Roth IRA when income is at the maximum limit & you have employer-sponsored 401k plans?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,10994,Net loss not distributed by mutual funds to their shareholders?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+lstm-retriever,recurrent,fiqa,1159,what is the best way to do a freelancing job over the summer for a student,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,1284,Tax consequences when foreign currency changes in value,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,1306,"I made an investment with a company that contacted me, was it safe?",15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,1391,How is taxation for youtube/twitch etc monetization handled in the UK?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,1451,"How do you find an ethical, honest independent insurance broker in Canada?",14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,1783,Freelancing Tax implication,5.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,fiqa,1824,Is there a way to open a U.S. bank account for my LLC remotely?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,2010,Paypal website donations without being a charity,8.0,0.0,NEGATION,NEGATION
+lstm-retriever,recurrent,fiqa,2108,Can I pay taxes using bill pay from my on-line checking account?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,2181,What are the risks & rewards of being a self-employed independent contractor / consultant vs. being a permanent employee?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,2296,How does a bank make money on an interest free secured loan?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,2388,Do financial advisors get better deals on mortgages?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,2513,How does revenue shared with someone else go into my tax return in Canada?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,2579,What to do when a job offer is made but with a salary less than what was asked for?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,2590,Are non-residents or foreigners permitted to buy or own shares of UK companies?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,2593,Am I “cheating the system” by opening up a tiny account with a credit union and then immediately applying for a huge loan?,26.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,2885,Merits of buying apartment houses and renting them,9.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,3115,How can I live outside of the rat race of American life with 300k?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+lstm-retriever,recurrent,fiqa,3148,Can a car company refuse to give me a copy of my contract or balance details?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,3189,Diversify my retirement investments with a Roth IRA,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,3404,"In US, is it a good idea to hire a tax consultant for doing taxes?",17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,3569,Funds in closed bank account have gone to the government,10.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,3694,Has anyone created a documentary about folks who fail to save enough for retirement?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+lstm-retriever,recurrent,fiqa,3767,What should I be doing to protect myself from identity theft?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,3771,Best way to buy Japanese yen for travel?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,3822,How to change a large quantity of U.S. dollars into Euros?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,3888,Why I can't view my debit card pre-authorized amounts?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+lstm-retriever,recurrent,fiqa,3909,How to rescue my money from negative interest?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4007,What is a reasonable salary for the owner and sole member of a small S-Corp?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,4084,What industries soar when oil prices go up?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4415,How much is inflation?,5.0,0.0,LEN-SHORT,LEN-SHORT|NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4484,Has the likelihood of getting a lower interest rate by calling & asking been reduced by recent credit card regulations?,21.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,4539,How should I save money if the real interest rate (after inflation) is negative?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4571,"HSBC Hong Kong's “Deposit Plus” Product: What is it, and what strategies to employ?",22.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,4640,What can my relatives do to minimize their out of pocket expenses on their fathers estate,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,475,Do I need a new EIN since I am hiring employees for my LLC?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4756,What is the formula for the Tesla Finance calculation?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4775,Should I finance a car to build credit for a mortgage next year?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,4777,How to finance necessary repairs to our home in order to sell it?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4813,Dealer Financing Fell Through on vehicle purchase: Scam?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4962,Net Cash Flows from Selling the Bond and Investing,9.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,4981,Where can I find open source portfolio management software?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,504,Have plenty of cash flow but bad credit,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,5064,How much should a graduate student attempt to save?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5067,LLC: Where should the funds for initial startup costs come from?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5085,What is vested stock and yearly dividends?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,5134,Why does Yahoo Finance's data for a Vanguard fund's dividend per share not match the info from Vanguard?,24.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NEGATION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,5185,Invest in low cost small cap index funds when saving towards retirement?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5228,How does the bank/IRS know whether a bank transfer over $14k is a gift or loan repayment?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY
+lstm-retriever,recurrent,fiqa,529,Sole proprietorship or LLC?,6.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5343,“International credit report” for French nationals?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,5356,Historical stock prices: Where to find free / low cost data for offline analysis?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5380,"Can somebody explain “leveraged debt investment positions” and “exposures” in this context for me, please?",23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,5460,Paying off a loan with a loan to get a better interest rate,13.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,5511,Pay off car loan entirely or leave $1 until the end of the loan period?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+lstm-retriever,recurrent,fiqa,585,Following an investment guru a good idea?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5940,How does investment into a private company work?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6009,Why can low volume move a stock price drastically?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6142,How does stabilization work during an IPO?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,6146,Lost credit card replaced with new card and new numbers. Credit score affected?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,6252,"Is this mortgage advice good, or is it hooey?",13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,6467,Advice on strategy for when to sell,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,6625,What does a high theta mean for an option position?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6629,Tax treatment of a boxed trade?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6635,Why don't share prices of a company rise every other Friday when the company buys shares for its own employees?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NEGATION
+lstm-retriever,recurrent,fiqa,6644,How to know precisely when a SWIFT is issued by a bank?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6647,What is meant by “priced in”?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6715,What does it mean if “IPOs - normally are sold with an `underwriting discount` (a built in commission)”,26.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6862,Canada discount stock brokers: Interactive Brokers vs. Questrade?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6891,What is the theory behind Rick Van Ness's risk calculation in the video about diversification?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,6959,What is the term for the quantity (high price minus low price) for a stock?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,7080,Wash sale rule with dividend reinvestment,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,7096,What's the formula for profits and losses when I delta hedge?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,7105,What is the difference between fixed-income duration and equity duration?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,7279,"If I invest in securities denominated in a foreign currency, should I hedge my currency risk?",20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,7311,"Finance, Social Capital IPOA.U",8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,7377,What type of returns Vanguard is quoting?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,7445,IS it the wrong time to get into the equity market immediately after large gains?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,7512,understanding the process/payment of short sale dividends,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,7758,Bid/ask spreads for index funds,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,7992,What type of pension should I get?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,813,Income Tax and Investments,4.0,0.0,LEN-SHORT,LEN-SHORT|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,8247,Tax on Stocks or ETF's,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,8332,Why do put option prices go higher when the underlying stock tanks (drops)?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,852,Dalbar: How can the average investor lose money?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,8537,What is an “Options Account”?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,8544,Strategies to recover from a bad short-term call options purchase where the underlying dropped instead?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,9060,Buying puts without owning underlying,5.0,0.0,LEN-SHORT,LEN-SHORT|NEGATION
+lstm-retriever,recurrent,fiqa,9115,Why does the calculation for percentage profit vary based on whether a position is short vs. long?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,9329,Interactive Brokers: IOPTS and list of structured products,11.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,9381,Trade? Buy and hold? Or both?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,9385,Meaning of reinvestment,5.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,fiqa,9598,How do index funds actually work?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,9771,Is there any emprical research done on 'adding to a loser',15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,9925,What does Chapter 11 Bankruptcy mean to an investor holding shares of a Chapter 11 Company?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,1,0-dimensional biomaterials show inductive properties.,13.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,100,All hematopoietic stem cells segregate their chromosomes randomly.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1024,Recurrent mutations occur frequently within CTCF anchor sites adjacent to oncogenes.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1099,Statins decrease blood cholesterol.,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1110,Suboptimal nutrition is not predictive of chronic disease,12.0,0.0,NEGATION,NEGATION
+mamba-retriever-fs,ssm,scifact,1140,Taking 400mg of α-tocopheryl acetate helps to prevent prostate cancer.,18.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,1175,The PPR MDA5 has two N-terminal CARD domains.,14.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,1187,The YAP1 and TEAD complex tanslocates into the nucleus where it interacts with transcription factors and DNA-binding proteins that modulate target gene transcription.,34.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,1196,The availability of safe places to study is effective at decreasing homelessness.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1197,The availability of safe places to study is not effective at decreasing homelessness.,15.0,0.0,NEGATION,NEGATION
+mamba-retriever-fs,ssm,scifact,1199,The benefits of colchicine were achieved with effective widespread use of secondary prevention strategies such as high-dose statins.,24.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,1207,The composition of myosin-II isoform switches from the polarizable B isoform to the more homogenous A isoform during hematopoietic differentiation.,36.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,1213,The deregulated and prolonged activation of monocytes has deleterious effects in inflammatory diseases.,19.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,1221,The genomic aberrations found in matasteses are very similar to those found in the primary tumor.,22.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,1225,The locus rs647161 is associated with colorectal carcinoma.,17.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,1226,"The loss of the TET protein functions may have dire biological consequences, such as myeloid cancers.",21.0,0.0,LEN-LONG,LEN-LONG|MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,1241,The myocardial lineage develops from cardiac progenitors of mesodermal origin.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1245,The one-child policy has been successful in lowering population growth.,13.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1266,"The risk of breast cancer among parous women increases with placental weight of pregnancies, and this association is strongest for premenopausal breast cancer.",33.0,0.0,LEN-LONG,LEN-LONG|MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,127,Arginine 90 in p150n is important for interaction with EB1.,18.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,1270,The risk of male prisoners harming themselves is ten times that of female prisoners.,16.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1272,The single flash-evoked ERG b-wave is generated by activity of ON-bipolar cells.,21.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,1278,The treatment of cancer patients with co-IR blockade does not cause any adverse autoimmune events.,21.0,0.0,LEN-LONG,LEN-LONG|NEGATION
+mamba-retriever-fs,ssm,scifact,1279,The treatment of cancer patients with co-IR blockade precipitates adverse autoimmune events.,21.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,128,Arterioles have a larger lumen diameter than venules.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1292,There is no association between HNF4A mutations and diabetes risks.,15.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|NEGATION|MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,1316,Transferred UCB T cells acquire a memory-like phenotype in recipients.,16.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,132,Aspirin inhibits the production of PGE2.,12.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,1332,Tumor necrosis factor alpha (TNF-α) and interleukin-1 (IL-1) are pro-inflammatory cytokines that inhibit IL-6 and IL-10.,40.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,1339,Ultrasound guidance significantly raises the number of traumatic procedures when attempting needle insertion.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1352,Upregulation of mosGCTL-1 is induced upon infection with West Nile virus.,20.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,1368,Vitamin D deficiency effects the term of delivery.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,137,Asymptomatic visual impairment screening in elderly populations does not lead to improved vision.,18.0,0.0,NEGATION,NEGATION
+mamba-retriever-fs,ssm,scifact,1370,Vitamin D deficiency is unrelated to birth weight.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1382,aPKCz causes tumour enhancement by affecting glutamine metabolism.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1385,cSMAC formation enhances weak ligand signalling.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,183,Bone marrow cells contribute to adult macrophage compartments.,11.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,185,Breast cancer development is determined exclusively by genetic factors.,10.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,198,CCL19 is absent within dLNs.,9.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,212,CR is associated with higher methylation age.,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,213,CRP is not predictive of postoperative mortality following Coronary Artery Bypass Graft (CABG) surgery.,24.0,0.0,LEN-LONG,LEN-LONG|NEGATION
+mamba-retriever-fs,ssm,scifact,239,Cellular aging closely links to an older appearance.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,294,Crossover hot spots are not found within gene promoters in Saccharomyces cerevisiae.,20.0,0.0,NEGATION,NEGATION|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,303,DMRT1 is a sex-determining gene that is epigenetically regulated by the MHM region.,23.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,314,Deamination of cytidine to uridine on the minus strand of viral DNA results in catastrophic G-to-A mutations in the viral genome.,32.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,324,Deleting Raptor reduces G-CSF levels.,12.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,327,Deletion of αvβ8 does not result in a spontaneous inflammatory phenotype.,19.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|NEGATION
+mamba-retriever-fs,ssm,scifact,384,Epidemiological disease burden from noncommunicable diseases is more prevalent in low economic settings.,21.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,415,Female carriers of the Apolipoprotein E4 (APOE4) allele have increased risk for dementia.,24.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,421,Flexible molecules experience greater steric hindrance in the tumor microenviroment than rigid molecules.,20.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,440,Fz/PCP-dependent Pk localizes to the anterior membrane of notochord cells during zebrafish neuralation.,26.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,475,Glycolysis is one of the primary glycometabolic pathways in cells.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,478,Golli-deficient T-cells prefer to differentiate into an anergic phenotype in the adaptive immune response when there are increased levels of Ca2+ in the cytosol.,39.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,491,HNF4A mutations can cause diabetes in mutant carriers by the age of 14 years,18.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,501,Headaches are not correlated with cognitive impairment.,9.0,0.0,NEGATION,NEGATION
+mamba-retriever-fs,ssm,scifact,502,"Healthcare delivery efficiency in crowded delivery centers is impaired by improving structural, logistical, and interpersonal elements.",20.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,507,Helminths interfere with immune system control of macrophages activated by IL-4 favor Mycobacterium tuberculosis replication.,26.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,508,Hematopoietic Stem Cell purification reaches purity rate of up to 50%.,17.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,513,High cardiopulmonary fitness causes increased mortality rate.,13.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,514,High dietary calcium intakes are unnecessary for prevention of secondary hyperparathyroidism in subjects with 25(OH)D levels above 75 nmol/liter.,32.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,521,High-sensitivity cardiac troponin T (HSCT-T) dosage may not be diagnostic if the onset of symptoms occurs less than 3 hours before acute myocardial injury (AMI).,41.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|NEGATION
+mamba-retriever-fs,ssm,scifact,528,Human T-lymphotropic virus type-I-associated myelopathy / tropical spastic paraparesis (HAM/TSP) patients produce Immunoglobulin G (IgG) antibodies which cross-react with an immunodominant epitope in Tax.,62.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,53,ALDH1 expression is associated with poorer prognosis in breast cancer.,15.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,536,Hypocretin neurones induce panicprone state in rats.,16.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,54,AMP-activated protein kinase (AMPK) activation increases inflammation-related fibrosis in the lungs.,21.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,560,Immune responses result in the development of inflammatory Th17 cells and anti-inflammatory iTregs.,19.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,569,"In adult tissue, most T cells are memory T cells.",12.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,587,"In transgenic mice harboring green florescent protein under the control of the Sox2 promoter, less than ten percent of the cells with green florescent colocalize with cell proliferation markers.",39.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,619,Increased vessel density along with a reduction in fibrosis decreases the efficacy of chemotherapy treatments.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,623,Individuals with low serum vitamin D concentrations have increased risk of multiple sclerosis.,16.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,628,Infection of human T-cell lymphotropic virus type 1 is most frequent in individuals of African origin.,24.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,636,"Inositol lipid 3-phosphatase PTEN converts Ptdlns(3,4)P 2 into phosphatidylinositol 4-phosphate.",38.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,649,Integrating classroom-based collaborative learning with Web-based collaborative learning leads to subpar class performance,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,660,Ivermectin is used to treat onchocerciasis.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,690,Less than 10% of the gabonese children with Schimmelpenning-Feuerstein-Mims syndrome (SFM) had a plasma lactate of more than 5mmol/L.,41.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,691,Leukemia associated Rho guanine nucleotide-exchange factor represses RhoA in response to SRC activation.,25.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,700,Localization of PIN1 in the Arabidopsis embryo does not require VPS9a,18.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|NEGATION
+mamba-retriever-fs,ssm,scifact,702,Localization of PIN1 in the roots of Arabidopsis does not require VPS9a,19.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|NEGATION
+mamba-retriever-fs,ssm,scifact,718,Low nucleosome occupancy correlates with low methylation levels across species.,20.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,721,Lupus-prone mice infected with curliproducing bacteria have higher autoantibody titers compared to controls.,26.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,727,Ly6C hi monocytes have a lower inflammatory capacity compared to their Ly6C lo counterparts.,22.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,768,Mercaptopurine is anabolized into the inactive methylmercaptopurine by thiopurine methyltrasnferase (TPMT).,35.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,775,Mice defective for deoxyribonucleic acid (DNA) polymerase I (polI) reveal increased sensitivity to ionizing radiation (IR).,33.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,784,MicroRNA is involved in the regulation of Neural Stem Cell (NSC) differentiation and proliferation dynamic homeostasis,22.0,0.0,LEN-LONG,LEN-LONG|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,785,Microarray results from culture-amplified mixtures of serotypes correlate poorly with microarray results from uncultured mixtures.,30.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,808,Most termination events in Okazaki fragments are sequence specific.,12.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,821,N-terminal cleavage reduces success identifying transcription start sites.,11.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,830,NF2 (Merlin) causes phosphorylation and subsequent cytoplasmic sequestration of YAP in Drosophila by activating LATS1/2 kinases.,39.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,831,NF2 (Merlin) prevents phosphorylation and subsequent cytoplasmic sequestration of YAP in Drosophila.,29.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,834,NOX2-independent pathways can generate peroxynitrite by reacting with nitrogen intermediates.,20.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,837,NR5A2 is important in development of endometrial tissues.,15.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,845,Neutrophil extracellular traps (NETs) are released by ANCA-stimulated neutrophils.,23.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,870,Obesity decreases life quality.,5.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,scifact,887,Only a minority of cells survive development after differentiation into stress-resistant spores.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,911,PKG-la plays an essential role in expression of pain hypersensitivity in PGK-la knockout mice.,25.0,0.0,LEN-LONG,LEN-LONG
+mamba-retriever-fs,ssm,scifact,913,PPAR-RXRs are inhibited by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,936,Peroxynitrite is required for nitration of TCR/CD8.,18.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY|DOMAIN-TERM
+mamba-retriever-fs,ssm,scifact,957,Podocytes are motile and migrate in the presence of injury.,13.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,967,Pretreatment with the Arp2/3 inhibitor CK-666 affects lamelliopodia formation.,24.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,975,Primary pro-inflammatory cytokines induce secondary pro- and anti-inflammatory mediators.,18.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,10213,Looking for good investment vehicle for seasonal work and savings,10.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+bert-base,transformer,fiqa,10213,Looking for good investment vehicle for seasonal work and savings,10.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+gte-small,transformer,fiqa,10213,Looking for good investment vehicle for seasonal work and savings,10.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,10213,Looking for good investment vehicle for seasonal work and savings,10.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,10213,Looking for good investment vehicle for seasonal work and savings,10.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,10213,Looking for good investment vehicle for seasonal work and savings,10.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+minilm-l6-v2,transformer,fiqa,10547,How much do brokerages pay exchanges per trade?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,10547,How much do brokerages pay exchanges per trade?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,10547,How much do brokerages pay exchanges per trade?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,10547,How much do brokerages pay exchanges per trade?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,10547,How much do brokerages pay exchanges per trade?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,10975,How to contribute to Roth IRA when income is at the maximum limit & you have employer-sponsored 401k plans?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+bert-base,transformer,fiqa,10975,How to contribute to Roth IRA when income is at the maximum limit & you have employer-sponsored 401k plans?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+gte-small,transformer,fiqa,10975,How to contribute to Roth IRA when income is at the maximum limit & you have employer-sponsored 401k plans?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,10975,How to contribute to Roth IRA when income is at the maximum limit & you have employer-sponsored 401k plans?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,10975,How to contribute to Roth IRA when income is at the maximum limit & you have employer-sponsored 401k plans?,23.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,1159,what is the best way to do a freelancing job over the summer for a student,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,1159,what is the best way to do a freelancing job over the summer for a student,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,1159,what is the best way to do a freelancing job over the summer for a student,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,1159,what is the best way to do a freelancing job over the summer for a student,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,1812,splitting a joint mortgage - one owner in home,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+bert-base,transformer,fiqa,1812,splitting a joint mortgage - one owner in home,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+gte-small,transformer,fiqa,1812,splitting a joint mortgage - one owner in home,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,1812,splitting a joint mortgage - one owner in home,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+conv-retriever,convolutional,fiqa,1812,splitting a joint mortgage - one owner in home,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,1812,splitting a joint mortgage - one owner in home,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,3177,Vanguard ETF vs mutual fund,6.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+bert-base,transformer,fiqa,3177,Vanguard ETF vs mutual fund,6.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+gte-small,transformer,fiqa,3177,Vanguard ETF vs mutual fund,6.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,3177,Vanguard ETF vs mutual fund,6.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,3177,Vanguard ETF vs mutual fund,6.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,3177,Vanguard ETF vs mutual fund,6.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,3534,Why do dishonour fees exist?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,3534,Why do dishonour fees exist?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,3534,Why do dishonour fees exist?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,3534,Why do dishonour fees exist?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,3534,Why do dishonour fees exist?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,3534,Why do dishonour fees exist?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,3612,How can I buy and sell the same stock on the same day?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+bert-base,transformer,fiqa,3612,How can I buy and sell the same stock on the same day?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+gte-small,transformer,fiqa,3612,How can I buy and sell the same stock on the same day?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,3612,How can I buy and sell the same stock on the same day?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,3612,How can I buy and sell the same stock on the same day?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,3612,How can I buy and sell the same stock on the same day?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+minilm-l6-v2,transformer,fiqa,4153,How do I invest in emerging markets,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,4153,How do I invest in emerging markets,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,4153,How do I invest in emerging markets,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4153,How do I invest in emerging markets,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,4153,How do I invest in emerging markets,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,4433,When should you use an actively managed mutual fund in a 401k?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+bert-base,transformer,fiqa,4433,When should you use an actively managed mutual fund in a 401k?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+gte-small,transformer,fiqa,4433,When should you use an actively managed mutual fund in a 401k?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,4433,When should you use an actively managed mutual fund in a 401k?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,4433,When should you use an actively managed mutual fund in a 401k?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,4433,When should you use an actively managed mutual fund in a 401k?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,4846,Is there anything comparable to/resembling CNN's Fear and Greed Index?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+bert-base,transformer,fiqa,4846,Is there anything comparable to/resembling CNN's Fear and Greed Index?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+gte-small,transformer,fiqa,4846,Is there anything comparable to/resembling CNN's Fear and Greed Index?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,4846,Is there anything comparable to/resembling CNN's Fear and Greed Index?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,4846,Is there anything comparable to/resembling CNN's Fear and Greed Index?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,4846,Is there anything comparable to/resembling CNN's Fear and Greed Index?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+minilm-l6-v2,transformer,fiqa,4955,How to calculate the value of a bond that is priced to yield X%,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,4955,How to calculate the value of a bond that is priced to yield X%,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+gte-small,transformer,fiqa,4955,How to calculate the value of a bond that is priced to yield X%,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,4955,How to calculate the value of a bond that is priced to yield X%,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,4955,How to calculate the value of a bond that is priced to yield X%,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,4955,How to calculate the value of a bond that is priced to yield X%,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,503,Privacy preferences on creditworthiness data,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,fiqa,503,Privacy preferences on creditworthiness data,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,fiqa,503,Privacy preferences on creditworthiness data,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,503,Privacy preferences on creditworthiness data,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,503,Privacy preferences on creditworthiness data,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,fiqa,503,Privacy preferences on creditworthiness data,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,fiqa,5030,Why pay for end-of-day historical prices?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,5030,Why pay for end-of-day historical prices?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,5030,Why pay for end-of-day historical prices?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5030,Why pay for end-of-day historical prices?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,5030,Why pay for end-of-day historical prices?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,5054,How to stress test an investment plan?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,5054,How to stress test an investment plan?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,5054,How to stress test an investment plan?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5054,How to stress test an investment plan?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,5054,How to stress test an investment plan?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,5054,How to stress test an investment plan?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,5231,Where to find CSV or JSON data for publicly traded companies listed with their IPO date?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,5231,Where to find CSV or JSON data for publicly traded companies listed with their IPO date?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+gte-small,transformer,fiqa,5231,Where to find CSV or JSON data for publicly traded companies listed with their IPO date?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,5231,Where to find CSV or JSON data for publicly traded companies listed with their IPO date?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,5231,Where to find CSV or JSON data for publicly traded companies listed with their IPO date?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,5231,Where to find CSV or JSON data for publicly traded companies listed with their IPO date?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,5460,Paying off a loan with a loan to get a better interest rate,13.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,fiqa,5460,Paying off a loan with a loan to get a better interest rate,13.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,fiqa,5460,Paying off a loan with a loan to get a better interest rate,13.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,5460,Paying off a loan with a loan to get a better interest rate,13.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,fiqa,5460,Paying off a loan with a loan to get a better interest rate,13.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,fiqa,5710,Bucketing investments to track individual growths,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,fiqa,5710,Bucketing investments to track individual growths,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,fiqa,5710,Bucketing investments to track individual growths,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,fiqa,5710,Bucketing investments to track individual growths,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,5710,Bucketing investments to track individual growths,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,fiqa,5710,Bucketing investments to track individual growths,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,fiqa,6004,Put-Call parity - what is the difference between the two representations?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,6004,Put-Call parity - what is the difference between the two representations?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,6004,Put-Call parity - what is the difference between the two representations?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6004,Put-Call parity - what is the difference between the two representations?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,6004,Put-Call parity - what is the difference between the two representations?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,6395,Option settlement for calendar spreads,5.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,fiqa,6395,Option settlement for calendar spreads,5.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,fiqa,6395,Option settlement for calendar spreads,5.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,fiqa,6395,Option settlement for calendar spreads,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,fiqa,6395,Option settlement for calendar spreads,5.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,fiqa,6395,Option settlement for calendar spreads,5.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,fiqa,6410,Will an ETF immediately reflect a reconstitution of underlying index,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,6410,Will an ETF immediately reflect a reconstitution of underlying index,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+gte-small,transformer,fiqa,6410,Will an ETF immediately reflect a reconstitution of underlying index,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,6410,Will an ETF immediately reflect a reconstitution of underlying index,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,6410,Will an ETF immediately reflect a reconstitution of underlying index,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,6467,Advice on strategy for when to sell,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,fiqa,6467,Advice on strategy for when to sell,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,fiqa,6467,Advice on strategy for when to sell,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,fiqa,6467,Advice on strategy for when to sell,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,fiqa,6467,Advice on strategy for when to sell,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,fiqa,6612,"If I have a lot of debt and the housing market is rising, should I rent and slowly pay off my debt or buy and roll the debt into a mortgage?",33.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+bert-base,transformer,fiqa,6612,"If I have a lot of debt and the housing market is rising, should I rent and slowly pay off my debt or buy and roll the debt into a mortgage?",33.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+gte-small,transformer,fiqa,6612,"If I have a lot of debt and the housing market is rising, should I rent and slowly pay off my debt or buy and roll the debt into a mortgage?",33.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,6612,"If I have a lot of debt and the housing market is rising, should I rent and slowly pay off my debt or buy and roll the debt into a mortgage?",33.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,6612,"If I have a lot of debt and the housing market is rising, should I rent and slowly pay off my debt or buy and roll the debt into a mortgage?",33.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,6644,How to know precisely when a SWIFT is issued by a bank?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,6644,How to know precisely when a SWIFT is issued by a bank?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,6644,How to know precisely when a SWIFT is issued by a bank?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,6644,How to know precisely when a SWIFT is issued by a bank?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,6644,How to know precisely when a SWIFT is issued by a bank?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,672,Credit and Debit,4.0,0.0,LEN-SHORT,LEN-SHORT|MULTI-CONCEPT|DOMAIN-TERM
+bert-base,transformer,fiqa,672,Credit and Debit,4.0,0.0,LEN-SHORT,LEN-SHORT|MULTI-CONCEPT|DOMAIN-TERM
+gte-small,transformer,fiqa,672,Credit and Debit,4.0,0.0,LEN-SHORT,LEN-SHORT|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,672,Credit and Debit,4.0,0.0,LEN-SHORT,LEN-SHORT|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,672,Credit and Debit,4.0,0.0,LEN-SHORT,LEN-SHORT|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,672,Credit and Debit,4.0,0.0,LEN-SHORT,LEN-SHORT|MULTI-CONCEPT|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,6875,Where to find free Thailand stock recommendations and research?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+bert-base,transformer,fiqa,6875,Where to find free Thailand stock recommendations and research?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+gte-small,transformer,fiqa,6875,Where to find free Thailand stock recommendations and research?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,6875,Where to find free Thailand stock recommendations and research?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,6875,Where to find free Thailand stock recommendations and research?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,6875,Where to find free Thailand stock recommendations and research?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+minilm-l6-v2,transformer,fiqa,6909,Why do stocks priced above $2.00 on the ASX sometimes move in $0.005 increments?,25.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY
+bert-base,transformer,fiqa,6909,Why do stocks priced above $2.00 on the ASX sometimes move in $0.005 increments?,25.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY
+gte-small,transformer,fiqa,6909,Why do stocks priced above $2.00 on the ASX sometimes move in $0.005 increments?,25.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY
+lstm-retriever,recurrent,fiqa,6909,Why do stocks priced above $2.00 on the ASX sometimes move in $0.005 increments?,25.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,6909,Why do stocks priced above $2.00 on the ASX sometimes move in $0.005 increments?,25.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,fiqa,6909,Why do stocks priced above $2.00 on the ASX sometimes move in $0.005 increments?,25.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY
+minilm-l6-v2,transformer,fiqa,7206,Who Bought A Large Number Of Shares?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,7206,Who Bought A Large Number Of Shares?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,7206,Who Bought A Large Number Of Shares?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,7206,Who Bought A Large Number Of Shares?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,7206,Who Bought A Large Number Of Shares?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,7206,Who Bought A Large Number Of Shares?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,7295,Selling non-dividend for dividend stocks,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+bert-base,transformer,fiqa,7295,Selling non-dividend for dividend stocks,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+gte-small,transformer,fiqa,7295,Selling non-dividend for dividend stocks,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,7295,Selling non-dividend for dividend stocks,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+conv-retriever,convolutional,fiqa,7295,Selling non-dividend for dividend stocks,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,7295,Selling non-dividend for dividend stocks,9.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,7326,Do brokers execute every trade on the exchange?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,7326,Do brokers execute every trade on the exchange?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,7326,Do brokers execute every trade on the exchange?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,7326,Do brokers execute every trade on the exchange?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,7326,Do brokers execute every trade on the exchange?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,7326,Do brokers execute every trade on the exchange?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,7431,Pay off mortgage or invest in high value saving account,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+bert-base,transformer,fiqa,7431,Pay off mortgage or invest in high value saving account,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+gte-small,transformer,fiqa,7431,Pay off mortgage or invest in high value saving account,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,7431,Pay off mortgage or invest in high value saving account,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,7431,Pay off mortgage or invest in high value saving account,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,7456,What is market order's relation to bid ask spread?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,7456,What is market order's relation to bid ask spread?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,7456,What is market order's relation to bid ask spread?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,7456,What is market order's relation to bid ask spread?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,7456,What is market order's relation to bid ask spread?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,7509,Investment Portfolio Setup for beginner,6.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+bert-base,transformer,fiqa,7509,Investment Portfolio Setup for beginner,6.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+gte-small,transformer,fiqa,7509,Investment Portfolio Setup for beginner,6.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,7509,Investment Portfolio Setup for beginner,6.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+conv-retriever,convolutional,fiqa,7509,Investment Portfolio Setup for beginner,6.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,7509,Investment Portfolio Setup for beginner,6.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,7512,understanding the process/payment of short sale dividends,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+bert-base,transformer,fiqa,7512,understanding the process/payment of short sale dividends,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+gte-small,transformer,fiqa,7512,understanding the process/payment of short sale dividends,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+conv-retriever,convolutional,fiqa,7512,understanding the process/payment of short sale dividends,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,7512,understanding the process/payment of short sale dividends,10.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,7513,Where are Bogleheadian World ETFs or Index funds?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,7513,Where are Bogleheadian World ETFs or Index funds?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+gte-small,transformer,fiqa,7513,Where are Bogleheadian World ETFs or Index funds?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,7513,Where are Bogleheadian World ETFs or Index funds?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,7513,Where are Bogleheadian World ETFs or Index funds?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,7880,Are there index tracking funds that avoid the “buy high - sell low” problem?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,7880,Are there index tracking funds that avoid the “buy high - sell low” problem?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,7880,Are there index tracking funds that avoid the “buy high - sell low” problem?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,7880,Are there index tracking funds that avoid the “buy high - sell low” problem?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,7880,Are there index tracking funds that avoid the “buy high - sell low” problem?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,7880,Are there index tracking funds that avoid the “buy high - sell low” problem?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,8230,Why would this kind of penny stock increase so much in value?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,8230,Why would this kind of penny stock increase so much in value?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,8230,Why would this kind of penny stock increase so much in value?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,8230,Why would this kind of penny stock increase so much in value?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8230,Why would this kind of penny stock increase so much in value?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,8230,Why would this kind of penny stock increase so much in value?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,8513,Buy on dip when earnings fail?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+bert-base,transformer,fiqa,8513,Buy on dip when earnings fail?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+gte-small,transformer,fiqa,8513,Buy on dip when earnings fail?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+lstm-retriever,recurrent,fiqa,8513,Buy on dip when earnings fail?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+mamba-retriever-fs,ssm,fiqa,8513,Buy on dip when earnings fail?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+minilm-l6-v2,transformer,fiqa,8635,Is there any flaw in this investment scheme?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,8635,Is there any flaw in this investment scheme?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,8635,Is there any flaw in this investment scheme?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,8635,Is there any flaw in this investment scheme?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,8635,Is there any flaw in this investment scheme?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,8855,How do i get into investing stocks [duplicate],10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,8855,How do i get into investing stocks [duplicate],10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,8855,How do i get into investing stocks [duplicate],10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,8855,How do i get into investing stocks [duplicate],10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8855,How do i get into investing stocks [duplicate],10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,8855,How do i get into investing stocks [duplicate],10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,8937,“In-the-Money” vs “Out-of-the-Money” Call Options,19.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+bert-base,transformer,fiqa,8937,“In-the-Money” vs “Out-of-the-Money” Call Options,19.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+gte-small,transformer,fiqa,8937,“In-the-Money” vs “Out-of-the-Money” Call Options,19.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,8937,“In-the-Money” vs “Out-of-the-Money” Call Options,19.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,8937,“In-the-Money” vs “Out-of-the-Money” Call Options,19.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,8937,“In-the-Money” vs “Out-of-the-Money” Call Options,19.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,8982,Are Exchange-Traded Funds (ETFs) less safe than regular mutual funds?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,8982,Are Exchange-Traded Funds (ETFs) less safe than regular mutual funds?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+gte-small,transformer,fiqa,8982,Are Exchange-Traded Funds (ETFs) less safe than regular mutual funds?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,8982,Are Exchange-Traded Funds (ETFs) less safe than regular mutual funds?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,8982,Are Exchange-Traded Funds (ETFs) less safe than regular mutual funds?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,8982,Are Exchange-Traded Funds (ETFs) less safe than regular mutual funds?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,9403,Abundance of Cash - What should I do?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,9403,Abundance of Cash - What should I do?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,9403,Abundance of Cash - What should I do?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,9403,Abundance of Cash - What should I do?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,9403,Abundance of Cash - What should I do?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,9403,Abundance of Cash - What should I do?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,9548,"How do I research, analyze, and choose the right mutual fund for a roth ira?",18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+bert-base,transformer,fiqa,9548,"How do I research, analyze, and choose the right mutual fund for a roth ira?",18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+gte-small,transformer,fiqa,9548,"How do I research, analyze, and choose the right mutual fund for a roth ira?",18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,9548,"How do I research, analyze, and choose the right mutual fund for a roth ira?",18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,9548,"How do I research, analyze, and choose the right mutual fund for a roth ira?",18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,9548,"How do I research, analyze, and choose the right mutual fund for a roth ira?",18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,9701,How to bet against the London housing market?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,9701,How to bet against the London housing market?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,9701,How to bet against the London housing market?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,9701,How to bet against the London housing market?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,9701,How to bet against the London housing market?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,nfcorpus,PLAIN-1008,deafness,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1008,deafness,2.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-1008,deafness,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-1008,deafness,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1008,deafness,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-1008,deafness,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-1214,Fosamax,3.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1214,Fosamax,3.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-1214,Fosamax,3.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-1214,Fosamax,3.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1214,Fosamax,3.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-1214,Fosamax,3.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-1309,halibut,3.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1309,halibut,3.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-1309,halibut,3.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-1309,halibut,3.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1309,halibut,3.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-1309,halibut,3.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-1656,mouth cancer,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1656,mouth cancer,2.0,0.085143,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-1656,mouth cancer,2.0,0.063621,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-1656,mouth cancer,2.0,0.078398,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1656,mouth cancer,2.0,0.073364,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-1656,mouth cancer,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-1784,oxen meat,3.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1784,oxen meat,3.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-1784,oxen meat,3.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-1784,oxen meat,3.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1784,oxen meat,3.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-1784,oxen meat,3.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-1972,quinine,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1972,quinine,2.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-1972,quinine,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-1972,quinine,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1972,quinine,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-1972,quinine,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-1995,red tea,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1995,red tea,2.0,0.085143,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-1995,red tea,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-1995,red tea,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1995,red tea,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-1995,red tea,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-2019,rickets,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-2019,rickets,2.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-2019,rickets,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-2019,rickets,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-2019,rickets,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2019,rickets,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-2113,soil health,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-2113,soil health,2.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-2113,soil health,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-2113,soil health,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-2113,soil health,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2113,soil health,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-2145,St. John's wort,7.0,0.090928,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,nfcorpus,PLAIN-2145,St. John's wort,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,nfcorpus,PLAIN-2145,St. John's wort,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,nfcorpus,PLAIN-2145,St. John's wort,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,nfcorpus,PLAIN-2145,St. John's wort,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2145,St. John's wort,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,nfcorpus,PLAIN-2167,subsidies,1.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-2167,subsidies,1.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-2167,subsidies,1.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-2167,subsidies,1.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-2167,subsidies,1.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2167,subsidies,1.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-2311,veal,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-2311,veal,2.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-2311,veal,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-2311,veal,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-2311,veal,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2311,veal,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-2321,veggie chicken,4.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-2321,veggie chicken,4.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-2321,veggie chicken,4.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-2321,veggie chicken,4.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-2321,veggie chicken,4.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2321,veggie chicken,4.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-2920,Human Neurotransmitters in Plants,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,nfcorpus,PLAIN-2920,Human Neurotransmitters in Plants,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,nfcorpus,PLAIN-2920,Human Neurotransmitters in Plants,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,nfcorpus,PLAIN-2920,Human Neurotransmitters in Plants,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,nfcorpus,PLAIN-2920,Human Neurotransmitters in Plants,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2920,Human Neurotransmitters in Plants,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,nfcorpus,PLAIN-3211,Overdosing on Greens,5.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-3211,Overdosing on Greens,5.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-3211,Overdosing on Greens,5.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-3211,Overdosing on Greens,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-3211,Overdosing on Greens,5.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-3211,Overdosing on Greens,5.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-3221,Dietary Theory of Alzheimer's,6.0,0.065817,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,nfcorpus,PLAIN-3221,Dietary Theory of Alzheimer's,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,nfcorpus,PLAIN-3221,Dietary Theory of Alzheimer's,6.0,0.054436,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,nfcorpus,PLAIN-3221,Dietary Theory of Alzheimer's,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,nfcorpus,PLAIN-3221,Dietary Theory of Alzheimer's,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-3221,Dietary Theory of Alzheimer's,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,nfcorpus,PLAIN-358,Didn't another study show carnitine was good for the heart?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,nfcorpus,PLAIN-358,Didn't another study show carnitine was good for the heart?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,nfcorpus,PLAIN-358,Didn't another study show carnitine was good for the heart?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,nfcorpus,PLAIN-358,Didn't another study show carnitine was good for the heart?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,nfcorpus,PLAIN-358,Didn't another study show carnitine was good for the heart?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-358,Didn't another study show carnitine was good for the heart?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,nfcorpus,PLAIN-457,How can you believe in any scientific study?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,nfcorpus,PLAIN-457,How can you believe in any scientific study?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,nfcorpus,PLAIN-457,How can you believe in any scientific study?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,nfcorpus,PLAIN-457,How can you believe in any scientific study?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,nfcorpus,PLAIN-457,How can you believe in any scientific study?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-457,How can you believe in any scientific study?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,nfcorpus,PLAIN-520,Alli,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-520,Alli,2.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-520,Alli,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-520,Alli,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-520,Alli,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-520,Alli,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-583,antinutrients,4.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-583,antinutrients,4.0,0.078398,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-583,antinutrients,4.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-583,antinutrients,4.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-583,antinutrients,4.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-583,antinutrients,4.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-603,Arkansas,1.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-603,Arkansas,1.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-603,Arkansas,1.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-603,Arkansas,1.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-603,Arkansas,1.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-603,Arkansas,1.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-782,Bush administration,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-782,Bush administration,2.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-782,Bush administration,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-782,Bush administration,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-782,Bush administration,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-782,Bush administration,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-817,canker sores,4.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-817,canker sores,4.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-817,canker sores,4.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-817,canker sores,4.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-817,canker sores,4.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-817,canker sores,4.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-987,cumin,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-987,cumin,2.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-987,cumin,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-987,cumin,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-987,cumin,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-987,cumin,2.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,nfcorpus,PLAIN-997,Czechoslovakia,1.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-997,Czechoslovakia,1.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-997,Czechoslovakia,1.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-997,Czechoslovakia,1.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-997,Czechoslovakia,1.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-997,Czechoslovakia,1.0,0.0,LEN-SHORT,LEN-SHORT
+minilm-l6-v2,transformer,scifact,1024,Recurrent mutations occur frequently within CTCF anchor sites adjacent to oncogenes.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,scifact,1024,Recurrent mutations occur frequently within CTCF anchor sites adjacent to oncogenes.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,scifact,1024,Recurrent mutations occur frequently within CTCF anchor sites adjacent to oncogenes.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,scifact,1024,Recurrent mutations occur frequently within CTCF anchor sites adjacent to oncogenes.,18.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,scifact,1272,The single flash-evoked ERG b-wave is generated by activity of ON-bipolar cells.,21.0,0.0,LEN-LONG,LEN-LONG
+bert-base,transformer,scifact,1272,The single flash-evoked ERG b-wave is generated by activity of ON-bipolar cells.,21.0,0.0,LEN-LONG,LEN-LONG
+gte-small,transformer,scifact,1272,The single flash-evoked ERG b-wave is generated by activity of ON-bipolar cells.,21.0,0.0,LEN-LONG,LEN-LONG
+conv-retriever,convolutional,scifact,1272,The single flash-evoked ERG b-wave is generated by activity of ON-bipolar cells.,21.0,0.0,LEN-LONG,LEN-LONG
+minilm-l6-v2,transformer,scifact,1362,Venules have a larger lumen diameter than arterioles.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,scifact,1362,Venules have a larger lumen diameter than arterioles.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,scifact,1362,Venules have a larger lumen diameter than arterioles.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,scifact,1362,Venules have a larger lumen diameter than arterioles.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,1362,Venules have a larger lumen diameter than arterioles.,14.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,scifact,502,"Healthcare delivery efficiency in crowded delivery centers is impaired by improving structural, logistical, and interpersonal elements.",20.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+bert-base,transformer,scifact,502,"Healthcare delivery efficiency in crowded delivery centers is impaired by improving structural, logistical, and interpersonal elements.",20.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+gte-small,transformer,scifact,502,"Healthcare delivery efficiency in crowded delivery centers is impaired by improving structural, logistical, and interpersonal elements.",20.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+lstm-retriever,recurrent,scifact,502,"Healthcare delivery efficiency in crowded delivery centers is impaired by improving structural, logistical, and interpersonal elements.",20.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+conv-retriever,convolutional,scifact,502,"Healthcare delivery efficiency in crowded delivery centers is impaired by improving structural, logistical, and interpersonal elements.",20.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+minilm-l6-v2,transformer,scifact,831,NF2 (Merlin) prevents phosphorylation and subsequent cytoplasmic sequestration of YAP in Drosophila.,29.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+bert-base,transformer,scifact,831,NF2 (Merlin) prevents phosphorylation and subsequent cytoplasmic sequestration of YAP in Drosophila.,29.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+gte-small,transformer,scifact,831,NF2 (Merlin) prevents phosphorylation and subsequent cytoplasmic sequestration of YAP in Drosophila.,29.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,scifact,831,NF2 (Merlin) prevents phosphorylation and subsequent cytoplasmic sequestration of YAP in Drosophila.,29.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|MULTI-CONCEPT|DOMAIN-TERM
+gte-small,transformer,fiqa,10034,Tax implications of holding EWU (or other such UK ETFs) as a US citizen?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,10034,Tax implications of holding EWU (or other such UK ETFs) as a US citizen?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,10034,Tax implications of holding EWU (or other such UK ETFs) as a US citizen?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,10034,Tax implications of holding EWU (or other such UK ETFs) as a US citizen?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,1310,Is is possible to take a mortgage using Bitcoin as collateral?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+gte-small,transformer,fiqa,1310,Is is possible to take a mortgage using Bitcoin as collateral?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,1310,Is is possible to take a mortgage using Bitcoin as collateral?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,1310,Is is possible to take a mortgage using Bitcoin as collateral?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,1391,How is taxation for youtube/twitch etc monetization handled in the UK?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,1391,How is taxation for youtube/twitch etc monetization handled in the UK?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,1391,How is taxation for youtube/twitch etc monetization handled in the UK?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2108,Can I pay taxes using bill pay from my on-line checking account?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,2108,Can I pay taxes using bill pay from my on-line checking account?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,2118,What happened in Argentina in 2001 bank sector? did the banks closed? all or some?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+bert-base,transformer,fiqa,2118,What happened in Argentina in 2001 bank sector? did the banks closed? all or some?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+lstm-retriever,recurrent,fiqa,2118,What happened in Argentina in 2001 bank sector? did the banks closed? all or some?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,2118,What happened in Argentina in 2001 bank sector? did the banks closed? all or some?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,fiqa,2118,What happened in Argentina in 2001 bank sector? did the banks closed? all or some?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,2296,How does a bank make money on an interest free secured loan?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,2395,Freelance site with lowest commission fees?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,2395,Freelance site with lowest commission fees?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,2395,Freelance site with lowest commission fees?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2395,Freelance site with lowest commission fees?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,2395,Freelance site with lowest commission fees?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,2579,What to do when a job offer is made but with a salary less than what was asked for?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,2579,What to do when a job offer is made but with a salary less than what was asked for?,20.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,2593,Am I “cheating the system” by opening up a tiny account with a credit union and then immediately applying for a huge loan?,26.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,2593,Am I “cheating the system” by opening up a tiny account with a credit union and then immediately applying for a huge loan?,26.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,2593,Am I “cheating the system” by opening up a tiny account with a credit union and then immediately applying for a huge loan?,26.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|MULTI-CONCEPT|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,3615,My previous and current employers both use Fidelity for 401(k). Does it make sense to rollover?,22.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,3615,My previous and current employers both use Fidelity for 401(k). Does it make sense to rollover?,22.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,3615,My previous and current employers both use Fidelity for 401(k). Does it make sense to rollover?,22.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|NUMERIC-ENTITY|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,3625,What should I do with my paper financial documents?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,3625,What should I do with my paper financial documents?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,3625,What should I do with my paper financial documents?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,3909,How to rescue my money from negative interest?,9.0,0.073364,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,3909,How to rescue my money from negative interest?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,3909,How to rescue my money from negative interest?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,3932,How do historically low interest rates affect real estate prices?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,3932,How do historically low interest rates affect real estate prices?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,3934,Should market based health insurance premiums be factored into 6 months emergency fund savings?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+lstm-retriever,recurrent,fiqa,3934,Should market based health insurance premiums be factored into 6 months emergency fund savings?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+conv-retriever,convolutional,fiqa,3934,Should market based health insurance premiums be factored into 6 months emergency fund savings?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,fiqa,3934,Should market based health insurance premiums be factored into 6 months emergency fund savings?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY
+bert-base,transformer,fiqa,4205,How and why does the exchange rate of a currency change almost everyday?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,4205,How and why does the exchange rate of a currency change almost everyday?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,4205,How and why does the exchange rate of a currency change almost everyday?,14.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+minilm-l6-v2,transformer,fiqa,4414,Do high interest rates lead to higher bond yields or lower?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,4414,Do high interest rates lead to higher bond yields or lower?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,4414,Do high interest rates lead to higher bond yields or lower?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,4414,Do high interest rates lead to higher bond yields or lower?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,4414,Do high interest rates lead to higher bond yields or lower?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,4447,Should I always hold short term bonds till maturity?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+gte-small,transformer,fiqa,4447,Should I always hold short term bonds till maturity?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,4447,Should I always hold short term bonds till maturity?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,4447,Should I always hold short term bonds till maturity?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,4447,Should I always hold short term bonds till maturity?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,4465,How to donate to charity that will make a difference?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,4465,How to donate to charity that will make a difference?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,4465,How to donate to charity that will make a difference?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,4465,How to donate to charity that will make a difference?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,4465,How to donate to charity that will make a difference?,11.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,5067,LLC: Where should the funds for initial startup costs come from?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,5067,LLC: Where should the funds for initial startup costs come from?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,5067,LLC: Where should the funds for initial startup costs come from?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,5067,LLC: Where should the funds for initial startup costs come from?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,5172,does interest payment on loan stay the same if I pay early,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,5172,does interest payment on loan stay the same if I pay early,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,5172,does interest payment on loan stay the same if I pay early,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,5356,Historical stock prices: Where to find free / low cost data for offline analysis?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,5356,Historical stock prices: Where to find free / low cost data for offline analysis?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,5534,How does “taking over payments” work?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5534,How does “taking over payments” work?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,5534,How does “taking over payments” work?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,5585,Is there any site you can find out about the 'bonus features' of credit cards?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,5585,Is there any site you can find out about the 'bonus features' of credit cards?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,5585,Is there any site you can find out about the 'bonus features' of credit cards?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,5585,Is there any site you can find out about the 'bonus features' of credit cards?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,5585,Is there any site you can find out about the 'bonus features' of credit cards?,18.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,5616,How and where do companies publish financial reports?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+gte-small,transformer,fiqa,5616,How and where do companies publish financial reports?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,5616,How and where do companies publish financial reports?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,5616,How and where do companies publish financial reports?,9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,5763,What is the best way to get a “rough” home appraisal prior to starting the refinance process?,24.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,5763,What is the best way to get a “rough” home appraisal prior to starting the refinance process?,24.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,5763,What is the best way to get a “rough” home appraisal prior to starting the refinance process?,24.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,5808,How do you calculate return on investment for a share of stock?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,5808,How do you calculate return on investment for a share of stock?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5808,How do you calculate return on investment for a share of stock?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,5808,How do you calculate return on investment for a share of stock?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,5853,Paying Off Principal of Home vs. Investing In Mutual Fund,11.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,fiqa,5853,Paying Off Principal of Home vs. Investing In Mutual Fund,11.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,fiqa,6668,Approximate IT company valuation (to proximate stock options value),13.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+gte-small,transformer,fiqa,6668,Approximate IT company valuation (to proximate stock options value),13.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+conv-retriever,convolutional,fiqa,6668,Approximate IT company valuation (to proximate stock options value),13.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,6668,Approximate IT company valuation (to proximate stock options value),13.0,0.0,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,6867,Will there always be somebody selling/buying in every stock?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,6867,Will there always be somebody selling/buying in every stock?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,6867,Will there always be somebody selling/buying in every stock?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,6890,Where does the money go when I buy stocks?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,6890,Where does the money go when I buy stocks?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,6890,Where does the money go when I buy stocks?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,6890,Where does the money go when I buy stocks?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,6891,What is the theory behind Rick Van Ness's risk calculation in the video about diversification?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,6891,What is the theory behind Rick Van Ness's risk calculation in the video about diversification?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,6891,What is the theory behind Rick Van Ness's risk calculation in the video about diversification?,19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+bert-base,transformer,fiqa,7269,How do I track investment performance in Quicken across rollovers?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,7269,How do I track investment performance in Quicken across rollovers?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,7269,How do I track investment performance in Quicken across rollovers?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,7269,How do I track investment performance in Quicken across rollovers?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,7269,How do I track investment performance in Quicken across rollovers?,13.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,7345,What do these numbers mean? (futures),9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,7345,What do these numbers mean? (futures),9.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,7441,"Since many brokers disallow investors from shorting sub-$5 stocks, why don't all companies split their stock until it is sub-$5",33.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|NEGATION|MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,7441,"Since many brokers disallow investors from shorting sub-$5 stocks, why don't all companies split their stock until it is sub-$5",33.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY|NEGATION|MULTI-CONCEPT
+conv-retriever,convolutional,fiqa,776,"Can saving/investing 15% of your income starting age 25, likely make you a millionaire?",19.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,7823,Retirement Funds: Betterment vs Vanguard Life strategy vs Target Retirement,12.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,7823,Retirement Funds: Betterment vs Vanguard Life strategy vs Target Retirement,12.0,0.0,MULTI-CONCEPT,MULTI-CONCEPT
+gte-small,transformer,fiqa,810,Can I open a bank account in the US remotely? Will I pay taxes for the money on it?,21.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,810,Can I open a bank account in the US remotely? Will I pay taxes for the money on it?,21.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,810,Can I open a bank account in the US remotely? Will I pay taxes for the money on it?,21.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,810,Can I open a bank account in the US remotely? Will I pay taxes for the money on it?,21.0,0.0,LEN-LONG,LEN-LONG|NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,8275,Buy/Selling prices at the stock exchange represent someone Selling/Buying at that price?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,8275,Buy/Selling prices at the stock exchange represent someone Selling/Buying at that price?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,8275,Buy/Selling prices at the stock exchange represent someone Selling/Buying at that price?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,8275,Buy/Selling prices at the stock exchange represent someone Selling/Buying at that price?,17.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,8378,Should I wait a few days to sell ESPP Stock?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,8378,Should I wait a few days to sell ESPP Stock?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,8378,Should I wait a few days to sell ESPP Stock?,12.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,8532,What do these options trading terms mean?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,8532,What do these options trading terms mean?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+mamba-retriever-fs,ssm,fiqa,8532,What do these options trading terms mean?,8.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|DOMAIN-TERM
+minilm-l6-v2,transformer,fiqa,859,"Any reason to keep around my account with my old, 'big' bank?",16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+bert-base,transformer,fiqa,859,"Any reason to keep around my account with my old, 'big' bank?",16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+lstm-retriever,recurrent,fiqa,859,"Any reason to keep around my account with my old, 'big' bank?",16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+mamba-retriever-fs,ssm,fiqa,859,"Any reason to keep around my account with my old, 'big' bank?",16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|MULTI-CONCEPT
+bert-base,transformer,fiqa,9487,Is a public company allowed to issue new shares below market price without consulting shareholders?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+gte-small,transformer,fiqa,9487,Is a public company allowed to issue new shares below market price without consulting shareholders?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+lstm-retriever,recurrent,fiqa,9487,Is a public company allowed to issue new shares below market price without consulting shareholders?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+mamba-retriever-fs,ssm,fiqa,9487,Is a public company allowed to issue new shares below market price without consulting shareholders?,16.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NEGATION
+minilm-l6-v2,transformer,fiqa,9598,How do index funds actually work?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+gte-small,transformer,fiqa,9598,How do index funds actually work?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,9598,How do index funds actually work?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,9598,How do index funds actually work?,7.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,9633,Video recommendation for stock market education,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,fiqa,9633,Video recommendation for stock market education,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,fiqa,9643,Is there any public data available to determine an ETF's holdings?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+bert-base,transformer,fiqa,9643,Is there any public data available to determine an ETF's holdings?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,fiqa,9643,Is there any public data available to determine an ETF's holdings?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,fiqa,9643,Is there any public data available to determine an ETF's holdings?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,fiqa,9643,Is there any public data available to determine an ETF's holdings?,15.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,fiqa,9961,Employer rollover from 403b to 401k?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+bert-base,transformer,fiqa,9961,Employer rollover from 403b to 401k?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+gte-small,transformer,fiqa,9961,Employer rollover from 403b to 401k?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+lstm-retriever,recurrent,fiqa,9961,Employer rollover from 403b to 401k?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+conv-retriever,convolutional,fiqa,9961,Employer rollover from 403b to 401k?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION|NUMERIC-ENTITY|DOMAIN-TERM
+minilm-l6-v2,transformer,nfcorpus,PLAIN-1028,dietary scoring,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1028,dietary scoring,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-1028,dietary scoring,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1028,dietary scoring,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-1028,dietary scoring,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1172,fenugreek,4.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-133,Starving Tumors of Their Blood Supply,6.0,0.095781,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,nfcorpus,PLAIN-133,Starving Tumors of Their Blood Supply,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,nfcorpus,PLAIN-133,Starving Tumors of Their Blood Supply,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-133,Starving Tumors of Their Blood Supply,6.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,nfcorpus,PLAIN-1374,hormonal dysfunction,4.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1374,hormonal dysfunction,4.0,0.0,LEN-SHORT,LEN-SHORT
+gte-small,transformer,nfcorpus,PLAIN-1374,hormonal dysfunction,4.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-1463,kidney beans,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1463,kidney beans,2.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-1579,mastitis,2.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-1579,mastitis,2.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-1579,mastitis,2.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-175,Diet and Cellulite,5.0,0.047891,LEN-SHORT,LEN-SHORT|MULTI-CONCEPT
+conv-retriever,convolutional,nfcorpus,PLAIN-175,Diet and Cellulite,5.0,0.0,LEN-SHORT,LEN-SHORT|MULTI-CONCEPT
+gte-small,transformer,nfcorpus,PLAIN-2220,tempeh,3.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-2220,tempeh,3.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-2220,tempeh,3.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2220,tempeh,3.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-2301,uterine health,3.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-2301,uterine health,3.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-2301,uterine health,3.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2301,uterine health,3.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-2460,Diabetes as a Disease of Fat Toxicity,7.0,0.090647,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,nfcorpus,PLAIN-2460,Diabetes as a Disease of Fat Toxicity,7.0,0.086499,DOMAIN-TERM,DOMAIN-TERM
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2460,Diabetes as a Disease of Fat Toxicity,7.0,0.030216,DOMAIN-TERM,DOMAIN-TERM
+lstm-retriever,recurrent,nfcorpus,PLAIN-2570,Diabetics Should Take Their Pulses,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,nfcorpus,PLAIN-2570,Diabetics Should Take Their Pulses,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2570,Diabetics Should Take Their Pulses,7.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,nfcorpus,PLAIN-2620,Phytates for the Treatment of Cancer,8.0,0.052836,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,nfcorpus,PLAIN-2620,Phytates for the Treatment of Cancer,8.0,0.024455,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,nfcorpus,PLAIN-2620,Phytates for the Treatment of Cancer,8.0,0.078398,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,nfcorpus,PLAIN-2620,Phytates for the Treatment of Cancer,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2620,Phytates for the Treatment of Cancer,8.0,0.085143,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,nfcorpus,PLAIN-2660,How Long to Detox From Fish Before Pregnancy?,10.0,0.085143,NATURAL-QUESTION,NATURAL-QUESTION
+lstm-retriever,recurrent,nfcorpus,PLAIN-2660,How Long to Detox From Fish Before Pregnancy?,10.0,0.0,NATURAL-QUESTION,NATURAL-QUESTION
+conv-retriever,convolutional,nfcorpus,PLAIN-2660,How Long to Detox From Fish Before Pregnancy?,10.0,0.069431,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2660,How Long to Detox From Fish Before Pregnancy?,10.0,0.085143,NATURAL-QUESTION,NATURAL-QUESTION
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-2770,Flaxseeds & Breast Cancer Survival: Clinical Evidence,11.0,0.089924,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,nfcorpus,PLAIN-3191,Is Distilled Fish Oil Toxin-Free?,10.0,0.044552,NATURAL-QUESTION,NATURAL-QUESTION
+minilm-l6-v2,transformer,nfcorpus,PLAIN-3352,Boosting Heart Nerve Control,5.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,nfcorpus,PLAIN-3352,Boosting Heart Nerve Control,5.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,nfcorpus,PLAIN-3352,Boosting Heart Nerve Control,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,nfcorpus,PLAIN-3352,Boosting Heart Nerve Control,5.0,0.0,LEN-SHORT,LEN-SHORT
+mamba-retriever-fs,ssm,nfcorpus,PLAIN-3352,Boosting Heart Nerve Control,5.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,scifact,1,0-dimensional biomaterials show inductive properties.,13.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+gte-small,transformer,scifact,1,0-dimensional biomaterials show inductive properties.,13.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,1,0-dimensional biomaterials show inductive properties.,13.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+conv-retriever,convolutional,scifact,1,0-dimensional biomaterials show inductive properties.,13.0,0.0,NUMERIC-ENTITY,NUMERIC-ENTITY
+minilm-l6-v2,transformer,scifact,239,Cellular aging closely links to an older appearance.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,scifact,239,Cellular aging closely links to an older appearance.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,239,Cellular aging closely links to an older appearance.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,scifact,239,Cellular aging closely links to an older appearance.,9.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,scifact,261,"Chronic aerobic exercise alters endothelial function, improving vasodilating mechanisms mediated by NO.",21.0,0.0,LEN-LONG,LEN-LONG|NEGATION|MULTI-CONCEPT
+mamba-retriever-fs,ssm,scifact,261,"Chronic aerobic exercise alters endothelial function, improving vasodilating mechanisms mediated by NO.",21.0,0.0,LEN-LONG,LEN-LONG|NEGATION|MULTI-CONCEPT
+minilm-l6-v2,transformer,scifact,314,Deamination of cytidine to uridine on the minus strand of viral DNA results in catastrophic G-to-A mutations in the viral genome.,32.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+bert-base,transformer,scifact,314,Deamination of cytidine to uridine on the minus strand of viral DNA results in catastrophic G-to-A mutations in the viral genome.,32.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+conv-retriever,convolutional,scifact,314,Deamination of cytidine to uridine on the minus strand of viral DNA results in catastrophic G-to-A mutations in the viral genome.,32.0,0.0,LEN-LONG,LEN-LONG|DOMAIN-TERM
+bert-base,transformer,scifact,324,Deleting Raptor reduces G-CSF levels.,12.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,scifact,324,Deleting Raptor reduces G-CSF levels.,12.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,scifact,324,Deleting Raptor reduces G-CSF levels.,12.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+minilm-l6-v2,transformer,scifact,384,Epidemiological disease burden from noncommunicable diseases is more prevalent in low economic settings.,21.0,0.0,LEN-LONG,LEN-LONG
+bert-base,transformer,scifact,384,Epidemiological disease burden from noncommunicable diseases is more prevalent in low economic settings.,21.0,0.0,LEN-LONG,LEN-LONG
+conv-retriever,convolutional,scifact,384,Epidemiological disease burden from noncommunicable diseases is more prevalent in low economic settings.,21.0,0.0,LEN-LONG,LEN-LONG
+minilm-l6-v2,transformer,scifact,431,FoxO3a activation in neuronal death is mediated by reactive oxygen species (ROS).,21.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+lstm-retriever,recurrent,scifact,431,FoxO3a activation in neuronal death is mediated by reactive oxygen species (ROS).,21.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+conv-retriever,convolutional,scifact,431,FoxO3a activation in neuronal death is mediated by reactive oxygen species (ROS).,21.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+mamba-retriever-fs,ssm,scifact,431,FoxO3a activation in neuronal death is mediated by reactive oxygen species (ROS).,21.0,0.0,LEN-LONG,LEN-LONG|NUMERIC-ENTITY
+minilm-l6-v2,transformer,scifact,870,Obesity decreases life quality.,5.0,0.0,LEN-SHORT,LEN-SHORT
+bert-base,transformer,scifact,870,Obesity decreases life quality.,5.0,0.0,LEN-SHORT,LEN-SHORT
+lstm-retriever,recurrent,scifact,870,Obesity decreases life quality.,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,scifact,870,Obesity decreases life quality.,5.0,0.0,LEN-SHORT,LEN-SHORT
+conv-retriever,convolutional,scifact,873,Obesity is determined solely by environmental factors.,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,873,Obesity is determined solely by environmental factors.,8.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,scifact,913,PPAR-RXRs are inhibited by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,scifact,913,PPAR-RXRs are inhibited by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+lstm-retriever,recurrent,scifact,913,PPAR-RXRs are inhibited by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,scifact,913,PPAR-RXRs are inhibited by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+bert-base,transformer,scifact,914,PPAR-RXRs can be activated by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+gte-small,transformer,scifact,914,PPAR-RXRs can be activated by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+conv-retriever,convolutional,scifact,914,PPAR-RXRs can be activated by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED
+mamba-retriever-fs,ssm,scifact,914,PPAR-RXRs can be activated by PPAR ligands.,15.0,0.0,UNCATEGORIZED,UNCATEGORIZED

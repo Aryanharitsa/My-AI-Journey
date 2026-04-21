@@ -1,0 +1,16 @@
+pair,a,b,both_hit,only_a,only_b,both_miss
+minilm-l6-v2 vs bert-base,minilm-l6-v2,bert-base,202,21,15,85
+minilm-l6-v2 vs gte-small,minilm-l6-v2,gte-small,211,12,16,84
+minilm-l6-v2 vs lstm-retriever,minilm-l6-v2,lstm-retriever,153,70,8,92
+minilm-l6-v2 vs conv-retriever,minilm-l6-v2,conv-retriever,125,98,9,91
+minilm-l6-v2 vs mamba-retriever-fs,minilm-l6-v2,mamba-retriever-fs,159,64,10,90
+bert-base vs gte-small,bert-base,gte-small,209,8,18,88
+bert-base vs lstm-retriever,bert-base,lstm-retriever,154,63,7,99
+bert-base vs conv-retriever,bert-base,conv-retriever,126,91,8,98
+bert-base vs mamba-retriever-fs,bert-base,mamba-retriever-fs,162,55,7,99
+gte-small vs lstm-retriever,gte-small,lstm-retriever,154,73,7,89
+gte-small vs conv-retriever,gte-small,conv-retriever,125,102,9,87
+gte-small vs mamba-retriever-fs,gte-small,mamba-retriever-fs,162,65,7,89
+lstm-retriever vs conv-retriever,lstm-retriever,conv-retriever,119,42,15,147
+lstm-retriever vs mamba-retriever-fs,lstm-retriever,mamba-retriever-fs,144,17,25,137
+conv-retriever vs mamba-retriever-fs,conv-retriever,mamba-retriever-fs,123,11,46,143

@@ -1,0 +1,7 @@
+encoder,nfcorpus,scifact,fiqa
+minilm-l6-v2,0.3560,0.2067,0.3457
+bert-base,0.3808,0.2667,0.4198
+gte-small,0.3437,0.1400,0.3364
+lstm-retriever,0.5666,0.5200,0.7901
+conv-retriever,0.6563,0.7367,0.9043
+mamba-retriever-fs,0.5139,0.4900,0.7855

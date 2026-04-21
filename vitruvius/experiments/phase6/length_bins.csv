@@ -1,0 +1,73 @@
+dataset,encoder,length_quartile,mean_ndcg,n
+nfcorpus,bert-base,Q1 (shortest),0.3093,88
+nfcorpus,bert-base,Q2,0.3190,89
+nfcorpus,bert-base,Q3,0.2927,75
+nfcorpus,bert-base,Q4 (longest),0.3491,71
+nfcorpus,conv-retriever,Q1 (shortest),0.1151,88
+nfcorpus,conv-retriever,Q2,0.1631,89
+nfcorpus,conv-retriever,Q3,0.1239,75
+nfcorpus,conv-retriever,Q4 (longest),0.1588,71
+nfcorpus,gte-small,Q1 (shortest),0.3260,88
+nfcorpus,gte-small,Q2,0.3314,89
+nfcorpus,gte-small,Q3,0.3685,75
+nfcorpus,gte-small,Q4 (longest),0.3798,71
+nfcorpus,lstm-retriever,Q1 (shortest),0.1688,88
+nfcorpus,lstm-retriever,Q2,0.2115,89
+nfcorpus,lstm-retriever,Q3,0.1844,75
+nfcorpus,lstm-retriever,Q4 (longest),0.1959,71
+nfcorpus,mamba-retriever-fs,Q1 (shortest),0.1857,88
+nfcorpus,mamba-retriever-fs,Q2,0.2248,89
+nfcorpus,mamba-retriever-fs,Q3,0.1932,75
+nfcorpus,mamba-retriever-fs,Q4 (longest),0.2314,71
+nfcorpus,minilm-l6-v2,Q1 (shortest),0.3034,88
+nfcorpus,minilm-l6-v2,Q2,0.2895,89
+nfcorpus,minilm-l6-v2,Q3,0.3381,75
+nfcorpus,minilm-l6-v2,Q4 (longest),0.3439,71
+scifact,bert-base,Q1 (shortest),0.5861,92
+scifact,bert-base,Q2,0.5607,61
+scifact,bert-base,Q3,0.6323,73
+scifact,bert-base,Q4 (longest),0.6512,74
+scifact,conv-retriever,Q1 (shortest),0.1777,92
+scifact,conv-retriever,Q2,0.2655,61
+scifact,conv-retriever,Q3,0.1500,73
+scifact,conv-retriever,Q4 (longest),0.2141,74
+scifact,gte-small,Q1 (shortest),0.7136,92
+scifact,gte-small,Q2,0.7235,61
+scifact,gte-small,Q3,0.7154,73
+scifact,gte-small,Q4 (longest),0.7577,74
+scifact,lstm-retriever,Q1 (shortest),0.3200,92
+scifact,lstm-retriever,Q2,0.3103,61
+scifact,lstm-retriever,Q3,0.3816,73
+scifact,lstm-retriever,Q4 (longest),0.4317,74
+scifact,mamba-retriever-fs,Q1 (shortest),0.3279,92
+scifact,mamba-retriever-fs,Q2,0.3296,61
+scifact,mamba-retriever-fs,Q3,0.4147,73
+scifact,mamba-retriever-fs,Q4 (longest),0.4326,74
+scifact,minilm-l6-v2,Q1 (shortest),0.5827,92
+scifact,minilm-l6-v2,Q2,0.6931,61
+scifact,minilm-l6-v2,Q3,0.6553,73
+scifact,minilm-l6-v2,Q4 (longest),0.6730,74
+fiqa,bert-base,Q1 (shortest),0.2681,208
+fiqa,bert-base,Q2,0.3828,125
+fiqa,bert-base,Q3,0.3611,176
+fiqa,bert-base,Q4 (longest),0.3025,139
+fiqa,conv-retriever,Q1 (shortest),0.0368,208
+fiqa,conv-retriever,Q2,0.0456,125
+fiqa,conv-retriever,Q3,0.0374,176
+fiqa,conv-retriever,Q4 (longest),0.0289,139
+fiqa,gte-small,Q1 (shortest),0.3184,208
+fiqa,gte-small,Q2,0.4453,125
+fiqa,gte-small,Q3,0.4302,176
+fiqa,gte-small,Q4 (longest),0.4140,139
+fiqa,lstm-retriever,Q1 (shortest),0.0648,208
+fiqa,lstm-retriever,Q2,0.1556,125
+fiqa,lstm-retriever,Q3,0.0768,176
+fiqa,lstm-retriever,Q4 (longest),0.0787,139
+fiqa,mamba-retriever-fs,Q1 (shortest),0.0695,208
+fiqa,mamba-retriever-fs,Q2,0.1137,125
+fiqa,mamba-retriever-fs,Q3,0.0892,176
+fiqa,mamba-retriever-fs,Q4 (longest),0.0831,139
+fiqa,minilm-l6-v2,Q1 (shortest),0.3007,208
+fiqa,minilm-l6-v2,Q2,0.4050,125
+fiqa,minilm-l6-v2,Q3,0.4053,176
+fiqa,minilm-l6-v2,Q4 (longest),0.3915,139
