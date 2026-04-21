@@ -1,0 +1,639 @@
+=== Cumulative rerun === 2026-04-21T17:59:49Z
+[17:59:53] INFO     cum.start minilm-l6-v2 x nfcorpus baseline=0.3165           
+                    total_heads=72                                              
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 135051.90it/s]
+           INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+/workspace/my-ai-journey/vitruvius/scripts/cumulative_pruning_sweep.py:62: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[17:59:59] INFO     Loading faiss with AVX2 support.                            
+           INFO     Successfully loaded faiss with AVX2 support.                
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:00:00] INFO     cum.point minilm-l6-v2 x nfcorpus N=0 nDCG@10=0.3165        
+                    rel_drop=0.00%                                              
+[18:00:01] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x nfcorpus N=4 nDCG@10=0.3234        
+                    rel_drop=-2.18%                                             
+[18:00:02] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x nfcorpus N=8 nDCG@10=0.3259        
+                    rel_drop=-2.97%                                             
+[18:00:03] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x nfcorpus N=16 nDCG@10=0.3167       
+                    rel_drop=-0.07%                                             
+[18:00:04] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x nfcorpus N=24 nDCG@10=0.3096       
+                    rel_drop=2.18%                                              
+[18:00:05] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x nfcorpus N=32 nDCG@10=0.3052       
+                    rel_drop=3.57%                                              
+[18:00:06] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:00:07] INFO     cum.point minilm-l6-v2 x nfcorpus N=48 nDCG@10=0.2680       
+                    rel_drop=15.32%                                             
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:00:08] INFO     cum.point minilm-l6-v2 x nfcorpus N=64 nDCG@10=0.2382       
+                    rel_drop=24.74%                                             
+[18:00:09] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x nfcorpus N=71 nDCG@10=0.1981       
+                    rel_drop=37.39%                                             
+           INFO     cum.done minilm-l6-v2 x nfcorpus 5%_at=32 10%_at=32         
+                    wall_s=10.6                                                 
+           INFO     cum.start minilm-l6-v2 x scifact baseline=0.6451            
+                    total_heads=72                                              
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 168164.10it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+/workspace/my-ai-journey/vitruvius/scripts/cumulative_pruning_sweep.py:62: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[18:00:15] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:00:16] INFO     cum.point minilm-l6-v2 x scifact N=0 nDCG@10=0.6451         
+                    rel_drop=0.00%                                              
+[18:00:17] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:00:18] INFO     cum.point minilm-l6-v2 x scifact N=4 nDCG@10=0.6441         
+                    rel_drop=0.15%                                              
+[18:00:19] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x scifact N=8 nDCG@10=0.6440         
+                    rel_drop=0.17%                                              
+[18:00:21] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x scifact N=16 nDCG@10=0.6235        
+                    rel_drop=3.34%                                              
+[18:00:22] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:00:23] INFO     cum.point minilm-l6-v2 x scifact N=24 nDCG@10=0.6287        
+                    rel_drop=2.55%                                              
+[18:00:24] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x scifact N=32 nDCG@10=0.5831        
+                    rel_drop=9.62%                                              
+[18:00:26] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x scifact N=48 nDCG@10=0.5573        
+                    rel_drop=13.60%                                             
+[18:00:27] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:00:28] INFO     cum.point minilm-l6-v2 x scifact N=64 nDCG@10=0.4799        
+                    rel_drop=25.60%                                             
+[18:00:29] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point minilm-l6-v2 x scifact N=71 nDCG@10=0.4192        
+                    rel_drop=35.02%                                             
+           INFO     cum.done minilm-l6-v2 x scifact 5%_at=24 10%_at=32          
+                    wall_s=15.3                                                 
+[18:00:30] INFO     cum.start minilm-l6-v2 x fiqa baseline=0.3687 total_heads=72
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 41%|████      | 23630/57638 [00:00<00:00, 236262.48it/s] 82%|████████▏ | 47257/57638 [00:00<00:00, 235450.81it/s]100%|██████████| 57638/57638 [00:00<00:00, 234121.05it/s]
+           INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+/workspace/my-ai-journey/vitruvius/scripts/cumulative_pruning_sweep.py:62: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[18:01:18] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:01:23] INFO     cum.point minilm-l6-v2 x fiqa N=0 nDCG@10=0.3687            
+                    rel_drop=-0.00%                                             
+[18:01:36] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:01:42] INFO     cum.point minilm-l6-v2 x fiqa N=4 nDCG@10=0.3689            
+                    rel_drop=-0.06%                                             
+[18:01:55] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:02:00] INFO     cum.point minilm-l6-v2 x fiqa N=8 nDCG@10=0.3617            
+                    rel_drop=1.89%                                              
+[18:02:13] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:02:18] INFO     cum.point minilm-l6-v2 x fiqa N=16 nDCG@10=0.3330           
+                    rel_drop=9.68%                                              
+[18:02:31] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:02:37] INFO     cum.point minilm-l6-v2 x fiqa N=24 nDCG@10=0.3127           
+                    rel_drop=15.19%                                             
+[18:02:50] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:02:55] INFO     cum.point minilm-l6-v2 x fiqa N=32 nDCG@10=0.2296           
+                    rel_drop=37.71%                                             
+[18:03:08] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:03:14] INFO     cum.point minilm-l6-v2 x fiqa N=48 nDCG@10=0.1400           
+                    rel_drop=62.02%                                             
+[18:03:27] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:03:32] INFO     cum.point minilm-l6-v2 x fiqa N=64 nDCG@10=0.0739           
+                    rel_drop=79.94%                                             
+[18:03:45] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:03:51] INFO     cum.point minilm-l6-v2 x fiqa N=71 nDCG@10=0.0844           
+                    rel_drop=77.11%                                             
+           INFO     cum.done minilm-l6-v2 x fiqa 5%_at=8 10%_at=16 wall_s=165.9 
+[18:03:52] INFO     cum.start bert-base x nfcorpus baseline=0.3174              
+                    total_heads=144                                             
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 150053.24it/s]
+           INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+/workspace/my-ai-journey/vitruvius/scripts/cumulative_pruning_sweep.py:62: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[18:04:00] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x nfcorpus N=0 nDCG@10=0.3174           
+                    rel_drop=0.00%                                              
+[18:04:05] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x nfcorpus N=4 nDCG@10=0.3199           
+                    rel_drop=-0.81%                                             
+[18:04:09] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x nfcorpus N=8 nDCG@10=0.3243           
+                    rel_drop=-2.20%                                             
+[18:04:14] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x nfcorpus N=16 nDCG@10=0.3252          
+                    rel_drop=-2.46%                                             
+[18:04:18] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x nfcorpus N=24 nDCG@10=0.3264          
+                    rel_drop=-2.85%                                             
+[18:04:22] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:04:23] INFO     cum.point bert-base x nfcorpus N=32 nDCG@10=0.3302          
+                    rel_drop=-4.05%                                             
+[18:04:27] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x nfcorpus N=48 nDCG@10=0.3278          
+                    rel_drop=-3.30%                                             
+[18:04:32] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x nfcorpus N=64 nDCG@10=0.3203          
+                    rel_drop=-0.93%                                             
+[18:04:36] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x nfcorpus N=96 nDCG@10=0.2973          
+                    rel_drop=6.31%                                              
+[18:04:40] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:04:41] INFO     cum.point bert-base x nfcorpus N=128 nDCG@10=0.2790         
+                    rel_drop=12.08%                                             
+           INFO     cum.done bert-base x nfcorpus 5%_at=64 10%_at=96 wall_s=44.8
+           INFO     cum.start bert-base x scifact baseline=0.6025               
+                    total_heads=144                                             
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 161204.54it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+/workspace/my-ai-journey/vitruvius/scripts/cumulative_pruning_sweep.py:62: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[18:04:52] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:04:53] INFO     cum.point bert-base x scifact N=0 nDCG@10=0.6025            
+                    rel_drop=-0.00%                                             
+[18:04:58] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:04:59] INFO     cum.point bert-base x scifact N=4 nDCG@10=0.6157            
+                    rel_drop=-2.19%                                             
+[18:05:05] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x scifact N=8 nDCG@10=0.6129            
+                    rel_drop=-1.72%                                             
+[18:05:11] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:05:12] INFO     cum.point bert-base x scifact N=16 nDCG@10=0.6105           
+                    rel_drop=-1.33%                                             
+[18:05:18] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x scifact N=24 nDCG@10=0.6212           
+                    rel_drop=-3.10%                                             
+[18:05:24] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:05:25] INFO     cum.point bert-base x scifact N=32 nDCG@10=0.6259           
+                    rel_drop=-3.88%                                             
+[18:05:31] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x scifact N=48 nDCG@10=0.6253           
+                    rel_drop=-3.78%                                             
+[18:05:37] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:05:38] INFO     cum.point bert-base x scifact N=64 nDCG@10=0.6057           
+                    rel_drop=-0.53%                                             
+[18:05:43] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:05:44] INFO     cum.point bert-base x scifact N=96 nDCG@10=0.5899           
+                    rel_drop=2.10%                                              
+[18:05:50] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cum.point bert-base x scifact N=128 nDCG@10=0.5456          
+                    rel_drop=9.46%                                              
+           INFO     cum.done bert-base x scifact 5%_at=96 10%_at=128 wall_s=64.2
+[18:05:51] INFO     cum.start bert-base x fiqa baseline=0.3261 total_heads=144  
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 41%|████      | 23554/57638 [00:00<00:00, 235498.11it/s] 82%|████████▏ | 47104/57638 [00:00<00:00, 232924.42it/s]100%|██████████| 57638/57638 [00:00<00:00, 232428.58it/s]
+           INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+/workspace/my-ai-journey/vitruvius/scripts/cumulative_pruning_sweep.py:62: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[18:07:35] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:07:40] INFO     cum.point bert-base x fiqa N=0 nDCG@10=0.3261 rel_drop=0.00%
+[18:08:46] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:08:51] INFO     cum.point bert-base x fiqa N=4 nDCG@10=0.3257 rel_drop=0.11%
+[18:09:57] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:10:03] INFO     cum.point bert-base x fiqa N=8 nDCG@10=0.3289               
+                    rel_drop=-0.86%                                             
+[18:11:08] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:11:14] INFO     cum.point bert-base x fiqa N=16 nDCG@10=0.3336              
+                    rel_drop=-2.30%                                             
+[18:12:19] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:12:25] INFO     cum.point bert-base x fiqa N=24 nDCG@10=0.3305              
+                    rel_drop=-1.35%                                             
+[18:13:30] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:13:36] INFO     cum.point bert-base x fiqa N=32 nDCG@10=0.3154              
+                    rel_drop=3.26%                                              
+[18:14:41] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:14:47] INFO     cum.point bert-base x fiqa N=48 nDCG@10=0.3093              
+                    rel_drop=5.15%                                              
+[18:15:52] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:15:58] INFO     cum.point bert-base x fiqa N=64 nDCG@10=0.2835              
+                    rel_drop=13.04%                                             
+[18:17:03] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:17:09] INFO     cum.point bert-base x fiqa N=96 nDCG@10=0.2065              
+                    rel_drop=36.67%                                             
+[18:18:14] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[18:18:20] INFO     cum.point bert-base x fiqa N=128 nDCG@10=0.1710             
+                    rel_drop=47.56%                                             
+           INFO     cum.done bert-base x fiqa 5%_at=32 10%_at=48 wall_s=710.3   
+[
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "nfcorpus",
+    "5%": 32,
+    "10%": 32,
+    "wall_s": 10.61
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "scifact",
+    "5%": 24,
+    "10%": 32,
+    "wall_s": 15.26
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "fiqa",
+    "5%": 8,
+    "10%": 16,
+    "wall_s": 165.89
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "nfcorpus",
+    "5%": 64,
+    "10%": 96,
+    "wall_s": 44.8
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "scifact",
+    "5%": 96,
+    "10%": 128,
+    "wall_s": 64.24
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "fiqa",
+    "5%": 32,
+    "10%": 48,
+    "wall_s": 710.31
+  }
+]
+[18:18:26] INFO     cum.start gte-small x nfcorpus baseline=0.3489              
+                    total_heads=144                                             
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 132693.92it/s]
+           INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+/workspace/my-ai-journey/vitruvius/scripts/cumulative_pruning_sweep.py:62: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[18:18:44] INFO     Loading faiss with AVX2 support.                            
+           INFO     Successfully loaded faiss with AVX2 support.                
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x nfcorpus N=0 nDCG@10=0.3489           
+                    rel_drop=0.00%                                              
+[18:18:49] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x nfcorpus N=4 nDCG@10=0.3536           
+                    rel_drop=-1.34%                                             
+[18:18:54] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x nfcorpus N=8 nDCG@10=0.3541           
+                    rel_drop=-1.47%                                             
+[18:18:59] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:19:00] INFO     cum.point gte-small x nfcorpus N=16 nDCG@10=0.3623          
+                    rel_drop=-3.84%                                             
+[18:19:05] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x nfcorpus N=24 nDCG@10=0.3564          
+                    rel_drop=-2.15%                                             
+[18:19:10] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x nfcorpus N=32 nDCG@10=0.3549          
+                    rel_drop=-1.71%                                             
+[18:19:15] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x nfcorpus N=48 nDCG@10=0.3479          
+                    rel_drop=0.29%                                              
+[18:19:20] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:19:21] INFO     cum.point gte-small x nfcorpus N=64 nDCG@10=0.3411          
+                    rel_drop=2.25%                                              
+[18:19:25] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:19:26] INFO     cum.point gte-small x nfcorpus N=96 nDCG@10=0.3092          
+                    rel_drop=11.39%                                             
+[18:19:31] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x nfcorpus N=128 nDCG@10=0.2513         
+                    rel_drop=27.98%                                             
+           INFO     cum.done gte-small x nfcorpus 5%_at=64 10%_at=64 wall_s=52.5
+           INFO     cum.start gte-small x scifact baseline=0.7270               
+                    total_heads=144                                             
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 154506.59it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+/workspace/my-ai-journey/vitruvius/scripts/cumulative_pruning_sweep.py:62: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[18:19:51] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x scifact N=0 nDCG@10=0.7270            
+                    rel_drop=0.00%                                              
+[18:19:58] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:19:59] INFO     cum.point gte-small x scifact N=4 nDCG@10=0.7378            
+                    rel_drop=-1.48%                                             
+[18:20:06] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x scifact N=8 nDCG@10=0.7290            
+                    rel_drop=-0.28%                                             
+[18:20:13] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:20:14] INFO     cum.point gte-small x scifact N=16 nDCG@10=0.7234           
+                    rel_drop=0.49%                                              
+[18:20:21] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x scifact N=24 nDCG@10=0.7315           
+                    rel_drop=-0.62%                                             
+[18:20:28] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:20:29] INFO     cum.point gte-small x scifact N=32 nDCG@10=0.7229           
+                    rel_drop=0.57%                                              
+[18:20:36] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x scifact N=48 nDCG@10=0.7099           
+                    rel_drop=2.36%                                              
+[18:20:43] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:20:44] INFO     cum.point gte-small x scifact N=64 nDCG@10=0.6916           
+                    rel_drop=4.88%                                              
+[18:20:51] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cum.point gte-small x scifact N=96 nDCG@10=0.6095           
+                    rel_drop=16.16%                                             
+[18:20:58] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[18:20:59] INFO     cum.point gte-small x scifact N=128 nDCG@10=0.5246          
+                    rel_drop=27.85%                                             
+           INFO     cum.done gte-small x scifact 5%_at=64 10%_at=64 wall_s=75.0 
+[
+  {
+    "encoder": "gte-small",
+    "dataset": "nfcorpus",
+    "5%": 64,
+    "10%": 64,
+    "wall_s": 52.49
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "scifact",
+    "5%": 64,
+    "10%": 64,
+    "wall_s": 75.01
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "baseline_nDCG@10": 0.727014,
+  "config": {
+    "batch_size": 128,
+    "device": "cuda",
+    "max_seq_len": 512,
+    "pooling": "mean",
+    "similarity": "cosine",
+    "top_k": 100
+  },
+  "curve": [
+    {
+      "heads_pruned": 0,
+      "nDCG@10": 0.727014,
+      "rel_drop_pct": 0.0
+    },
+    {
+      "heads_pruned": 4,
+      "nDCG@10": 0.737788,
+      "rel_drop_pct": -1.482
+    },
+    {
+      "heads_pruned": 8,
+      "nDCG@10": 0.729016,
+      "rel_drop_pct": -0.275
+    },
+    {
+      "heads_pruned": 16,
+      "nDCG@10": 0.723436,
+      "rel_drop_pct": 0.492
+    },
+    {
+      "heads_pruned": 24,
+      "nDCG@10": 0.7315,
+      "rel_drop_pct": -0.617
+    },
+    {
+      "heads_pruned": 32,
+      "nDCG@10": 0.722889,
+      "rel_drop_pct": 0.567
+    },
+    {
+      "heads_pruned": 48,
+      "nDCG@10": 0.709891,
+      "rel_drop_pct": 2.355
+    },
+    {
+      "heads_pruned": 64,
+      "nDCG@10": 0.691566,
+      "rel_drop_pct": 4.876
+    },
+    {
+      "heads_pruned": 96,
+      "nDCG@10": 0.609506,
+      "rel_drop_pct": 16.163
+    },
+    {
+      "heads_pruned": 128,
+      "nDCG@10": 0.524565,
+      "rel_drop_pct": 27.847
+    }
+  ],
+  "dataset": "scifact",
+  "encoder": "gte-small",
+  "git_commit": "300f1e213362f8d63b358a7613a0b28fffdd9c8c",
+  "hardware": {
+    "cuda_device": "NVIDIA A100-SXM4-80GB",
+    "platform": "Linux-6.8.0-100-generic-x86_64-with-glibc2.35",
+    "python": "3.11.10",
+    "torch": "2.4.1+cu124"
+  },
+  "num_heads_per_layer": 12,
+  "num_layers": 12,
+  "ordering": "single-head-importance-ascending (least important pruned first)",
+  "ordering_caveat": "Single-head importance != cumulative-optimal ordering (heads can compensate for each other). A Taylor-saliency or iterative-greedy baseline would be stronger; flagged as future work per handoff \u00a77.4.",
+  "run_timestamp_utc": "2026-04-21T18:20:59.349486+00:00",
+  "runtime_seconds": 75.01,
+  "seed": 1729,
+  "split": "test",
+  "thresholds": {
+    "heads_prunable_at_10pct_drop": 64,
+    "heads_prunable_at_5pct_drop": 64
+  },
+  "total_heads": 144,
+  "vitruvius_version": "0.5.0"
+}

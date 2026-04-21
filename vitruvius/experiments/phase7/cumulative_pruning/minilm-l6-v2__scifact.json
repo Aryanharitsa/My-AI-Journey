@@ -1,0 +1,81 @@
+{
+  "baseline_nDCG@10": 0.645082,
+  "config": {
+    "batch_size": 128,
+    "device": "cuda",
+    "max_seq_len": 256,
+    "pooling": "mean",
+    "similarity": "cosine",
+    "top_k": 100
+  },
+  "curve": [
+    {
+      "heads_pruned": 0,
+      "nDCG@10": 0.645082,
+      "rel_drop_pct": 0.0
+    },
+    {
+      "heads_pruned": 4,
+      "nDCG@10": 0.644108,
+      "rel_drop_pct": 0.151
+    },
+    {
+      "heads_pruned": 8,
+      "nDCG@10": 0.643997,
+      "rel_drop_pct": 0.168
+    },
+    {
+      "heads_pruned": 16,
+      "nDCG@10": 0.623504,
+      "rel_drop_pct": 3.345
+    },
+    {
+      "heads_pruned": 24,
+      "nDCG@10": 0.628654,
+      "rel_drop_pct": 2.547
+    },
+    {
+      "heads_pruned": 32,
+      "nDCG@10": 0.58305,
+      "rel_drop_pct": 9.616
+    },
+    {
+      "heads_pruned": 48,
+      "nDCG@10": 0.557346,
+      "rel_drop_pct": 13.601
+    },
+    {
+      "heads_pruned": 64,
+      "nDCG@10": 0.479946,
+      "rel_drop_pct": 25.599
+    },
+    {
+      "heads_pruned": 71,
+      "nDCG@10": 0.419198,
+      "rel_drop_pct": 35.016
+    }
+  ],
+  "dataset": "scifact",
+  "encoder": "minilm-l6-v2",
+  "git_commit": "300f1e213362f8d63b358a7613a0b28fffdd9c8c",
+  "hardware": {
+    "cuda_device": "NVIDIA A100-SXM4-80GB",
+    "platform": "Linux-6.8.0-100-generic-x86_64-with-glibc2.35",
+    "python": "3.11.10",
+    "torch": "2.4.1+cu124"
+  },
+  "num_heads_per_layer": 12,
+  "num_layers": 6,
+  "ordering": "single-head-importance-ascending (least important pruned first)",
+  "ordering_caveat": "Single-head importance != cumulative-optimal ordering (heads can compensate for each other). A Taylor-saliency or iterative-greedy baseline would be stronger; flagged as future work per handoff \u00a77.4.",
+  "run_timestamp_utc": "2026-04-21T18:00:29.969267+00:00",
+  "runtime_seconds": 15.26,
+  "seed": 1729,
+  "split": "test",
+  "thresholds": {
+    "heads_prunable_at_10pct_drop": 32,
+    "heads_prunable_at_5pct_drop": 24
+  },
+  "total_heads": 72,
+  "vitruvius_version": "0.5.0"
+}

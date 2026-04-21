@@ -1,0 +1,29 @@
+{
+  "per_encoder": {
+    "bert-base": {
+      "mean_rho": 0.2243,
+      "num_heads": 144,
+      "pairwise_spearman": {
+        "rho(nfcorpus,fiqa)": 0.1739,
+        "rho(nfcorpus,scifact)": 0.2194,
+        "rho(scifact,fiqa)": 0.2795
+      }
+    },
+    "gte-small": {
+      "mean_rho": 0.1104,
+      "num_heads": 144,
+      "pairwise_spearman": {
+        "rho(nfcorpus,scifact)": 0.1104
+      }
+    },
+    "minilm-l6-v2": {
+      "mean_rho": 0.1808,
+      "num_heads": 72,
+      "pairwise_spearman": {
+        "rho(nfcorpus,fiqa)": 0.3066,
+        "rho(nfcorpus,scifact)": 0.2732,
+        "rho(scifact,fiqa)": -0.0375
+      }
+    }
+  }
+}
