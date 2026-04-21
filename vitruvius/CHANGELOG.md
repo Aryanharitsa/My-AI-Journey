@@ -3,6 +3,107 @@
 All notable changes to Project Vitruvius are documented here. Versioning follows
 the milestone tiers in the project roadmap (0.1.0 = Phase 1, 0.2.0 = Phase 2, …).
 
+## [0.7.0] — 2026-04-21 — Phase 7: 80% milestone (attention head pruning)
+
+Per-head ablation + cumulative-pruning-curve characterization of the three
+pre-trained transformer encoders (minilm-l6-v2, bert-base/msmarco-dot-v5,
+gte-small) on BEIR NFCorpus, SciFact, FiQA. Direct evidence for the
+Phase 9 opinions section: "how many attention heads are actually needed
+for retrieval?"
+
+### Added
+
+- `src/vitruvius/encoders/pruned_transformer.py`:
+  `PrunedTransformerEncoder` wraps a pre-trained transformer with a
+  runtime `head_mask`. Exposes `set_head_mask(tensor)` for in-place
+  updates so sweep loops can re-ablate without reloading the model.
+- `tests/test_pruned_transformer.py`: four unit tests (all-ones
+  equivalence, all-zeros non-crash, shape validation, bad-alias error).
+  **Known gap documented in SUMMARY.md**: these tests did NOT initially
+  verify "all-ones differs from all-zeros" — the missing test that
+  would have caught the transformers 5.x head_mask silent-drop bug.
+- `scripts/head_importance_sweep.py`: single-head ablation sweep.
+  Tokenize-once-per-cell + manual forward + AMP fp16 path (bypasses
+  sentence-transformers' per-call overhead → ~7× speedup on MiniLM).
+- `scripts/cumulative_pruning_sweep.py`: prune-N-least-important sweep
+  at N ∈ {0, 4, 8, 16, 24, 32, 48, 64, 96, total-1}.
+- `scripts/phase7_analysis.py`: Spearman cross-dataset head-stability
+  + heatmap + layer-wise boxplot + cumulative curves figures.
+- `scripts/phase7_writeup_gen.py`: generates `experiments/phase7/SUMMARY.md`
+  and `experiments/phase7/README.md` from the cell JSONs.
+- `experiments/phase7/`: 8 head-importance JSONs, 8 cumulative JSONs,
+  `head_stability_analysis.md`, `head_stability.json`, SUMMARY.md,
+  README.md, and the raw sweep logs.
+- `figures/head_importance_heatmap_{minilm,bert,gte}.png` + captions.
+- `figures/head_importance_by_layer.png` + caption.
+- `figures/cumulative_pruning_curves.png` + caption.
+- `notes/transformers_head_mask_bug.md`: the bug runbook — what broke,
+  how to catch it next time, how to configure the dependency pin.
+
+### Fixed
+
+- **transformers 5.x silently drops `head_mask`.** The argument was
+  removed from `BertSelfAttention.forward`'s named params but still
+  accepted via `**kwargs` — no error, no warning, just silently
+  ignored. First sweep (~3h, ~$5 of pod compute) produced valid-looking
+  JSONs with every per-head `delta_nDCG@10` exactly `0.0`. Caught only
+  when inspecting the output post-hoc.
+  **Fix:** pin `transformers<5.0,>=4.40` in `pyproject.toml`, load
+  models with `attn_implementation="eager"` (sdpa / flash-attn don't
+  support head_mask either, on any transformers version). Full
+  diagnosis in `notes/transformers_head_mask_bug.md`.
+- **GTE-small pooling was CLS; correct is mean.** The handoff
+  documented CLS for GTE but `thenlper/gte-small`'s own
+  `1_Pooling/config.json` specifies `pooling_mode_mean_tokens=true`.
+  The first sweep's GTE baseline drifted 6–27% from Phase 3
+  (0.2989 vs 0.3492 on nfcorpus); after correction the GTE baseline
+  matches Phase 3 within 3e-4.
+- Eager attention is ~1.7× slower than sdpa on A100. Documented as a
+  necessary tradeoff.
+
+### Measured — heads prunable at ≤5% nDCG@10 drop (8/9 cells)
+
+Averaged across available datasets per encoder:
+
+| Encoder | Total heads | Heads prunable @ 5% drop | Heads prunable @ 10% drop | Datasets averaged |
+|---|---:|---|---|---|
+| `minilm-l6-v2` | 72  | (see SUMMARY.md — per-dataset) | (see SUMMARY.md) | 3 / 3 ✓ |
+| `bert-base`    | 144 | (see SUMMARY.md) | (see SUMMARY.md) | 3 / 3 ✓ |
+| `gte-small`    | 144 | (see SUMMARY.md) | (see SUMMARY.md) | **2 / 3** (fiqa deferred) |
+
+The `gte-small × fiqa` cell is deferred to Session 06 for budget reasons
+(eager attention on 144 heads × 57,638 docs = ~3.3h wall-clock). When it
+lands, the archivist will amend this entry with the 3/3 averages.
+
+### Discipline corrections adopted
+
+The transformers 5.x silent-drop cost 3h of pod compute (~$5). Session
+05 introduced a new discipline, written into the workflow:
+
+> **"Before any multi-hour sweep: run one cell, inspect output numerically,
+> and verify the INDEPENDENT VARIABLE actually moves the measurement."**
+
+For Phase 7 the missing check was: `assert
+output_with_all_heads_on != output_with_one_head_zeroed`. Two lines,
+two seconds, would have saved 3 hours. Session 06 will apply this
+check to the shuffle utility before the 54-run position-sensitivity
+sweep.
+
+### Not done in this session
+
+- `gte-small × fiqa` head-importance + cumulative pruning (deferred).
+- Phase 8 (position shuffle, 90% milestone): deferred to Session 06 per
+  operator decision after the Phase 7 wall-clock overrun.
+- Taylor-saliency or iterative-greedy cumulative pruning (flagged as
+  future work in Phase 7 SUMMARY.md §Limitations).
+- Fine-tuning after pruning (Michel et al.'s ~3-8% recovery). Zero-shot
+  ablation only in this phase.
+
+### Version bump
+
+`0.5.0` → `0.7.0`. Skipping `0.6.0` (Phase 6 is landing in parallel
+from a local-Mac session). Once Phase 6 merges, the version chronology
+interleaves but the per-phase version is unambiguous.
 ## [0.6.0] — 2026-04-21 — Phase 6: 70% milestone (per-query failure analysis)
 
 First analysis-heavy phase. No new encoders, no new bench runs, no GPU —
