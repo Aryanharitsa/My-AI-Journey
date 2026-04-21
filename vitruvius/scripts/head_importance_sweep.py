@@ -44,7 +44,7 @@ _log = get_logger("head_importance_sweep")
 POOLING = {
     "minilm-l6-v2": "mean",    # ST config: pooling_mode_mean_tokens=True
     "bert-base": "mean",       # msmarco-dot-v5 uses mean pooling
-    "gte-small": "cls",        # GTE family uses CLS pooling
+    "gte-small": "mean",        # GTE family uses MEAN pooling (verified from thenlper/gte-small 1_Pooling/config.json)
 }
 MAX_SEQ_LEN = {
     "minilm-l6-v2": 256,       # ST config: max_seq_length=256
@@ -165,7 +165,7 @@ def sweep_cell(encoder_name, dataset, split, batch_size, top_k, device_str,
     # Load model + tokenizer
     t0 = time.perf_counter()
     tok = AutoTokenizer.from_pretrained(info["hf_id"])
-    model = AutoModel.from_pretrained(info["hf_id"]).to(device).eval()
+    model = AutoModel.from_pretrained(info["hf_id"], attn_implementation="eager").to(device).eval()
     dim = model.config.hidden_size
     _log.info("sweep.loaded model=%s dim=%d load_s=%.1f",
               info["hf_id"], dim, time.perf_counter() - t0)
