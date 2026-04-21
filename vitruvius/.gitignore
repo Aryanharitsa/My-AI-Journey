@@ -9,6 +9,12 @@ experiments/*.csv
 figures/*.png
 figures/*.pdf
 !figures/.gitkeep
+!figures/pareto_v2.png
+!figures/pareto_v2.pdf
+!figures/failure_by_architecture.png
+!figures/failure_by_architecture.pdf
+!figures/query_length_vs_ndcg.png
+!figures/query_length_vs_ndcg.pdf
 references/*.pdf
 !references/.gitkeep
 .env
