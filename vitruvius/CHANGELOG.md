@@ -3,6 +3,107 @@
 All notable changes to Project Vitruvius are documented here. Versioning follows
 the milestone tiers in the project roadmap (0.1.0 = Phase 1, 0.2.0 = Phase 2, …).
 
+## [0.8.0] — 2026-04-22 — Phase 8: 90% milestone (position shuffle)
+
+Token-position shuffle ablation on all 6 Pareto encoders × 3 BEIR subsets ×
+3 shuffle modes. 54 bench runs. Position sensitivity = `(baseline − shuffled)
+/ baseline` at nDCG@10. The cleanest single-variable comparison across the
+four architectural families the project measures.
+
+### Added
+
+- `src/vitruvius/utils/shuffle.py` — content-token permutation after
+  tokenization; special tokens pinned; padding untouched; seeded for
+  cross-encoder fairness.
+- `src/vitruvius/encoders/shuffled.py` — `ShuffledEncoder` wrapper for
+  the 6 base encoders. Loads transformers with default `sdpa` attention
+  (Phase 8 doesn't use `head_mask`, so the Phase 7 eager requirement
+  does not apply — sdpa is faster).
+- `tests/test_shuffle.py` — 6 unit tests: content multiset preserved,
+  special positions unchanged, padding unchanged, same seed → same
+  shuffle, different seed → different shuffle, degenerate short
+  sequences pass through.
+- `scripts/shuffle_sweep.py` — 54-cell bench sweep (6 × 3 × 3).
+- `scripts/phase8_analysis.py` — computes position sensitivity table,
+  generates per-query parquet, writes two figures.
+- `scripts/phase8_writeup_gen.py` — SUMMARY.md + README.md from JSONs.
+- `experiments/phase8/` — 54 per-cell JSONs (each includes
+  per_query_results per §5.7 for Phase 6 cross-reference offline) +
+  `position_sensitivity.json` + `query_level_sensitivity.parquet`
+  (22,878 per-query rows) + SUMMARY.md + README.md + shuffle_sweep.log.
+- `figures/position_sensitivity.{png,pdf}` — 3-panel grouped bar per
+  encoder × mode with 0.0 / 1.0 reference lines + caption.
+- `figures/sensitivity_by_family.{png,pdf}` — per-family means with
+  ±1σ error bars across constituent (encoder, dataset) cells + caption.
+
+### Measured — family-level position sensitivity under doc-shuffle
+
+| Family | docs-shuffled | queries-shuffled | both-shuffled |
+|---|---:|---:|---:|
+| transformer   | **0.211** | 0.104 | 0.268 |
+| recurrent     | **0.166** | 0.064 | 0.224 |
+| convolutional | **0.314** | 0.129 | 0.346 |
+| ssm           | **0.243** | 0.098 | 0.263 |
+
+Higher = more position-dependent. `0.0` = shuffle-invariant;
+`1.0` = complete collapse.
+
+### The surprise finding
+
+Handoff §8.4 predicted LSTM sensitivity *~0.8+* ("sequential state updates
+ARE position — shuffle destroys meaning"). **Measured LSTM docs-shuffle
+sensitivity is 0.166 — the LOWEST of all four families.** LSTM retained
+83% of retrieval quality on shuffled documents.
+
+Likely cause: the masked mean-pool over the bidirectional hidden states
+aggregates bag-of-concepts information heavily; for retrieval specifically
+(graded nDCG@10 on content-word-rich BEIR subsets) the cumulative-state
+component of the final embedding outweighs the strict-order component.
+The LSTM may have learned to be position-tolerant as a retrieval shortcut
+on the 500K MS MARCO contrastive-training signal.
+
+Second surprise: **CNN is the MOST sensitive** (0.314). Expected "high but
+bounded" — in practice the kernel receptive fields (3, 5, 7) depend on
+token adjacency and global max+mean pooling does not fully recover.
+
+Third finding: **Transformer ≈ SSM** (0.21 vs 0.24). The paper's central
+"bag-of-concepts argument for transformers" still holds: under doc-shuffle
+transformers retain ~79% of retrieval quality. But it's not *uniquely*
+robust — SSMs and (especially) LSTMs can also reach this region.
+
+### Per-dataset pattern (docs-shuffled)
+
+FiQA is the dataset-level amplifier: all 6 encoders show their highest
+position sensitivity on FiQA (range 0.24–0.49 across encoders). NFCorpus
+and SciFact stay ≤0.27 for every encoder. Hypothesis: FiQA's longer
+financial-question documents carry information in discourse structure
+(argument chains, contrasts) that bag-of-concepts re-retrieval can't
+recover; NFCorpus's biomedical facts and SciFact's concise scientific
+claims are more content-word-dominant.
+
+### Cross-phase synthesis (offline / Phase 9)
+
+`query_level_sensitivity.parquet` stores per-query `(baseline_nDCG@10,
+shuffled_nDCG@10, delta)` and `(baseline_hit@10, shuffled_hit@10)` for
+all 22,878 rows (6 encoders × ~300–650 queries × 3 modes × up-to-3
+datasets). Phase 6's failure taxonomy can be joined on `query_id` to
+test "are `LEN-LONG` queries more position-sensitive than `LEN-SHORT`?
+Are `PARAPHRASE` failures position-insensitive?" — that join runs
+locally on the operator's Mac after merge and does not need pod time.
+
+### Discipline followed
+
+Per the discipline rule adopted after Session 05's transformers-5.x
+head_mask silent-drop: **before the 54-cell sweep, ran a 1-cell
+sanity check** (minilm × nfcorpus × docs-shuffled vs baseline).
+Measured drop 10.7% — confirming shuffle materially changes the
+measurement before committing pod time to the full sweep. Documented
+in SESSION_06_REPORT.md.
+
+### Version bump
+
+`0.7.0` → `0.8.0`.
+
 ## [0.7.0] — 2026-04-21 — Phase 7: 80% milestone (attention head pruning)
 
 Per-head ablation + cumulative-pruning-curve characterization of the three

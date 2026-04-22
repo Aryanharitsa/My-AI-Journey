@@ -39,7 +39,7 @@ non-transformer architectures actually sit?
 | 55%       | P5    | LSTM + 1D-CNN + Mamba-from-scratch on MS MARCO subset. Full 6-encoder Pareto. | done |
 | 70%       | P6    | Per-query failure analysis with taxonomy. | done |
 | 80%       | P7    | Attention head pruning for retrieval specifically (not LM). | done |
-| 90%       | P8    | Token-position shuffle. Position sensitivity per architecture. | - |
+| 90%       | P8    | Token-position shuffle. Position sensitivity per architecture. | done |
 | 100%      | P9    | 5 to 7 page opinionated technical note, arXiv-ready. | - |
 
 ## Quickstart
