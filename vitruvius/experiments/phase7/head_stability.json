@@ -10,10 +10,12 @@
       }
     },
     "gte-small": {
-      "mean_rho": 0.1104,
+      "mean_rho": 0.0992,
       "num_heads": 144,
       "pairwise_spearman": {
-        "rho(nfcorpus,scifact)": 0.1104
+        "rho(nfcorpus,fiqa)": 0.1008,
+        "rho(nfcorpus,scifact)": 0.1104,
+        "rho(scifact,fiqa)": 0.0863
       }
     },
     "minilm-l6-v2": {

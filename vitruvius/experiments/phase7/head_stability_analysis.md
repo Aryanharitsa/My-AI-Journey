@@ -6,11 +6,11 @@ Spearman rank correlation between per-head importance vectors (flattened across 
 |---|---:|---:|---:|---:|
 | `minilm-l6-v2` | 0.2732 | 0.3066 | -0.0375 | **0.1808** |
 | `bert-base` | 0.2194 | 0.1739 | 0.2795 | **0.2243** |
-| `gte-small` | 0.1104 | — | — | **0.1104** |
+| `gte-small` | 0.1104 | 0.1008 | 0.0863 | **0.0992** |
 
 ## Interpretation
 
 - `minilm-l6-v2` (mean ρ = 0.1808): **low** cross-dataset stability — head-importance is largely domain-specific; a universal pruning recipe would under-serve at least one dataset.
 - `bert-base` (mean ρ = 0.2243): **low** cross-dataset stability — head-importance is largely domain-specific; a universal pruning recipe would under-serve at least one dataset.
-- `gte-small` (mean ρ = 0.1104): **low** cross-dataset stability — head-importance is largely domain-specific; a universal pruning recipe would under-serve at least one dataset.
+- `gte-small` (mean ρ = 0.0992): **low** cross-dataset stability — head-importance is largely domain-specific; a universal pruning recipe would under-serve at least one dataset.
 

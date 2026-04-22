@@ -38,7 +38,7 @@ non-transformer architectures actually sit?
 | 40%       | P4    | Mamba Retriever integrated. First 4-point Pareto plot. | absorbed into 55% (see 0.5.0) |
 | 55%       | P5    | LSTM + 1D-CNN + Mamba-from-scratch on MS MARCO subset. Full 6-encoder Pareto. | done |
 | 70%       | P6    | Per-query failure analysis with taxonomy. | done |
-| 80%       | P7    | Attention head pruning for retrieval specifically (not LM). | done (8/9 cells; gte×fiqa deferred) |
+| 80%       | P7    | Attention head pruning for retrieval specifically (not LM). | done |
 | 90%       | P8    | Token-position shuffle. Position sensitivity per architecture. | - |
 | 100%      | P9    | 5 to 7 page opinionated technical note, arXiv-ready. | - |
 
