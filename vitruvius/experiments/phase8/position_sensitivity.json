@@ -1,0 +1,436 @@
+{
+  "rows": [
+    {
+      "baseline_nDCG@10": 0.316513,
+      "dataset": "nfcorpus",
+      "encoder": "minilm-l6-v2",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.107468,
+      "shuffled_nDCG@10": 0.282498
+    },
+    {
+      "baseline_nDCG@10": 0.316513,
+      "dataset": "nfcorpus",
+      "encoder": "minilm-l6-v2",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.038517,
+      "shuffled_nDCG@10": 0.304322
+    },
+    {
+      "baseline_nDCG@10": 0.316513,
+      "dataset": "nfcorpus",
+      "encoder": "minilm-l6-v2",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.149198,
+      "shuffled_nDCG@10": 0.26929
+    },
+    {
+      "baseline_nDCG@10": 0.645082,
+      "dataset": "scifact",
+      "encoder": "minilm-l6-v2",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.0618,
+      "shuffled_nDCG@10": 0.605216
+    },
+    {
+      "baseline_nDCG@10": 0.645082,
+      "dataset": "scifact",
+      "encoder": "minilm-l6-v2",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.069045,
+      "shuffled_nDCG@10": 0.600542
+    },
+    {
+      "baseline_nDCG@10": 0.645082,
+      "dataset": "scifact",
+      "encoder": "minilm-l6-v2",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.091023,
+      "shuffled_nDCG@10": 0.586365
+    },
+    {
+      "baseline_nDCG@10": 0.368671,
+      "dataset": "fiqa",
+      "encoder": "minilm-l6-v2",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.48964,
+      "shuffled_nDCG@10": 0.188155
+    },
+    {
+      "baseline_nDCG@10": 0.368671,
+      "dataset": "fiqa",
+      "encoder": "minilm-l6-v2",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.234792,
+      "shuffled_nDCG@10": 0.28211
+    },
+    {
+      "baseline_nDCG@10": 0.368671,
+      "dataset": "fiqa",
+      "encoder": "minilm-l6-v2",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.539183,
+      "shuffled_nDCG@10": 0.16989
+    },
+    {
+      "baseline_nDCG@10": 0.316871,
+      "dataset": "nfcorpus",
+      "encoder": "bert-base",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.130905,
+      "shuffled_nDCG@10": 0.275391
+    },
+    {
+      "baseline_nDCG@10": 0.316871,
+      "dataset": "nfcorpus",
+      "encoder": "bert-base",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.022287,
+      "shuffled_nDCG@10": 0.309809
+    },
+    {
+      "baseline_nDCG@10": 0.316871,
+      "dataset": "nfcorpus",
+      "encoder": "bert-base",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.149566,
+      "shuffled_nDCG@10": 0.269478
+    },
+    {
+      "baseline_nDCG@10": 0.608237,
+      "dataset": "scifact",
+      "encoder": "bert-base",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.049765,
+      "shuffled_nDCG@10": 0.577968
+    },
+    {
+      "baseline_nDCG@10": 0.608237,
+      "dataset": "scifact",
+      "encoder": "bert-base",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.111146,
+      "shuffled_nDCG@10": 0.540634
+    },
+    {
+      "baseline_nDCG@10": 0.608237,
+      "dataset": "scifact",
+      "encoder": "bert-base",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.167249,
+      "shuffled_nDCG@10": 0.50651
+    },
+    {
+      "baseline_nDCG@10": 0.322878,
+      "dataset": "fiqa",
+      "encoder": "bert-base",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.324943,
+      "shuffled_nDCG@10": 0.217961
+    },
+    {
+      "baseline_nDCG@10": 0.322878,
+      "dataset": "fiqa",
+      "encoder": "bert-base",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.075412,
+      "shuffled_nDCG@10": 0.298529
+    },
+    {
+      "baseline_nDCG@10": 0.322878,
+      "dataset": "fiqa",
+      "encoder": "bert-base",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.378806,
+      "shuffled_nDCG@10": 0.20057
+    },
+    {
+      "baseline_nDCG@10": 0.349164,
+      "dataset": "nfcorpus",
+      "encoder": "gte-small",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.166973,
+      "shuffled_nDCG@10": 0.290863
+    },
+    {
+      "baseline_nDCG@10": 0.349164,
+      "dataset": "nfcorpus",
+      "encoder": "gte-small",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.072665,
+      "shuffled_nDCG@10": 0.323792
+    },
+    {
+      "baseline_nDCG@10": 0.349164,
+      "dataset": "nfcorpus",
+      "encoder": "gte-small",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.213742,
+      "shuffled_nDCG@10": 0.274533
+    },
+    {
+      "baseline_nDCG@10": 0.72693,
+      "dataset": "scifact",
+      "encoder": "gte-small",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.11312,
+      "shuffled_nDCG@10": 0.6447
+    },
+    {
+      "baseline_nDCG@10": 0.72693,
+      "dataset": "scifact",
+      "encoder": "gte-small",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.122429,
+      "shuffled_nDCG@10": 0.637933
+    },
+    {
+      "baseline_nDCG@10": 0.72693,
+      "dataset": "scifact",
+      "encoder": "gte-small",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.197284,
+      "shuffled_nDCG@10": 0.583518
+    },
+    {
+      "baseline_nDCG@10": 0.393748,
+      "dataset": "fiqa",
+      "encoder": "gte-small",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.451489,
+      "shuffled_nDCG@10": 0.215975
+    },
+    {
+      "baseline_nDCG@10": 0.393748,
+      "dataset": "fiqa",
+      "encoder": "gte-small",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.186315,
+      "shuffled_nDCG@10": 0.320387
+    },
+    {
+      "baseline_nDCG@10": 0.393748,
+      "dataset": "fiqa",
+      "encoder": "gte-small",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.523538,
+      "shuffled_nDCG@10": 0.187606
+    },
+    {
+      "baseline_nDCG@10": 0.190144,
+      "dataset": "nfcorpus",
+      "encoder": "lstm-retriever",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.125573,
+      "shuffled_nDCG@10": 0.166267
+    },
+    {
+      "baseline_nDCG@10": 0.190144,
+      "dataset": "nfcorpus",
+      "encoder": "lstm-retriever",
+      "mode": "queries-shuffled",
+      "position_sensitivity": -0.004523,
+      "shuffled_nDCG@10": 0.191004
+    },
+    {
+      "baseline_nDCG@10": 0.190144,
+      "dataset": "nfcorpus",
+      "encoder": "lstm-retriever",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.142955,
+      "shuffled_nDCG@10": 0.162962
+    },
+    {
+      "baseline_nDCG@10": 0.360594,
+      "dataset": "scifact",
+      "encoder": "lstm-retriever",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.129872,
+      "shuffled_nDCG@10": 0.313763
+    },
+    {
+      "baseline_nDCG@10": 0.360594,
+      "dataset": "scifact",
+      "encoder": "lstm-retriever",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.046687,
+      "shuffled_nDCG@10": 0.343759
+    },
+    {
+      "baseline_nDCG@10": 0.360594,
+      "dataset": "scifact",
+      "encoder": "lstm-retriever",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.164756,
+      "shuffled_nDCG@10": 0.301184
+    },
+    {
+      "baseline_nDCG@10": 0.08855,
+      "dataset": "fiqa",
+      "encoder": "lstm-retriever",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.243501,
+      "shuffled_nDCG@10": 0.066988
+    },
+    {
+      "baseline_nDCG@10": 0.08855,
+      "dataset": "fiqa",
+      "encoder": "lstm-retriever",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.150446,
+      "shuffled_nDCG@10": 0.075228
+    },
+    {
+      "baseline_nDCG@10": 0.08855,
+      "dataset": "fiqa",
+      "encoder": "lstm-retriever",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.364562,
+      "shuffled_nDCG@10": 0.056268
+    },
+    {
+      "baseline_nDCG@10": 0.139984,
+      "dataset": "nfcorpus",
+      "encoder": "conv-retriever",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.255479,
+      "shuffled_nDCG@10": 0.104221
+    },
+    {
+      "baseline_nDCG@10": 0.139984,
+      "dataset": "nfcorpus",
+      "encoder": "conv-retriever",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.070801,
+      "shuffled_nDCG@10": 0.130073
+    },
+    {
+      "baseline_nDCG@10": 0.139984,
+      "dataset": "nfcorpus",
+      "encoder": "conv-retriever",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.292441,
+      "shuffled_nDCG@10": 0.099047
+    },
+    {
+      "baseline_nDCG@10": 0.197786,
+      "dataset": "scifact",
+      "encoder": "conv-retriever",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.244805,
+      "shuffled_nDCG@10": 0.149367
+    },
+    {
+      "baseline_nDCG@10": 0.197786,
+      "dataset": "scifact",
+      "encoder": "conv-retriever",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.093252,
+      "shuffled_nDCG@10": 0.179342
+    },
+    {
+      "baseline_nDCG@10": 0.197786,
+      "dataset": "scifact",
+      "encoder": "conv-retriever",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.251054,
+      "shuffled_nDCG@10": 0.148131
+    },
+    {
+      "baseline_nDCG@10": 0.036954,
+      "dataset": "fiqa",
+      "encoder": "conv-retriever",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.440927,
+      "shuffled_nDCG@10": 0.02066
+    },
+    {
+      "baseline_nDCG@10": 0.036954,
+      "dataset": "fiqa",
+      "encoder": "conv-retriever",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.222358,
+      "shuffled_nDCG@10": 0.028737
+    },
+    {
+      "baseline_nDCG@10": 0.036954,
+      "dataset": "fiqa",
+      "encoder": "conv-retriever",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.493532,
+      "shuffled_nDCG@10": 0.018716
+    },
+    {
+      "baseline_nDCG@10": 0.208259,
+      "dataset": "nfcorpus",
+      "encoder": "mamba-retriever-fs",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.149909,
+      "shuffled_nDCG@10": 0.177039
+    },
+    {
+      "baseline_nDCG@10": 0.208259,
+      "dataset": "nfcorpus",
+      "encoder": "mamba-retriever-fs",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.046605,
+      "shuffled_nDCG@10": 0.198553
+    },
+    {
+      "baseline_nDCG@10": 0.208259,
+      "dataset": "nfcorpus",
+      "encoder": "mamba-retriever-fs",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.177342,
+      "shuffled_nDCG@10": 0.171326
+    },
+    {
+      "baseline_nDCG@10": 0.375194,
+      "dataset": "scifact",
+      "encoder": "mamba-retriever-fs",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.276793,
+      "shuffled_nDCG@10": 0.271343
+    },
+    {
+      "baseline_nDCG@10": 0.375194,
+      "dataset": "scifact",
+      "encoder": "mamba-retriever-fs",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.112334,
+      "shuffled_nDCG@10": 0.333047
+    },
+    {
+      "baseline_nDCG@10": 0.375194,
+      "dataset": "scifact",
+      "encoder": "mamba-retriever-fs",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.28146,
+      "shuffled_nDCG@10": 0.269592
+    },
+    {
+      "baseline_nDCG@10": 0.086297,
+      "dataset": "fiqa",
+      "encoder": "mamba-retriever-fs",
+      "mode": "docs-shuffled",
+      "position_sensitivity": 0.302919,
+      "shuffled_nDCG@10": 0.060156
+    },
+    {
+      "baseline_nDCG@10": 0.086297,
+      "dataset": "fiqa",
+      "encoder": "mamba-retriever-fs",
+      "mode": "queries-shuffled",
+      "position_sensitivity": 0.135231,
+      "shuffled_nDCG@10": 0.074627
+    },
+    {
+      "baseline_nDCG@10": 0.086297,
+      "dataset": "fiqa",
+      "encoder": "mamba-retriever-fs",
+      "mode": "both-shuffled",
+      "position_sensitivity": 0.329281,
+      "shuffled_nDCG@10": 0.057881
+    }
+  ]
+}
