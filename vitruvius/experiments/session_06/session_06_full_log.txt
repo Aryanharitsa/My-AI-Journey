@@ -1,0 +1,1343 @@
+=== gte x fiqa backfill start === 2026-04-22T07:07:07Z
+[07:07:10] INFO     sweep.start encoder=gte-small dataset=fiqa layers=12        
+                    heads/layer=12 total=144 pool=mean normalize=True           
+                    max_len=512                                                 
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 39%|███▉      | 22408/57638 [00:00<00:00, 224043.36it/s] 78%|███████▊  | 44850/57638 [00:00<00:00, 224252.76it/s]100%|██████████| 57638/57638 [00:00<00:00, 224907.73it/s]
+           INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+[07:07:18] INFO     sweep.loaded model=thenlper/gte-small dim=384 load_s=7.5    
+[07:08:04] INFO     sweep.tokenized n_docs=57638 n_queries=648 wall_s=46.6      
+/workspace/my-ai-journey/vitruvius/scripts/head_importance_sweep.py:105: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[07:09:21] INFO     Loading faiss with AVX2 support.                            
+           INFO     Successfully loaded faiss with AVX2 support.                
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:09:26] INFO     sweep.baseline gte-small x fiqa nDCG@10=0.3935 wall_s=82.0  
+[07:10:42] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:12:04] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:13:26] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:14:48] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:19:21] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:20:43] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:22:05] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:23:26] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:24:48] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:26:10] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:27:32] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:28:54] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:30:15] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:31:37] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:32:59] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:34:20] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:35:42] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:37:04] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:38:26] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:39:47] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:41:09] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:42:31] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:43:53] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:45:14] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:45:19] INFO     sweep.progress gte-small x fiqa 24/144 elapsed=2153s        
+                    eta=10765s                                                  
+[07:46:35] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:47:57] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:49:18] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:50:40] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:52:01] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:53:23] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:54:44] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:56:06] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:57:27] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[07:58:49] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:00:10] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:01:32] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:02:53] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:04:15] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:05:36] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:06:58] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:08:20] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:09:41] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:11:03] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:12:24] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:13:46] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:15:07] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:16:29] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:17:50] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:17:55] INFO     sweep.progress gte-small x fiqa 48/144 elapsed=4109s        
+                    eta=8218s                                                   
+[08:19:12] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:20:33] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:21:55] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:23:16] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:24:37] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:25:58] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:27:20] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:28:41] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:30:02] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:31:24] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:32:45] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:34:06] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:35:28] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:36:49] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:38:09] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:39:31] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:40:52] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:42:13] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:43:35] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:44:56] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:46:17] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:47:39] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:49:00] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:50:22] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:50:27] INFO     sweep.progress gte-small x fiqa 72/144 elapsed=6061s        
+                    eta=6061s                                                   
+[08:51:43] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:53:04] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:54:25] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:55:47] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:57:08] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:58:29] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[08:59:51] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:01:12] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:02:33] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:03:55] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:05:16] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:06:38] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:07:59] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:09:20] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:10:41] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:12:03] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:13:24] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:14:46] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:16:07] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:17:29] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:18:50] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:20:11] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:21:33] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:22:54] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:22:59] INFO     sweep.progress gte-small x fiqa 96/144 elapsed=8013s        
+                    eta=4006s                                                   
+[09:24:15] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:25:37] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:26:58] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:28:20] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:29:41] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:31:02] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:32:24] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:33:45] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:35:07] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:36:28] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:37:50] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:39:11] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:40:33] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:41:54] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:43:16] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:44:38] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:45:59] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:47:21] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:48:42] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:50:04] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:51:25] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:52:47] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:54:09] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:55:30] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:55:36] INFO     sweep.progress gte-small x fiqa 120/144 elapsed=9969s       
+                    eta=1994s                                                   
+[09:56:52] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:58:13] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[09:59:35] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:00:57] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:02:18] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:03:39] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:05:01] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:06:22] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:07:43] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:09:05] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:10:27] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:11:48] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:13:10] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:14:31] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:15:53] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:17:14] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:18:35] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:19:57] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:21:18] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:22:40] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:24:02] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:25:23] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:26:44] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:28:06] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:28:11] INFO     sweep.progress gte-small x fiqa 144/144 elapsed=11925s      
+                    eta=0s                                                      
+           INFO     sweep.done gte-small x fiqa baseline=0.3935                 
+                    total_wall_s=12006.7                                        
+                    out=experiments/phase7/head_importance/gte-small__fiqa.json 
+[
+  [
+    "gte-small",
+    "fiqa",
+    0.393484,
+    12006.7
+  ]
+]
+=== Phase 8 shuffle sweep === 2026-04-22T10:45:17Z
+[10:45:18] INFO     seed.set value=1729                                         
+           INFO     beir.load dataset=nfcorpus split=test                       
+                    root=data/beir/nfcorpus                                     
+           INFO     Loading Corpus...                                           
+  0%|          | 0/3633 [00:00<?, ?it/s]100%|██████████| 3633/3633 [00:00<00:00, 131200.65it/s]
+           INFO     Loaded 3633 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Recent studies have suggested that   
+                    statins, an established drug group in the prevention of     
+                    cardiovascular mortality, could delay or prevent breast     
+                    cancer recurrence but the effect on disease-specific        
+                    mortality remains unclear. We evaluated risk of breast      
+                    cancer death among statin users in a population-based cohort
+                    of breast cancer patients. The study cohort included all    
+                    newly diagnosed breast cancer patients in Finland during    
+                    1995–2003 (31,236 cases), identified from the Finnish Cancer
+                    Registry. Information on statin use before and after the    
+                    diagnosis was obtained from a national prescription         
+                    database. We used the Cox proportional hazards regression   
+                    method to estimate mortality among statin users with statin 
+                    use as time-dependent variable. A total of 4,151            
+                    participants had used statins. During the median follow-up  
+                    of 3.25 years after the diagnosis (range 0.08–9.0 years)    
+                    6,011 participants died, of which 3,619 (60.2%) was due to  
+                    breast cancer. After adjustment for age, tumor              
+                    characteristics, and treatment selection, both              
+                    post-diagnostic and pre-diagnostic statin use were          
+                    associated with lowered risk of breast cancer death (HR     
+                    0.46, 95% CI 0.38–0.55 and HR 0.54, 95% CI 0.44–0.67,       
+                    respectively). The risk decrease by post-diagnostic statin  
+                    use was likely affected by healthy adherer bias; that is,   
+                    the greater likelihood of dying cancer patients to          
+                    discontinue statin use as the association was not clearly   
+                    dose-dependent and observed already at low-dose/short-term  
+                    use. The dose- and time-dependence of the survival benefit  
+                    among pre-diagnostic statin users suggests a possible causal
+                    effect that should be evaluated further in a clinical trial 
+                    testing statins’ effect on survival in breast cancer        
+                    patients.', 'title': 'Statin Use and Breast Cancer Survival:
+                    A Nationwide Cohort Study from Finland'}                    
+           INFO     Loading Queries...                                          
+           INFO     Loaded 323 TEST Queries.                                    
+           INFO     Query Example: Do Cholesterol Statin Drugs Cause Breast     
+                    Cancer?                                                     
+           INFO     beir.loaded dataset=nfcorpus split=test n_corpus=3633       
+                    n_queries=323 n_qrels=323                                   
+           INFO     cell.start encoder=minilm-l6-v2 dataset=nfcorpus            
+                    mode=docs-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:45:31] INFO     Loading faiss with AVX2 support.                            
+           INFO     Successfully loaded faiss with AVX2 support.                
+           INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cell.done encoder=minilm-l6-v2 dataset=nfcorpus             
+                    mode=docs-shuffled nDCG@10=0.2825 wall_s=12.9               
+                    out=experiments/phase8/minilm-l6-v2__nfcorpus__docs-shuffled
+                    .json                                                       
+           INFO     cell.start encoder=minilm-l6-v2 dataset=nfcorpus            
+                    mode=queries-shuffled n_docs=3633 n_queries=323             
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:45:36] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cell.done encoder=minilm-l6-v2 dataset=nfcorpus             
+                    mode=queries-shuffled nDCG@10=0.3043 wall_s=4.6             
+                    out=experiments/phase8/minilm-l6-v2__nfcorpus__queries-shuff
+                    led.json                                                    
+           INFO     cell.start encoder=minilm-l6-v2 dataset=nfcorpus            
+                    mode=both-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:45:45] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cell.done encoder=minilm-l6-v2 dataset=nfcorpus             
+                    mode=both-shuffled nDCG@10=0.2693 wall_s=9.3                
+                    out=experiments/phase8/minilm-l6-v2__nfcorpus__both-shuffled
+                    .json                                                       
+           INFO     cell.start encoder=bert-base dataset=nfcorpus               
+                    mode=docs-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:46:00] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cell.done encoder=bert-base dataset=nfcorpus                
+                    mode=docs-shuffled nDCG@10=0.2754 wall_s=14.5               
+                    out=experiments/phase8/bert-base__nfcorpus__docs-shuffled.js
+                    on                                                          
+           INFO     cell.start encoder=bert-base dataset=nfcorpus               
+                    mode=queries-shuffled n_docs=3633 n_queries=323             
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:46:06] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[10:46:07] INFO     cell.done encoder=bert-base dataset=nfcorpus                
+                    mode=queries-shuffled nDCG@10=0.3098 wall_s=6.7             
+                    out=experiments/phase8/bert-base__nfcorpus__queries-shuffled
+                    .json                                                       
+           INFO     cell.start encoder=bert-base dataset=nfcorpus               
+                    mode=both-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:46:19] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cell.done encoder=bert-base dataset=nfcorpus                
+                    mode=both-shuffled nDCG@10=0.2695 wall_s=12.6               
+                    out=experiments/phase8/bert-base__nfcorpus__both-shuffled.js
+                    on                                                          
+           INFO     cell.start encoder=gte-small dataset=nfcorpus               
+                    mode=docs-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:46:37] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cell.done encoder=gte-small dataset=nfcorpus                
+                    mode=docs-shuffled nDCG@10=0.2909 wall_s=17.8               
+                    out=experiments/phase8/gte-small__nfcorpus__docs-shuffled.js
+                    on                                                          
+           INFO     cell.start encoder=gte-small dataset=nfcorpus               
+                    mode=queries-shuffled n_docs=3633 n_queries=323             
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:46:48] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:46:49] INFO     cell.done encoder=gte-small dataset=nfcorpus                
+                    mode=queries-shuffled nDCG@10=0.3238 wall_s=11.2            
+                    out=experiments/phase8/gte-small__nfcorpus__queries-shuffled
+                    .json                                                       
+           INFO     cell.start encoder=gte-small dataset=nfcorpus               
+                    mode=both-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:47:06] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:47:07] INFO     cell.done encoder=gte-small dataset=nfcorpus                
+                    mode=both-shuffled nDCG@10=0.2745 wall_s=18.1               
+                    out=experiments/phase8/gte-small__nfcorpus__both-shuffled.js
+                    on                                                          
+           INFO     cell.start encoder=lstm-retriever dataset=nfcorpus          
+                    mode=docs-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[10:47:13] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[10:47:14] INFO     cell.done encoder=lstm-retriever dataset=nfcorpus           
+                    mode=docs-shuffled nDCG@10=0.1663 wall_s=7.2                
+                    out=experiments/phase8/lstm-retriever__nfcorpus__docs-shuffl
+                    ed.json                                                     
+           INFO     cell.start encoder=lstm-retriever dataset=nfcorpus          
+                    mode=queries-shuffled n_docs=3633 n_queries=323             
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[10:47:15] INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[10:47:18] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     cell.done encoder=lstm-retriever dataset=nfcorpus           
+                    mode=queries-shuffled nDCG@10=0.1910 wall_s=4.5             
+                    out=experiments/phase8/lstm-retriever__nfcorpus__queries-shu
+                    ffled.json                                                  
+           INFO     cell.start encoder=lstm-retriever dataset=nfcorpus          
+                    mode=both-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+[10:47:19] INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[10:47:25] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[10:47:26] INFO     cell.done encoder=lstm-retriever dataset=nfcorpus           
+                    mode=both-shuffled nDCG@10=0.1630 wall_s=7.0                
+                    out=experiments/phase8/lstm-retriever__nfcorpus__both-shuffl
+                    ed.json                                                     
+           INFO     cell.start encoder=conv-retriever dataset=nfcorpus          
+                    mode=docs-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+[10:47:32] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[10:47:33] INFO     cell.done encoder=conv-retriever dataset=nfcorpus           
+                    mode=docs-shuffled nDCG@10=0.1042 wall_s=7.0                
+                    out=experiments/phase8/conv-retriever__nfcorpus__docs-shuffl
+                    ed.json                                                     
+           INFO     cell.start encoder=conv-retriever dataset=nfcorpus          
+                    mode=queries-shuffled n_docs=3633 n_queries=323             
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+[10:47:36] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[10:47:37] INFO     cell.done encoder=conv-retriever dataset=nfcorpus           
+                    mode=queries-shuffled nDCG@10=0.1301 wall_s=4.1             
+                    out=experiments/phase8/conv-retriever__nfcorpus__queries-shu
+                    ffled.json                                                  
+           INFO     cell.start encoder=conv-retriever dataset=nfcorpus          
+                    mode=both-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+[10:47:43] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[10:47:44] INFO     cell.done encoder=conv-retriever dataset=nfcorpus           
+                    mode=both-shuffled nDCG@10=0.0990 wall_s=7.0                
+                    out=experiments/phase8/conv-retriever__nfcorpus__both-shuffl
+                    ed.json                                                     
+           INFO     cell.start encoder=mamba-retriever-fs dataset=nfcorpus      
+                    mode=docs-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[10:47:45] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+[10:49:00] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     cell.done encoder=mamba-retriever-fs dataset=nfcorpus       
+                    mode=docs-shuffled nDCG@10=0.1770 wall_s=76.1               
+                    out=experiments/phase8/mamba-retriever-fs__nfcorpus__docs-sh
+                    uffled.json                                                 
+           INFO     cell.start encoder=mamba-retriever-fs dataset=nfcorpus      
+                    mode=queries-shuffled n_docs=3633 n_queries=323             
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[10:49:02] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+[10:49:06] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[10:49:07] INFO     cell.done encoder=mamba-retriever-fs dataset=nfcorpus       
+                    mode=queries-shuffled nDCG@10=0.1986 wall_s=6.8             
+                    out=experiments/phase8/mamba-retriever-fs__nfcorpus__queries
+                    -shuffled.json                                              
+           INFO     cell.start encoder=mamba-retriever-fs dataset=nfcorpus      
+                    mode=both-shuffled n_docs=3633 n_queries=323                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[10:49:09] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+[10:49:16] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[10:49:17] INFO     cell.done encoder=mamba-retriever-fs dataset=nfcorpus       
+                    mode=both-shuffled nDCG@10=0.1713 wall_s=10.0               
+                    out=experiments/phase8/mamba-retriever-fs__nfcorpus__both-sh
+                    uffled.json                                                 
+           INFO     beir.load dataset=scifact split=test root=data/beir/scifact 
+           INFO     Loading Corpus...                                           
+  0%|          | 0/5183 [00:00<?, ?it/s]100%|██████████| 5183/5183 [00:00<00:00, 156809.14it/s]
+           INFO     Loaded 5183 TEST Documents.                                 
+           INFO     Doc Example: {'text': 'Alterations of the architecture of   
+                    cerebral white matter in the developing human brain can     
+                    affect cortical development and result in functional        
+                    disabilities. A line scan diffusion-weighted magnetic       
+                    resonance imaging (MRI) sequence with diffusion tensor      
+                    analysis was applied to measure the apparent diffusion      
+                    coefficient, to calculate relative anisotropy, and to       
+                    delineate three-dimensional fiber architecture in cerebral  
+                    white matter in preterm (n = 17) and full-term infants (n = 
+                    7). To assess effects of prematurity on cerebral white      
+                    matter development, early gestation preterm infants (n = 10)
+                    were studied a second time at term. In the central white    
+                    matter the mean apparent diffusion coefficient at 28 wk was 
+                    high, 1.8 microm2/ms, and decreased toward term to 1.2      
+                    microm2/ms. In the posterior limb of the internal capsule,  
+                    the mean apparent diffusion coefficients at both times were 
+                    similar (1.2 versus 1.1 microm2/ms). Relative anisotropy was
+                    higher the closer birth was to term with greater absolute   
+                    values in the internal capsule than in the central white    
+                    matter. Preterm infants at term showed higher mean diffusion
+                    coefficients in the central white matter (1.4 +/- 0.24      
+                    versus 1.15 +/- 0.09 microm2/ms, p = 0.016) and lower       
+                    relative anisotropy in both areas compared with full-term   
+                    infants (white matter, 10.9 +/- 0.6 versus 22.9 +/- 3.0%, p 
+                    = 0.001; internal capsule, 24.0 +/- 4.44 versus 33.1 +/-    
+                    0.6% p = 0.006). Nonmyelinated fibers in the corpus callosum
+                    were visible by diffusion tensor MRI as early as 28 wk;     
+                    full-term and preterm infants at term showed marked         
+                    differences in white matter fiber organization. The data    
+                    indicate that quantitative assessment of water diffusion by 
+                    diffusion tensor MRI provides insight into microstructural  
+                    development in cerebral white matter in living infants.',   
+                    'title': 'Microstructural development of human newborn      
+                    cerebral white matter assessed in vivo by diffusion tensor  
+                    magnetic resonance imaging.'}                               
+           INFO     Loading Queries...                                          
+           INFO     Loaded 300 TEST Queries.                                    
+           INFO     Query Example: 0-dimensional biomaterials show inductive    
+                    properties.                                                 
+           INFO     beir.loaded dataset=scifact split=test n_corpus=5183        
+                    n_queries=300 n_qrels=300                                   
+           INFO     cell.start encoder=minilm-l6-v2 dataset=scifact             
+                    mode=docs-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:49:30] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:49:31] INFO     cell.done encoder=minilm-l6-v2 dataset=scifact              
+                    mode=docs-shuffled nDCG@10=0.6052 wall_s=13.8               
+                    out=experiments/phase8/minilm-l6-v2__scifact__docs-shuffled.
+                    json                                                        
+           INFO     cell.start encoder=minilm-l6-v2 dataset=scifact             
+                    mode=queries-shuffled n_docs=5183 n_queries=300             
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:49:37] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cell.done encoder=minilm-l6-v2 dataset=scifact              
+                    mode=queries-shuffled nDCG@10=0.6005 wall_s=6.4             
+                    out=experiments/phase8/minilm-l6-v2__scifact__queries-shuffl
+                    ed.json                                                     
+           INFO     cell.start encoder=minilm-l6-v2 dataset=scifact             
+                    mode=both-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:49:50] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:49:51] INFO     cell.done encoder=minilm-l6-v2 dataset=scifact              
+                    mode=both-shuffled nDCG@10=0.5864 wall_s=13.7               
+                    out=experiments/phase8/minilm-l6-v2__scifact__both-shuffled.
+                    json                                                        
+           INFO     cell.start encoder=bert-base dataset=scifact                
+                    mode=docs-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:50:09] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cell.done encoder=bert-base dataset=scifact                 
+                    mode=docs-shuffled nDCG@10=0.5780 wall_s=18.4               
+                    out=experiments/phase8/bert-base__scifact__docs-shuffled.jso
+                    n                                                           
+           INFO     cell.start encoder=bert-base dataset=scifact                
+                    mode=queries-shuffled n_docs=5183 n_queries=300             
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:50:18] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+           INFO     cell.done encoder=bert-base dataset=scifact                 
+                    mode=queries-shuffled nDCG@10=0.5406 wall_s=9.0             
+                    out=experiments/phase8/bert-base__scifact__queries-shuffled.
+                    json                                                        
+           INFO     cell.start encoder=bert-base dataset=scifact                
+                    mode=both-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:50:36] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[10:50:37] INFO     cell.done encoder=bert-base dataset=scifact                 
+                    mode=both-shuffled nDCG@10=0.5065 wall_s=18.3               
+                    out=experiments/phase8/bert-base__scifact__both-shuffled.jso
+                    n                                                           
+           INFO     cell.start encoder=gte-small dataset=scifact                
+                    mode=docs-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:51:00] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cell.done encoder=gte-small dataset=scifact                 
+                    mode=docs-shuffled nDCG@10=0.6447 wall_s=23.7               
+                    out=experiments/phase8/gte-small__scifact__docs-shuffled.jso
+                    n                                                           
+           INFO     cell.start encoder=gte-small dataset=scifact                
+                    mode=queries-shuffled n_docs=5183 n_queries=300             
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:51:13] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:51:14] INFO     cell.done encoder=gte-small dataset=scifact                 
+                    mode=queries-shuffled nDCG@10=0.6379 wall_s=13.4            
+                    out=experiments/phase8/gte-small__scifact__queries-shuffled.
+                    json                                                        
+           INFO     cell.start encoder=gte-small dataset=scifact                
+                    mode=both-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:51:38] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+           INFO     cell.done encoder=gte-small dataset=scifact                 
+                    mode=both-shuffled nDCG@10=0.5835 wall_s=24.3               
+                    out=experiments/phase8/gte-small__scifact__both-shuffled.jso
+                    n                                                           
+           INFO     cell.start encoder=lstm-retriever dataset=scifact           
+                    mode=docs-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[10:51:39] INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[10:51:48] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     cell.done encoder=lstm-retriever dataset=scifact            
+                    mode=docs-shuffled nDCG@10=0.3138 wall_s=10.2               
+                    out=experiments/phase8/lstm-retriever__scifact__docs-shuffle
+                    d.json                                                      
+           INFO     cell.start encoder=lstm-retriever dataset=scifact           
+                    mode=queries-shuffled n_docs=5183 n_queries=300             
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[10:51:49] INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[10:51:54] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[10:51:55] INFO     cell.done encoder=lstm-retriever dataset=scifact            
+                    mode=queries-shuffled nDCG@10=0.3438 wall_s=6.3             
+                    out=experiments/phase8/lstm-retriever__scifact__queries-shuf
+                    fled.json                                                   
+           INFO     cell.start encoder=lstm-retriever dataset=scifact           
+                    mode=both-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[10:52:05] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     cell.done encoder=lstm-retriever dataset=scifact            
+                    mode=both-shuffled nDCG@10=0.3012 wall_s=10.3               
+                    out=experiments/phase8/lstm-retriever__scifact__both-shuffle
+                    d.json                                                      
+           INFO     cell.start encoder=conv-retriever dataset=scifact           
+                    mode=docs-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+[10:52:14] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[10:52:15] INFO     cell.done encoder=conv-retriever dataset=scifact            
+                    mode=docs-shuffled nDCG@10=0.1494 wall_s=9.7                
+                    out=experiments/phase8/conv-retriever__scifact__docs-shuffle
+                    d.json                                                      
+           INFO     cell.start encoder=conv-retriever dataset=scifact           
+                    mode=queries-shuffled n_docs=5183 n_queries=300             
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+[10:52:20] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     cell.done encoder=conv-retriever dataset=scifact            
+                    mode=queries-shuffled nDCG@10=0.1793 wall_s=5.8             
+                    out=experiments/phase8/conv-retriever__scifact__queries-shuf
+                    fled.json                                                   
+           INFO     cell.start encoder=conv-retriever dataset=scifact           
+                    mode=both-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+[10:52:21] INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+[10:52:30] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     cell.done encoder=conv-retriever dataset=scifact            
+                    mode=both-shuffled nDCG@10=0.1481 wall_s=9.9                
+                    out=experiments/phase8/conv-retriever__scifact__both-shuffle
+                    d.json                                                      
+           INFO     cell.start encoder=mamba-retriever-fs dataset=scifact       
+                    mode=docs-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+[10:52:31] INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[10:52:33] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+[10:52:44] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     cell.done encoder=mamba-retriever-fs dataset=scifact        
+                    mode=docs-shuffled nDCG@10=0.2713 wall_s=14.0               
+                    out=experiments/phase8/mamba-retriever-fs__scifact__docs-shu
+                    ffled.json                                                  
+           INFO     cell.start encoder=mamba-retriever-fs dataset=scifact       
+                    mode=queries-shuffled n_docs=5183 n_queries=300             
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+[10:52:45] INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[10:52:46] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+[10:52:53] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     cell.done encoder=mamba-retriever-fs dataset=scifact        
+                    mode=queries-shuffled nDCG@10=0.3330 wall_s=8.7             
+                    out=experiments/phase8/mamba-retriever-fs__scifact__queries-
+                    shuffled.json                                               
+           INFO     cell.start encoder=mamba-retriever-fs dataset=scifact       
+                    mode=both-shuffled n_docs=5183 n_queries=300                
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[10:52:55] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+[10:53:06] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+           INFO     cell.done encoder=mamba-retriever-fs dataset=scifact        
+                    mode=both-shuffled nDCG@10=0.2696 wall_s=13.0               
+                    out=experiments/phase8/mamba-retriever-fs__scifact__both-shu
+                    ffled.json                                                  
+           INFO     beir.load dataset=fiqa split=test root=data/beir/fiqa       
+           INFO     Loading Corpus...                                           
+  0%|          | 0/57638 [00:00<?, ?it/s] 39%|███▉      | 22692/57638 [00:00<00:00, 226887.76it/s] 80%|███████▉  | 45823/57638 [00:00<00:00, 229474.89it/s]100%|██████████| 57638/57638 [00:00<00:00, 229589.92it/s]
+           INFO     Loaded 57638 TEST Documents.                                
+           INFO     Doc Example: {'text': "I'm not saying I don't like the idea 
+                    of on-the-job training too, but you can't expect the company
+                    to do that. Training workers is not their job - they're     
+                    building software. Perhaps educational systems in the U.S.  
+                    (or their students) should worry a little about getting     
+                    marketable skills in exchange for their massive investment  
+                    in education, rather than getting out with thousands in     
+                    student debt and then complaining that they aren't qualified
+                    to do anything.", 'title': ''}                              
+           INFO     Loading Queries...                                          
+           INFO     Loaded 648 TEST Queries.                                    
+           INFO     Query Example: How to deposit a cheque issued to an         
+                    associate in my business into my business account?          
+           INFO     beir.loaded dataset=fiqa split=test n_corpus=57638          
+                    n_queries=648 n_qrels=648                                   
+           INFO     cell.start encoder=minilm-l6-v2 dataset=fiqa                
+                    mode=docs-shuffled n_docs=57638 n_queries=648               
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:54:39] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:54:44] INFO     cell.done encoder=minilm-l6-v2 dataset=fiqa                 
+                    mode=docs-shuffled nDCG@10=0.1882 wall_s=97.8               
+                    out=experiments/phase8/minilm-l6-v2__fiqa__docs-shuffled.jso
+                    n                                                           
+           INFO     cell.start encoder=minilm-l6-v2 dataset=fiqa                
+                    mode=queries-shuffled n_docs=57638 n_queries=648            
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:55:26] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:55:31] INFO     cell.done encoder=minilm-l6-v2 dataset=fiqa                 
+                    mode=queries-shuffled nDCG@10=0.2821 wall_s=46.5            
+                    out=experiments/phase8/minilm-l6-v2__fiqa__queries-shuffled.
+                    json                                                        
+           INFO     cell.start encoder=minilm-l6-v2 dataset=fiqa                
+                    mode=both-shuffled n_docs=57638 n_queries=648               
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:57:03] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[10:57:08] INFO     cell.done encoder=minilm-l6-v2 dataset=fiqa                 
+                    mode=both-shuffled nDCG@10=0.1699 wall_s=96.9               
+                    out=experiments/phase8/minilm-l6-v2__fiqa__both-shuffled.jso
+                    n                                                           
+           INFO     cell.start encoder=bert-base dataset=fiqa mode=docs-shuffled
+                    n_docs=57638 n_queries=648                                  
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[10:59:17] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[10:59:22] INFO     cell.done encoder=bert-base dataset=fiqa mode=docs-shuffled 
+                    nDCG@10=0.2180 wall_s=134.5                                 
+                    out=experiments/phase8/bert-base__fiqa__docs-shuffled.json  
+[10:59:23] INFO     cell.start encoder=bert-base dataset=fiqa                   
+                    mode=queries-shuffled n_docs=57638 n_queries=648            
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[11:00:39] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[11:00:44] INFO     cell.done encoder=bert-base dataset=fiqa                    
+                    mode=queries-shuffled nDCG@10=0.2985 wall_s=81.1            
+                    out=experiments/phase8/bert-base__fiqa__queries-shuffled.jso
+                    n                                                           
+           INFO     cell.start encoder=bert-base dataset=fiqa mode=both-shuffled
+                    n_docs=57638 n_queries=648                                  
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[11:02:52] INFO     faiss.init dim=768 kind=IndexFlatIP                         
+[11:02:58] INFO     cell.done encoder=bert-base dataset=fiqa mode=both-shuffled 
+                    nDCG@10=0.2006 wall_s=133.9                                 
+                    out=experiments/phase8/bert-base__fiqa__both-shuffled.json  
+           INFO     cell.start encoder=gte-small dataset=fiqa mode=docs-shuffled
+                    n_docs=57638 n_queries=648                                  
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[11:05:16] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[11:05:21] INFO     cell.done encoder=gte-small dataset=fiqa mode=docs-shuffled 
+                    nDCG@10=0.2160 wall_s=143.2                                 
+                    out=experiments/phase8/gte-small__fiqa__docs-shuffled.json  
+           INFO     cell.start encoder=gte-small dataset=fiqa                   
+                    mode=queries-shuffled n_docs=57638 n_queries=648            
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[11:06:38] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[11:06:43] INFO     cell.done encoder=gte-small dataset=fiqa                    
+                    mode=queries-shuffled nDCG@10=0.3204 wall_s=82.4            
+                    out=experiments/phase8/gte-small__fiqa__queries-shuffled.jso
+                    n                                                           
+           INFO     cell.start encoder=gte-small dataset=fiqa mode=both-shuffled
+                    n_docs=57638 n_queries=648                                  
+           INFO     device.selected name=cuda reason=explicit                   
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/shuffled.py:135: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16):
+[11:09:02] INFO     faiss.init dim=384 kind=IndexFlatIP                         
+[11:09:07] INFO     cell.done encoder=gte-small dataset=fiqa mode=both-shuffled 
+                    nDCG@10=0.1876 wall_s=143.8                                 
+                    out=experiments/phase8/gte-small__fiqa__both-shuffled.json  
+           INFO     cell.start encoder=lstm-retriever dataset=fiqa              
+                    mode=docs-shuffled n_docs=57638 n_queries=648               
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[11:09:08] INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[11:10:19] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[11:10:25] INFO     cell.done encoder=lstm-retriever dataset=fiqa               
+                    mode=docs-shuffled nDCG@10=0.0670 wall_s=77.5               
+                    out=experiments/phase8/lstm-retriever__fiqa__docs-shuffled.j
+                    son                                                         
+           INFO     cell.start encoder=lstm-retriever dataset=fiqa              
+                    mode=queries-shuffled n_docs=57638 n_queries=648            
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[11:10:26] INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[11:11:01] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[11:11:06] INFO     cell.done encoder=lstm-retriever dataset=fiqa               
+                    mode=queries-shuffled nDCG@10=0.0752 wall_s=41.3            
+                    out=experiments/phase8/lstm-retriever__fiqa__queries-shuffle
+                    d.json                                                      
+           INFO     cell.start encoder=lstm-retriever dataset=fiqa              
+                    mode=both-shuffled n_docs=57638 n_queries=648               
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=lstm-retriever params=6.41M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/lstm_encoder.py:102: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[11:11:07] INFO     encoder.checkpoint_loaded path=models/lstm-retriever/best.pt
+[11:12:19] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[11:12:24] INFO     cell.done encoder=lstm-retriever dataset=fiqa               
+                    mode=both-shuffled nDCG@10=0.0563 wall_s=77.6               
+                    out=experiments/phase8/lstm-retriever__fiqa__both-shuffled.j
+                    son                                                         
+           INFO     cell.start encoder=conv-retriever dataset=fiqa              
+                    mode=docs-shuffled n_docs=57638 n_queries=648               
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+[11:13:34] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[11:13:38] INFO     cell.done encoder=conv-retriever dataset=fiqa               
+                    mode=docs-shuffled nDCG@10=0.0207 wall_s=74.7               
+                    out=experiments/phase8/conv-retriever__fiqa__docs-shuffled.j
+                    son                                                         
+[11:13:39] INFO     cell.start encoder=conv-retriever dataset=fiqa              
+                    mode=queries-shuffled n_docs=57638 n_queries=648            
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+[11:14:12] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[11:14:17] INFO     cell.done encoder=conv-retriever dataset=fiqa               
+                    mode=queries-shuffled nDCG@10=0.0287 wall_s=38.0            
+                    out=experiments/phase8/conv-retriever__fiqa__queries-shuffle
+                    d.json                                                      
+           INFO     cell.start encoder=conv-retriever dataset=fiqa              
+                    mode=both-shuffled n_docs=57638 n_queries=648               
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=conv-retriever params=4.92M dim=256      
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/conv_encoder.py:111: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+           INFO     encoder.checkpoint_loaded path=models/conv-retriever/best.pt
+[11:15:26] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[11:15:31] INFO     cell.done encoder=conv-retriever dataset=fiqa               
+                    mode=both-shuffled nDCG@10=0.0187 wall_s=74.6               
+                    out=experiments/phase8/conv-retriever__fiqa__both-shuffled.j
+                    son                                                         
+           INFO     cell.start encoder=mamba-retriever-fs dataset=fiqa          
+                    mode=docs-shuffled n_docs=57638 n_queries=648               
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+[11:15:32] INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[11:15:33] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+[11:17:02] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[11:17:07] INFO     cell.done encoder=mamba-retriever-fs dataset=fiqa           
+                    mode=docs-shuffled nDCG@10=0.0602 wall_s=95.4               
+                    out=experiments/phase8/mamba-retriever-fs__fiqa__docs-shuffl
+                    ed.json                                                     
+           INFO     cell.start encoder=mamba-retriever-fs dataset=fiqa          
+                    mode=queries-shuffled n_docs=57638 n_queries=648            
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[11:17:08] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+[11:17:59] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[11:18:04] INFO     cell.done encoder=mamba-retriever-fs dataset=fiqa           
+                    mode=queries-shuffled nDCG@10=0.0746 wall_s=57.0            
+                    out=experiments/phase8/mamba-retriever-fs__fiqa__queries-shu
+                    ffled.json                                                  
+           INFO     cell.start encoder=mamba-retriever-fs dataset=fiqa          
+                    mode=both-shuffled n_docs=57638 n_queries=648               
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     device.selected name=cuda reason=explicit                   
+           INFO     encoder.build name=mamba-retriever-fs params=23.74M dim=256 
+                    device=cuda                                                 
+/workspace/my-ai-journey/vitruvius/src/vitruvius/encoders/mamba_encoder.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(checkpoint_path, map_location="cpu")
+[11:18:06] INFO     encoder.checkpoint_loaded                                   
+                    path=models/mamba-retriever-fs/best.pt                      
+[11:19:34] INFO     faiss.init dim=256 kind=IndexFlatIP                         
+[11:19:39] INFO     cell.done encoder=mamba-retriever-fs dataset=fiqa           
+                    mode=both-shuffled nDCG@10=0.0579 wall_s=94.8               
+                    out=experiments/phase8/mamba-retriever-fs__fiqa__both-shuffl
+                    ed.json                                                     
+[
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "nfcorpus",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.282498,
+    "wall_s": 12.868
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "nfcorpus",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.304322,
+    "wall_s": 4.568
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "nfcorpus",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.26929,
+    "wall_s": 9.289
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "nfcorpus",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.275391,
+    "wall_s": 14.544
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "nfcorpus",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.309809,
+    "wall_s": 6.721
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "nfcorpus",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.269478,
+    "wall_s": 12.593
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "nfcorpus",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.290863,
+    "wall_s": 17.845
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "nfcorpus",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.323792,
+    "wall_s": 11.24
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "nfcorpus",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.274533,
+    "wall_s": 18.094
+  },
+  {
+    "encoder": "lstm-retriever",
+    "dataset": "nfcorpus",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.166267,
+    "wall_s": 7.165
+  },
+  {
+    "encoder": "lstm-retriever",
+    "dataset": "nfcorpus",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.191004,
+    "wall_s": 4.472
+  },
+  {
+    "encoder": "lstm-retriever",
+    "dataset": "nfcorpus",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.162962,
+    "wall_s": 7.05
+  },
+  {
+    "encoder": "conv-retriever",
+    "dataset": "nfcorpus",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.104221,
+    "wall_s": 6.954
+  },
+  {
+    "encoder": "conv-retriever",
+    "dataset": "nfcorpus",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.130073,
+    "wall_s": 4.149
+  },
+  {
+    "encoder": "conv-retriever",
+    "dataset": "nfcorpus",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.099047,
+    "wall_s": 7.037
+  },
+  {
+    "encoder": "mamba-retriever-fs",
+    "dataset": "nfcorpus",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.177039,
+    "wall_s": 76.102
+  },
+  {
+    "encoder": "mamba-retriever-fs",
+    "dataset": "nfcorpus",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.198553,
+    "wall_s": 6.849
+  },
+  {
+    "encoder": "mamba-retriever-fs",
+    "dataset": "nfcorpus",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.171326,
+    "wall_s": 9.951
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "scifact",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.605216,
+    "wall_s": 13.755
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "scifact",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.600542,
+    "wall_s": 6.358
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "scifact",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.586365,
+    "wall_s": 13.741
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "scifact",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.577968,
+    "wall_s": 18.444
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "scifact",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.540634,
+    "wall_s": 8.981
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "scifact",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.50651,
+    "wall_s": 18.267
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "scifact",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.6447,
+    "wall_s": 23.662
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "scifact",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.637933,
+    "wall_s": 13.359
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "scifact",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.583518,
+    "wall_s": 24.257
+  },
+  {
+    "encoder": "lstm-retriever",
+    "dataset": "scifact",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.313763,
+    "wall_s": 10.152
+  },
+  {
+    "encoder": "lstm-retriever",
+    "dataset": "scifact",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.343759,
+    "wall_s": 6.27
+  },
+  {
+    "encoder": "lstm-retriever",
+    "dataset": "scifact",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.301184,
+    "wall_s": 10.261
+  },
+  {
+    "encoder": "conv-retriever",
+    "dataset": "scifact",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.149367,
+    "wall_s": 9.671
+  },
+  {
+    "encoder": "conv-retriever",
+    "dataset": "scifact",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.179342,
+    "wall_s": 5.762
+  },
+  {
+    "encoder": "conv-retriever",
+    "dataset": "scifact",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.148131,
+    "wall_s": 9.869
+  },
+  {
+    "encoder": "mamba-retriever-fs",
+    "dataset": "scifact",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.271343,
+    "wall_s": 13.968
+  },
+  {
+    "encoder": "mamba-retriever-fs",
+    "dataset": "scifact",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.333047,
+    "wall_s": 8.665
+  },
+  {
+    "encoder": "mamba-retriever-fs",
+    "dataset": "scifact",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.269592,
+    "wall_s": 13.044
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "fiqa",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.188155,
+    "wall_s": 97.793
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "fiqa",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.28211,
+    "wall_s": 46.515
+  },
+  {
+    "encoder": "minilm-l6-v2",
+    "dataset": "fiqa",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.16989,
+    "wall_s": 96.943
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "fiqa",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.217961,
+    "wall_s": 134.526
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "fiqa",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.298529,
+    "wall_s": 81.127
+  },
+  {
+    "encoder": "bert-base",
+    "dataset": "fiqa",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.20057,
+    "wall_s": 133.864
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "fiqa",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.215975,
+    "wall_s": 143.152
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "fiqa",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.320387,
+    "wall_s": 82.367
+  },
+  {
+    "encoder": "gte-small",
+    "dataset": "fiqa",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.187606,
+    "wall_s": 143.811
+  },
+  {
+    "encoder": "lstm-retriever",
+    "dataset": "fiqa",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.066988,
+    "wall_s": 77.533
+  },
+  {
+    "encoder": "lstm-retriever",
+    "dataset": "fiqa",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.075228,
+    "wall_s": 41.34
+  },
+  {
+    "encoder": "lstm-retriever",
+    "dataset": "fiqa",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.056268,
+    "wall_s": 77.647
+  },
+  {
+    "encoder": "conv-retriever",
+    "dataset": "fiqa",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.02066,
+    "wall_s": 74.652
+  },
+  {
+    "encoder": "conv-retriever",
+    "dataset": "fiqa",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.028737,
+    "wall_s": 38.04
+  },
+  {
+    "encoder": "conv-retriever",
+    "dataset": "fiqa",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.018716,
+    "wall_s": 74.637
+  },
+  {
+    "encoder": "mamba-retriever-fs",
+    "dataset": "fiqa",
+    "mode": "docs-shuffled",
+    "nDCG@10": 0.060156,
+    "wall_s": 95.357
+  },
+  {
+    "encoder": "mamba-retriever-fs",
+    "dataset": "fiqa",
+    "mode": "queries-shuffled",
+    "nDCG@10": 0.074627,
+    "wall_s": 57.032
+  },
+  {
+    "encoder": "mamba-retriever-fs",
+    "dataset": "fiqa",
+    "mode": "both-shuffled",
+    "nDCG@10": 0.057881,
+    "wall_s": 94.755
+  }
+]

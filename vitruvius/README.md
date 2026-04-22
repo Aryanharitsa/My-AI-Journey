@@ -157,14 +157,19 @@ vitruvius/
 |   |-- cli.py                 # python -m vitruvius.cli {smoke,bench,bench-sweep,profile,shuffle,prune}
 |   |-- config.py              # pydantic experiment configs
 |   |-- data/                  # synthetic + BEIR loader
-|   |-- encoders/              # base + registry + MiniLM/BERT/GTE + Mamba/LSTM/CNN stubs
+|   |-- encoders/              # base + registry + MiniLM/BERT/GTE + Mamba/LSTM/CNN
+|   |                          # + PrunedTransformerEncoder (Phase 7) + ShuffledEncoder (Phase 8)
 |   |-- evaluation/            # nDCG/Recall/MRR (from scratch), FAISS wrapper, latency profiler
-|   |-- analysis/              # error analysis / pruning / position probes (Phases 6-8)
-|   `-- utils/                 # logging, seed, device picker
-|-- scripts/                   # download_beir.py, download_msmarco.py, setup_pod.sh,
-|                              # generate_pareto_v2.py, phase5_summary_gen.py,
-|                              # phase6_{analysis,label_taxonomy,failure_examples,promote_figures}.py
-|-- tests/                     # smoke, metrics, encoder interface
+|   |-- training/              # InfoNCE + from-scratch trainer (Phase 5)
+|   |-- analysis/              # load_query_frame + ENCODER_FAMILY (Phases 6-8)
+|   `-- utils/                 # logging, seed, device picker, shuffle (Phase 8)
+|-- scripts/                   # BEIR + MS MARCO download, pod setup,
+|                              # Phase 5 (pareto/summary), Phase 6 (analysis + labeler +
+|                              # examples + promote_figures), Phase 7 (head_importance_sweep,
+|                              # cumulative_pruning_sweep, analysis, writeup_gen),
+|                              # Phase 8 (shuffle_sweep, writeup_gen)
+|-- tests/                     # smoke, metrics, encoder interface,
+|                              # pruned_transformer (Phase 7), shuffle (Phase 8)
 |-- analysis/                  # failure_taxonomy.md + failure_examples.md (Phase 6)
 |-- experiments/
 |   |-- phase2/                # 10% milestone: MiniLM × NFCorpus reproduction
@@ -174,13 +179,23 @@ vitruvius/
 |   |                          # + bench + latency (absorbs deferred Phase 4)
 |   |-- phase6/                # 70% milestone: per-query failure analysis artifacts
 |   |                          # (query_frame.parquet, pivots, Spearman, cross-encoder sets)
+|   |-- phase7/                # 80% milestone: attention head pruning — head_importance/
+|   |                          # + cumulative_pruning/ (9/9 cells) + stability analysis
+|   |-- phase8/                # 90% milestone: position sensitivity — 54 cells (6 encoders ×
+|   |                          # 3 datasets × 3 shuffle modes) + 22,878-row parquet
 |   |-- session_02/            # session-level report + pod_commits bundle
 |   |-- session_03/            # session-level report + pod_commits bundle + full log
-|   `-- session_04/            # session-level report + Phase 6 bundle (local)
-|-- notes/                     # mamba_install_attempt_01.md (Phase 4 deferral context),
-|                              # mamba_install_attempt_02.md (Phase 5 mamba-ssm install)
-|-- figures/                   # pareto_v2, failure_by_architecture, query_length_vs_ndcg
-|                              # (each .png/.pdf/_caption.md, otherwise gitignored)
+|   |-- session_04/            # session-level report + Phase 6 bundle (local)
+|   |-- session_05/            # session-level report + pod_commits bundle + phase8_prep
+|   `-- session_06/            # session-level report + pod_commits bundle + full log
+|-- notes/                     # mamba_install_attempt_01 (Phase 4 deferral),
+|                              # mamba_install_attempt_02 (Phase 5 install),
+|                              # transformers_head_mask_bug (Phase 7 silent-drop runbook)
+|-- figures/                   # pareto_v2, failure_by_architecture, query_length_vs_ndcg,
+|                              # head_importance_heatmap_{minilm,bert,gte}, head_importance_by_layer,
+|                              # cumulative_pruning_curves, position_sensitivity,
+|                              # sensitivity_by_family (each .png/.pdf/_caption.md;
+|                              # per-file otherwise gitignored)
 `-- notebooks/                 # 02_phase6_failure_analysis.{py,ipynb}
 ```
 
